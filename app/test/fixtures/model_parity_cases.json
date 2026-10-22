@@ -1,0 +1,1414 @@
+{
+ "preprocessing_version": 1,
+ "model_created_at": "2026-10-22T11:31:01+00:00",
+ "cases": [
+  {
+   "text": "URGENT!!! Your BPI account has been LOCKED. Verify now at https://bpi-secure-login.com/verify?id=123",
+   "tokens": [
+    "urgent",
+    "your",
+    "bpi",
+    "account",
+    "has",
+    "been",
+    "locked",
+    "verify",
+    "now",
+    "at",
+    "tokurl",
+    "bpi",
+    "secure",
+    "login",
+    "com"
+   ],
+   "probabilities": [
+    3.809453158199192e-07,
+    1.0218703737072606e-07,
+    0.9999995168676468
+   ]
+  },
+  {
+   "text": "Click bit.ly/3xYz9Ab para i-claim ang ₱5,000 mo!",
+   "tokens": [
+    "click",
+    "tokurl",
+    "tokshorturl",
+    "para",
+    "i",
+    "claim",
+    "ang",
+    "tokmoney",
+    "mo"
+   ],
+   "probabilities": [
+    7.949016692705149e-06,
+    0.0020107944054186017,
+    0.9979812565778886
+   ]
+  },
+  {
+   "text": "Email us at support@gcash-help.com or call +63 917 123 4567",
+   "tokens": [
+    "email",
+    "us",
+    "at",
+    "tokemail",
+    "or",
+    "call",
+    "tokphone"
+   ],
+   "probabilities": [
+    0.06067003470958083,
+    0.0806842386114539,
+    0.8586457266789652
+   ]
+  },
+  {
+   "text": "Tumawag ka sa 0917-123-4567 o 09181234567 o +639201234567",
+   "tokens": [
+    "tumawag",
+    "ka",
+    "sa",
+    "tokphone",
+    "o",
+    "tokphone",
+    "o",
+    "tokphone"
+   ],
+   "probabilities": [
+    0.008000621568667916,
+    0.7918753452658142,
+    0.2001240331655179
+   ]
+  },
+  {
+   "text": "Nanalo ka ng P10,000.00 at 50k cash! PHP 1,500 lang ang fee",
+   "tokens": [
+    "nanalo",
+    "ka",
+    "ng",
+    "tokmoney",
+    "at",
+    "tokmoney",
+    "cash",
+    "tokmoney",
+    "lang",
+    "ang",
+    "fee"
+   ],
+   "probabilities": [
+    0.0005390020067350098,
+    0.5833125434592729,
+    0.41614845453399213
+   ]
+  },
+  {
+   "text": "Visit www.lazada.com.ph. Salamat po!",
+   "tokens": [
+    "visit",
+    "tokurl",
+    "lazada",
+    "com",
+    "ph",
+    "salamat",
+    "po"
+   ],
+   "probabilities": [
+    0.7494110110537544,
+    0.23497851230639102,
+    0.015610476639854577
+   ]
+  },
+  {
+   "text": "Sobrang gandaaaa ng araw, pleaseeee reply",
+   "tokens": [
+    "sobrang",
+    "gandaa",
+    "ng",
+    "araw",
+    "pleasee",
+    "reply"
+   ],
+   "probabilities": [
+    0.06266445334407932,
+    0.7389816726681473,
+    0.19835387398777343
+   ]
+  },
+  {
+   "text": "Héllo, pañuelo at ÉXITO",
+   "tokens": [
+    "hello",
+    "pañuelo",
+    "at",
+    "exito"
+   ],
+   "probabilities": [
+    0.16488544136388875,
+    0.37017624071241206,
+    0.4649383179236991
+   ]
+  },
+  {
+   "text": "Mag-log-in sa 192.168.10.1:8080/admin para ma-verify",
+   "tokens": [
+    "mag",
+    "log",
+    "in",
+    "sa",
+    "tokurl",
+    "toknum",
+    "toknum",
+    "toknum",
+    "toknum",
+    "para",
+    "ma",
+    "verify"
+   ],
+   "probabilities": [
+    0.00940589693909149,
+    0.004925668493299445,
+    0.9856684345676092
+   ]
+  },
+  {
+   "text": "Don’t share your OTP 123456 with anyone. ‘Wag ibigay.",
+   "tokens": [
+    "dont",
+    "share",
+    "your",
+    "otp",
+    "toknum",
+    "with",
+    "anyone",
+    "wag",
+    "ibigay"
+   ],
+   "probabilities": [
+    0.7434885550782255,
+    0.006562829756769955,
+    0.24994861516500452
+   ]
+  },
+  {
+   "text": "Hi po​mama,\tnasaan\nka?",
+   "tokens": [
+    "hi",
+    "po",
+    "mama",
+    "nasaan",
+    "ka"
+   ],
+   "probabilities": [
+    0.9594702456867382,
+    0.03702005936862075,
+    0.003509694944641003
+   ]
+  },
+  {
+   "text": "gcash.com.ph/promo and shorturl.at/abc12 and t.co/x",
+   "tokens": [
+    "tokurl",
+    "gcash",
+    "com",
+    "ph",
+    "and",
+    "tokurl",
+    "tokshorturl",
+    "and",
+    "tokurl",
+    "tokshorturl"
+   ],
+   "probabilities": [
+    0.0007937192222307886,
+    0.05488121842975316,
+    0.944325062348016
+   ]
+  },
+  {
+   "text": "🎉🎉 Congrats!!! 🎁",
+   "tokens": [
+    "congrats"
+   ],
+   "probabilities": [
+    0.02081653715993446,
+    0.4035702584414617,
+    0.5756132043986039
+   ]
+  },
+  {
+   "text": "12345",
+   "tokens": [
+    "toknum"
+   ],
+   "probabilities": [
+    0.6714954892064465,
+    0.2196321406178711,
+    0.10887237017568238
+   ]
+  },
+  {
+   "text": "salamat.at maraming salamat",
+   "tokens": [
+    "salamat",
+    "at",
+    "maraming",
+    "salamat"
+   ],
+   "probabilities": [
+    0.9691163180899984,
+    0.027822855989528203,
+    0.0030608259204733665
+   ]
+  },
+  {
+   "text": "Ang presyo ay 1,250 pesos o 99 piso lang",
+   "tokens": [
+    "ang",
+    "presyo",
+    "ay",
+    "tokmoney",
+    "o",
+    "tokmoney",
+    "lang"
+   ],
+   "probabilities": [
+    0.034924295577601155,
+    0.8975494924207771,
+    0.06752621200162179
+   ]
+  },
+  {
+   "text": "step 5 and top10 and p 500",
+   "tokens": [
+    "step",
+    "toknum",
+    "and",
+    "top",
+    "toknum",
+    "and",
+    "tokmoney"
+   ],
+   "probabilities": [
+    0.039414587680854325,
+    0.15724620418853924,
+    0.8033392081306063
+   ]
+  },
+  {
+   "text": "",
+   "tokens": [],
+   "probabilities": [
+    0.34351145038864783,
+    0.3206106870252211,
+    0.335877862586131
+   ]
+  },
+  {
+   "text": "ÑANDU ñoño",
+   "tokens": [
+    "ñandu",
+    "ñoño"
+   ],
+   "probabilities": [
+    0.34351145038864783,
+    0.3206106870252211,
+    0.335877862586131
+   ]
+  },
+  {
+   "text": "example.community is not a link but example.com is",
+   "tokens": [
+    "example",
+    "community",
+    "is",
+    "not",
+    "a",
+    "link",
+    "but",
+    "tokurl",
+    "example",
+    "com",
+    "is"
+   ],
+   "probabilities": [
+    0.056740227695472135,
+    0.07620596045588739,
+    0.8670538118486404
+   ]
+  },
+  {
+   "text": "end with link gcash.com.",
+   "tokens": [
+    "end",
+    "with",
+    "link",
+    "tokurl",
+    "gcash",
+    "com"
+   ],
+   "probabilities": [
+    0.014816530621663467,
+    0.08965088228499113,
+    0.8955325870933454
+   ]
+  },
+  {
+   "text": "Mixed CASE Http://Maya-Rewards.XYZ/claim",
+   "tokens": [
+    "mixed",
+    "case",
+    "tokurl",
+    "maya",
+    "rewards",
+    "xyz"
+   ],
+   "probabilities": [
+    0.0002261383989260777,
+    0.00606455983095627,
+    0.9937093017701176
+   ]
+  },
+  {
+   "text": "PSBank: Na-detect ang login mula sa ibang device. Kung hindi ikaw, i-click agad: psbank-secure.top",
+   "tokens": [
+    "psbank",
+    "na",
+    "detect",
+    "ang",
+    "login",
+    "mula",
+    "sa",
+    "ibang",
+    "device",
+    "kung",
+    "hindi",
+    "ikaw",
+    "i",
+    "click",
+    "agad",
+    "tokurl",
+    "psbank",
+    "secure",
+    "top"
+   ],
+   "probabilities": [
+    0.00013899708199024247,
+    0.005249935591914915,
+    0.9946110673260948
+   ]
+  },
+  {
+   "text": "Hello po! Rider po ito ng Shopee. Kailangan niyo po magbayad ng P150 dagdag na delivery fee sa GCash ko bago ko ibigay ang parcel.",
+   "tokens": [
+    "hello",
+    "po",
+    "rider",
+    "po",
+    "ito",
+    "ng",
+    "shopee",
+    "kailangan",
+    "niyo",
+    "po",
+    "magbayad",
+    "ng",
+    "tokmoney",
+    "dagdag",
+    "na",
+    "delivery",
+    "fee",
+    "sa",
+    "gcash",
+    "ko",
+    "bago",
+    "ko",
+    "ibigay",
+    "ang",
+    "parcel"
+   ],
+   "probabilities": [
+    0.008957664716102876,
+    0.0009816789654633375,
+    0.9900606563184338
+   ]
+  },
+  {
+   "text": "Hello po, sino po ito? Nakita ko po number niyo sa listahan.",
+   "tokens": [
+    "hello",
+    "po",
+    "sino",
+    "po",
+    "ito",
+    "nakita",
+    "ko",
+    "po",
+    "number",
+    "niyo",
+    "sa",
+    "listahan"
+   ],
+   "probabilities": [
+    0.007804929395773669,
+    0.9737472600239884,
+    0.018447810580237922
+   ]
+  },
+  {
+   "text": "Congratulations! Ang inyong pamilya ay napili sa 4Ps cash aid na P10,000. Ipadala ang inyong bank account at PIN.",
+   "tokens": [
+    "congratulations",
+    "ang",
+    "inyong",
+    "pamilya",
+    "ay",
+    "napili",
+    "sa",
+    "toknum",
+    "ps",
+    "cash",
+    "aid",
+    "na",
+    "tokmoney",
+    "ipadala",
+    "ang",
+    "inyong",
+    "bank",
+    "account",
+    "at",
+    "pin"
+   ],
+   "probabilities": [
+    0.0006707897923587354,
+    0.00021853432373466073,
+    0.9991106758839067
+   ]
+  },
+  {
+   "text": "Earn while you sleep! Passive income sa aming app. Download: earnph.app",
+   "tokens": [
+    "earn",
+    "while",
+    "you",
+    "sleep",
+    "passive",
+    "income",
+    "sa",
+    "aming",
+    "app",
+    "download",
+    "tokurl",
+    "earnph",
+    "app"
+   ],
+   "probabilities": [
+    0.0004619089487331957,
+    0.996411480723462,
+    0.0031266103278048563
+   ]
+  },
+  {
+   "text": "Your Netflix payment was successful. Next billing date: Nov 15.",
+   "tokens": [
+    "your",
+    "netflix",
+    "payment",
+    "was",
+    "successful",
+    "next",
+    "billing",
+    "date",
+    "nov",
+    "toknum"
+   ],
+   "probabilities": [
+    0.9947982152895023,
+    0.00014230604422793756,
+    0.005059478666269862
+   ]
+  },
+  {
+   "text": "Congrats! You are one of our lucky subscribers. Reply YES to claim your surprise gift.",
+   "tokens": [
+    "congrats",
+    "you",
+    "are",
+    "one",
+    "of",
+    "our",
+    "lucky",
+    "subscribers",
+    "reply",
+    "yes",
+    "to",
+    "claim",
+    "your",
+    "surprise",
+    "gift"
+   ],
+   "probabilities": [
+    0.0009436600089396788,
+    0.5142383178045637,
+    0.48481802218649656
+   ]
+  },
+  {
+   "text": "Good morning class! Walang pasok bukas dahil sa bagyo. Stay safe everyone.",
+   "tokens": [
+    "good",
+    "morning",
+    "class",
+    "walang",
+    "pasok",
+    "bukas",
+    "dahil",
+    "sa",
+    "bagyo",
+    "stay",
+    "safe",
+    "everyone"
+   ],
+   "probabilities": [
+    0.1438152271984217,
+    0.24878922177347798,
+    0.6073955510281003
+   ]
+  },
+  {
+   "text": "Ang galing mo kanina sa recitation! Ikaw na talaga.",
+   "tokens": [
+    "ang",
+    "galing",
+    "mo",
+    "kanina",
+    "sa",
+    "recitation",
+    "ikaw",
+    "na",
+    "talaga"
+   ],
+   "probabilities": [
+    0.8503029863252799,
+    0.10952157639137673,
+    0.040175437283343315
+   ]
+  },
+  {
+   "text": "Ate, pabili naman ng load pag-uwi mo. Babayaran kita bukas.",
+   "tokens": [
+    "ate",
+    "pabili",
+    "naman",
+    "ng",
+    "load",
+    "pag",
+    "uwi",
+    "mo",
+    "babayaran",
+    "kita",
+    "bukas"
+   ],
+   "probabilities": [
+    0.7204685214506158,
+    0.2782041398864459,
+    0.001327338662938306
+   ]
+  },
+  {
+   "text": "Maya: Ang iyong account ay naka-lock. I-unlock gamit ang link na ito at ilagay ang iyong MPIN: maya-unlock.site",
+   "tokens": [
+    "maya",
+    "ang",
+    "iyong",
+    "account",
+    "ay",
+    "naka",
+    "lock",
+    "i",
+    "unlock",
+    "gamit",
+    "ang",
+    "link",
+    "na",
+    "ito",
+    "at",
+    "ilagay",
+    "ang",
+    "iyong",
+    "mpin",
+    "tokurl",
+    "maya",
+    "unlock",
+    "site"
+   ],
+   "probabilities": [
+    3.216251355132214e-07,
+    0.00021705957397772277,
+    0.9997826188008867
+   ]
+  },
+  {
+   "text": "Your Globe Postpaid bill of P999.00 is due on Nov 2. Pay via GlobeOne app.",
+   "tokens": [
+    "your",
+    "globe",
+    "postpaid",
+    "bill",
+    "of",
+    "tokmoney",
+    "is",
+    "due",
+    "on",
+    "nov",
+    "toknum",
+    "pay",
+    "via",
+    "globeone",
+    "app"
+   ],
+   "probabilities": [
+    0.956149426666908,
+    0.0003111818030762081,
+    0.04353939153001584
+   ]
+  },
+  {
+   "text": "Security notice: Your BPI card was used in an online purchase. Confirm or cancel at bpi-card-alert.online with your OTP.",
+   "tokens": [
+    "security",
+    "notice",
+    "your",
+    "bpi",
+    "card",
+    "was",
+    "used",
+    "in",
+    "an",
+    "online",
+    "purchase",
+    "confirm",
+    "or",
+    "cancel",
+    "at",
+    "tokurl",
+    "bpi",
+    "card",
+    "alert",
+    "online",
+    "with",
+    "your",
+    "otp"
+   ],
+   "probabilities": [
+    2.2813774145849326e-05,
+    0.0005920818735019335,
+    0.9993851043523523
+   ]
+  },
+  {
+   "text": "Your Grab account has unclaimed rewards. Open the app or visit grab-rewards.club",
+   "tokens": [
+    "your",
+    "grab",
+    "account",
+    "has",
+    "unclaimed",
+    "rewards",
+    "open",
+    "the",
+    "app",
+    "or",
+    "visit",
+    "tokurl",
+    "grab",
+    "rewards",
+    "club"
+   ],
+   "probabilities": [
+    0.3545835701227539,
+    0.4382269081966294,
+    0.2071895216806168
+   ]
+  },
+  {
+   "text": "Hello! Your Foodpanda order is on the way. Estimated arrival 6:45 PM.",
+   "tokens": [
+    "hello",
+    "your",
+    "foodpanda",
+    "order",
+    "is",
+    "on",
+    "the",
+    "way",
+    "estimated",
+    "arrival",
+    "toknum",
+    "toknum",
+    "pm"
+   ],
+   "probabilities": [
+    0.9655852361369185,
+    0.028052731615517794,
+    0.006362032247563759
+   ]
+  },
+  {
+   "text": "Philhealth: May refund kang P7,800. I-send ang iyong PhilHealth ID at bank account details sa 09000000010.",
+   "tokens": [
+    "philhealth",
+    "may",
+    "refund",
+    "kang",
+    "tokmoney",
+    "i",
+    "send",
+    "ang",
+    "iyong",
+    "philhealth",
+    "id",
+    "at",
+    "bank",
+    "account",
+    "details",
+    "sa",
+    "tokphone"
+   ],
+   "probabilities": [
+    1.7964335452570915e-06,
+    0.00011716861838597253,
+    0.9998810349480687
+   ]
+  },
+  {
+   "text": "Your Shopee account has a new voucher! Claim it before it expires: shopee-voucher.click",
+   "tokens": [
+    "your",
+    "shopee",
+    "account",
+    "has",
+    "a",
+    "new",
+    "voucher",
+    "claim",
+    "it",
+    "before",
+    "it",
+    "expires",
+    "tokurl",
+    "shopee",
+    "voucher",
+    "click"
+   ],
+   "probabilities": [
+    0.001739325021673934,
+    0.00022922656755557197,
+    0.9980314484107704
+   ]
+  },
+  {
+   "text": "Pre-qualified ka sa aming credit card na walang annual fee! Tumawag sa 09000000004.",
+   "tokens": [
+    "pre",
+    "qualified",
+    "ka",
+    "sa",
+    "aming",
+    "credit",
+    "card",
+    "na",
+    "walang",
+    "annual",
+    "fee",
+    "tumawag",
+    "sa",
+    "tokphone"
+   ],
+   "probabilities": [
+    0.0009567122445851469,
+    0.6454073496224085,
+    0.35363593813300626
+   ]
+  },
+  {
+   "text": "Your OTP for BPI Online is 734512. BPI will never ask for your OTP. Do not share it with anyone.",
+   "tokens": [
+    "your",
+    "otp",
+    "for",
+    "bpi",
+    "online",
+    "is",
+    "toknum",
+    "bpi",
+    "will",
+    "never",
+    "ask",
+    "for",
+    "your",
+    "otp",
+    "do",
+    "not",
+    "share",
+    "it",
+    "with",
+    "anyone"
+   ],
+   "probabilities": [
+    0.7636110721629249,
+    0.002045887457531266,
+    0.23434304037954387
+   ]
+  },
+  {
+   "text": "PNB: You have a pending transfer of P15,000. Accept it by entering your username and password at pnb-transfer.site",
+   "tokens": [
+    "pnb",
+    "you",
+    "have",
+    "a",
+    "pending",
+    "transfer",
+    "of",
+    "tokmoney",
+    "accept",
+    "it",
+    "by",
+    "entering",
+    "your",
+    "username",
+    "and",
+    "password",
+    "at",
+    "tokurl",
+    "pnb",
+    "transfer",
+    "site"
+   ],
+   "probabilities": [
+    1.0204211673383378e-05,
+    6.067295143681561e-06,
+    0.999983728493183
+   ]
+  },
+  {
+   "text": "Hello friend! May magandang business opportunity ako para sa'yo. Usap tayo sa Viber.",
+   "tokens": [
+    "hello",
+    "friend",
+    "may",
+    "magandang",
+    "business",
+    "opportunity",
+    "ako",
+    "para",
+    "sayo",
+    "usap",
+    "tayo",
+    "sa",
+    "viber"
+   ],
+   "probabilities": [
+    0.13685976262512872,
+    0.8608380260117926,
+    0.0023022113630786563
+   ]
+  },
+  {
+   "text": "Hindi ako makakasama sa outing, may lakad kami ng family.",
+   "tokens": [
+    "hindi",
+    "ako",
+    "makakasama",
+    "sa",
+    "outing",
+    "may",
+    "lakad",
+    "kami",
+    "ng",
+    "family"
+   ],
+   "probabilities": [
+    0.43743713446791627,
+    0.5416529255116936,
+    0.020909940020390087
+   ]
+  },
+  {
+   "text": "Grabe yung exam kanina, ang hirap ng number 5.",
+   "tokens": [
+    "grabe",
+    "yung",
+    "exam",
+    "kanina",
+    "ang",
+    "hirap",
+    "ng",
+    "number",
+    "toknum"
+   ],
+   "probabilities": [
+    0.9963336187447381,
+    0.0028316082155701696,
+    0.0008347730396916749
+   ]
+  },
+  {
+   "text": "Congratulations! Nanalo ka ng P50,000 sa raffle ng DTI. I-claim sa dti-raffle.com at ibigay ang iyong GCash number at MPIN.",
+   "tokens": [
+    "congratulations",
+    "nanalo",
+    "ka",
+    "ng",
+    "tokmoney",
+    "sa",
+    "raffle",
+    "ng",
+    "dti",
+    "i",
+    "claim",
+    "sa",
+    "tokurl",
+    "dti",
+    "raffle",
+    "com",
+    "at",
+    "ibigay",
+    "ang",
+    "iyong",
+    "gcash",
+    "number",
+    "at",
+    "mpin"
+   ],
+   "probabilities": [
+    4.823355214338224e-06,
+    2.897280126488355e-05,
+    0.9999662038435206
+   ]
+  },
+  {
+   "text": "Hello, ito po ang bangko. Para ma-cancel ang kahina-hinalang transaction, sabihin po ang OTP na natanggap ninyo.",
+   "tokens": [
+    "hello",
+    "ito",
+    "po",
+    "ang",
+    "bangko",
+    "para",
+    "ma",
+    "cancel",
+    "ang",
+    "kahina",
+    "hinalang",
+    "transaction",
+    "sabihin",
+    "po",
+    "ang",
+    "otp",
+    "na",
+    "natanggap",
+    "ninyo"
+   ],
+   "probabilities": [
+    0.000555772439831074,
+    0.002126557221560961,
+    0.9973176703386081
+   ]
+  },
+  {
+   "text": "Bili ka na ng ticket para sa concert, malapit nang maubos.",
+   "tokens": [
+    "bili",
+    "ka",
+    "na",
+    "ng",
+    "ticket",
+    "para",
+    "sa",
+    "concert",
+    "malapit",
+    "nang",
+    "maubos"
+   ],
+   "probabilities": [
+    0.0225735066217012,
+    0.969933106915078,
+    0.007493386463220933
+   ]
+  },
+  {
+   "text": "J&T Express: Hindi ma-deliver ang parcel mo. Bayaran ang P50 redelivery fee dito: jnt-redeliver.xyz",
+   "tokens": [
+    "j",
+    "t",
+    "express",
+    "hindi",
+    "ma",
+    "deliver",
+    "ang",
+    "parcel",
+    "mo",
+    "bayaran",
+    "ang",
+    "tokmoney",
+    "redelivery",
+    "fee",
+    "dito",
+    "tokurl",
+    "jnt",
+    "redeliver",
+    "xyz"
+   ],
+   "probabilities": [
+    0.3322974156507573,
+    0.03683722089508309,
+    0.6308653634541597
+   ]
+  },
+  {
+   "text": "Hello, ito ay mula sa GCash Customer Service. Paki-send ang 6-digit code na natanggap mo para ma-unlock ang account mo.",
+   "tokens": [
+    "hello",
+    "ito",
+    "ay",
+    "mula",
+    "sa",
+    "gcash",
+    "customer",
+    "service",
+    "paki",
+    "send",
+    "ang",
+    "toknum",
+    "digit",
+    "code",
+    "na",
+    "natanggap",
+    "mo",
+    "para",
+    "ma",
+    "unlock",
+    "ang",
+    "account",
+    "mo"
+   ],
+   "probabilities": [
+    0.0003069489261388998,
+    0.00020502962124933644,
+    0.9994880214526117
+   ]
+  },
+  {
+   "text": "Hi po Ma'am, ito po yung assignment ko, na-email ko na po kanina.",
+   "tokens": [
+    "hi",
+    "po",
+    "maam",
+    "ito",
+    "po",
+    "yung",
+    "assignment",
+    "ko",
+    "na",
+    "email",
+    "ko",
+    "na",
+    "po",
+    "kanina"
+   ],
+   "probabilities": [
+    0.9883989959358562,
+    0.0089683271220976,
+    0.002632676942046041
+   ]
+  },
+  {
+   "text": "Hello, ito ang NTC. Ang iyong numero ay sangkot sa scam. Ibigay ang iyong pangalan, address at OTP para hindi ma-block.",
+   "tokens": [
+    "hello",
+    "ito",
+    "ang",
+    "ntc",
+    "ang",
+    "iyong",
+    "numero",
+    "ay",
+    "sangkot",
+    "sa",
+    "scam",
+    "ibigay",
+    "ang",
+    "iyong",
+    "pangalan",
+    "address",
+    "at",
+    "otp",
+    "para",
+    "hindi",
+    "ma",
+    "block"
+   ],
+   "probabilities": [
+    9.307487895220801e-05,
+    0.002262200974913332,
+    0.9976447241461344
+   ]
+  },
+  {
+   "text": "Salamat sa pagbili sa aming tindahan! Ang iyong order ay handa nang kunin bukas.",
+   "tokens": [
+    "salamat",
+    "sa",
+    "pagbili",
+    "sa",
+    "aming",
+    "tindahan",
+    "ang",
+    "iyong",
+    "order",
+    "ay",
+    "handa",
+    "nang",
+    "kunin",
+    "bukas"
+   ],
+   "probabilities": [
+    0.046902052689242295,
+    0.936387633151279,
+    0.01671031415947867
+   ]
+  },
+  {
+   "text": "Grabe ulan dito, baha na sa may McArthur. Ingat kayo dyan.",
+   "tokens": [
+    "grabe",
+    "ulan",
+    "dito",
+    "baha",
+    "na",
+    "sa",
+    "may",
+    "mcarthur",
+    "ingat",
+    "kayo",
+    "dyan"
+   ],
+   "probabilities": [
+    0.7580442496323645,
+    0.23744955580886207,
+    0.004506194558773465
+   ]
+  },
+  {
+   "text": "Your iCloud account is locked. Visit icloud-unlock.xyz and enter your Apple ID and password to recover your photos.",
+   "tokens": [
+    "your",
+    "icloud",
+    "account",
+    "is",
+    "locked",
+    "visit",
+    "tokurl",
+    "icloud",
+    "unlock",
+    "xyz",
+    "and",
+    "enter",
+    "your",
+    "apple",
+    "id",
+    "and",
+    "password",
+    "to",
+    "recover",
+    "your",
+    "photos"
+   ],
+   "probabilities": [
+    4.685379248454024e-06,
+    1.8575109669142475e-05,
+    0.9999767395110823
+   ]
+  },
+  {
+   "text": "Mag-ipon ng 1000 at gawing 10,000 sa aming paluwagan online. Limited slots!",
+   "tokens": [
+    "mag",
+    "ipon",
+    "ng",
+    "toknum",
+    "at",
+    "gawing",
+    "toknum",
+    "toknum",
+    "sa",
+    "aming",
+    "paluwagan",
+    "online",
+    "limited",
+    "slots"
+   ],
+   "probabilities": [
+    0.01015304417025591,
+    0.9637295035474466,
+    0.026117452282297653
+   ]
+  },
+  {
+   "text": "Ma'am/Sir, may pending refund po kayo. Tumawag po sa 09000000001 para sa detalye.",
+   "tokens": [
+    "maam",
+    "sir",
+    "may",
+    "pending",
+    "refund",
+    "po",
+    "kayo",
+    "tumawag",
+    "po",
+    "sa",
+    "tokphone",
+    "para",
+    "sa",
+    "detalye"
+   ],
+   "probabilities": [
+    0.0014563263637963804,
+    0.9967261979377993,
+    0.0018174756984043155
+   ]
+  },
+  {
+   "text": "Metrobank: Para sa iyong seguridad, i-update ang iyong password at OTP sa metrobank-ph.top ngayon din.",
+   "tokens": [
+    "metrobank",
+    "para",
+    "sa",
+    "iyong",
+    "seguridad",
+    "i",
+    "update",
+    "ang",
+    "iyong",
+    "password",
+    "at",
+    "otp",
+    "sa",
+    "tokurl",
+    "metrobank",
+    "ph",
+    "top",
+    "ngayon",
+    "din"
+   ],
+   "probabilities": [
+    6.491897836857203e-06,
+    0.0032463933504667626,
+    0.9967471147516963
+   ]
+  },
+  {
+   "text": "PAGCOR: Nanalo ka ng P200,000 sa online casino promo. Magbayad ng P5,000 tax para ma-claim.",
+   "tokens": [
+    "pagcor",
+    "nanalo",
+    "ka",
+    "ng",
+    "tokmoney",
+    "sa",
+    "online",
+    "casino",
+    "promo",
+    "magbayad",
+    "ng",
+    "tokmoney",
+    "tax",
+    "para",
+    "ma",
+    "claim"
+   ],
+   "probabilities": [
+    1.3728798441389874e-05,
+    0.013222167857102937,
+    0.9867641033444557
+   ]
+  },
+  {
+   "text": "Congrats sa pagkapanalo niyo sa quiz bee kanina! Proud kami sa inyo.",
+   "tokens": [
+    "congrats",
+    "sa",
+    "pagkapanalo",
+    "niyo",
+    "sa",
+    "quiz",
+    "bee",
+    "kanina",
+    "proud",
+    "kami",
+    "sa",
+    "inyo"
+   ],
+   "probabilities": [
+    0.1081348465031697,
+    0.8898592499637084,
+    0.002005903533121884
+   ]
+  },
+  {
+   "text": "Hello, ako si Atty. Cruz. May kailangan akong ipaalam sa iyo tungkol sa isang kaso. Tawagan mo ako.",
+   "tokens": [
+    "hello",
+    "ako",
+    "si",
+    "atty",
+    "cruz",
+    "may",
+    "kailangan",
+    "akong",
+    "ipaalam",
+    "sa",
+    "iyo",
+    "tungkol",
+    "sa",
+    "isang",
+    "kaso",
+    "tawagan",
+    "mo",
+    "ako"
+   ],
+   "probabilities": [
+    0.002101648776640983,
+    0.9529336118401331,
+    0.044964739383225885
+   ]
+  },
+  {
+   "text": "Nasa amin ang package mo. Kailangan lang ng konting verification. Abangan ang susunod na text.",
+   "tokens": [
+    "nasa",
+    "amin",
+    "ang",
+    "package",
+    "mo",
+    "kailangan",
+    "lang",
+    "ng",
+    "konting",
+    "verification",
+    "abangan",
+    "ang",
+    "susunod",
+    "na",
+    "text"
+   ],
+   "probabilities": [
+    0.0018692981582155716,
+    0.9973768450979933,
+    0.0007538567437911333
+   ]
+  }
+ ]
+}
