@@ -1,0 +1,14 @@
+# Research documents stay local and are not versioned
+Manuscript Files/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Generated training reports (re-create with: python ml/train.py)
+ml/reports/
+
+# OS / editors
+.DS_Store
+Thumbs.db
