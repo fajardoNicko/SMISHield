@@ -8,7 +8,12 @@ both implementations and fails if they drift apart.
 Steps (in order):
   1. Collapse every kind of whitespace into a single space.
   2. Lowercase, and strip accents from vowels (é -> e). The letter ñ is kept.
-  3. Replace e-mail addresses with a marker token.
+  3. Replace redaction placeholders ([PHONE], [EMAIL], [NAME], [ACCOUNT],
+     also written <NAME>) with the same marker a real number, address or
+     name would get, so redacted training data matches real input. Undo
+     dots disguised as "(.)" or "[.]". Then replace e-mail addresses with a
+     marker token, and read a digit or symbol between two letters as the
+     letter it imitates ("n0w" -> "now", "h@bang" -> "habang", "s!gn" -> "sign").
   4. Replace links with a marker token followed by the words of the domain
      (bpi-secure-login.com -> "tokurl bpi secure login com"); known link
      shorteners (bit.ly, tinyurl.com, ...) get an extra marker instead.
@@ -22,7 +27,7 @@ Taglish wording is kept as written.
 
 import re
 
-PREPROCESSING_VERSION = 1
+PREPROCESSING_VERSION = 3
 
 URL_TOKEN = "tokurl"
 SHORT_URL_TOKEN = "tokshorturl"
@@ -30,6 +35,16 @@ EMAIL_TOKEN = "tokemail"
 PHONE_TOKEN = "tokphone"
 MONEY_TOKEN = "tokmoney"
 NUMBER_TOKEN = "toknum"
+NAME_TOKEN = "tokname"
+
+# Placeholders used when personal details are removed from a message.
+REDACTION_TOKENS = {
+    "phone": PHONE_TOKEN,
+    "email": EMAIL_TOKEN,
+    "name": NAME_TOKEN,
+    "real name": NAME_TOKEN,
+    "account": NUMBER_TOKEN,
+}
 
 SHORTENER_DOMAINS = (
     "bit.ly", "bitly.com", "bit.do", "tinyurl.com", "tiny.cc", "t.co", "goo.gl",
@@ -38,16 +53,27 @@ SHORTENER_DOMAINS = (
     "surl.li", "short.gy", "tr.im", "x.co", "bl.ink", "clck.ru", "shrtco.de",
 )
 
-# Domain endings recognised in links written without "http://" or "www.".
+# Domain endings recognised in links written without "http://" or "www.":
+# common ones plus those seen in Philippine spam and smishing.
 LINK_TLDS = (
     "com", "net", "org", "ph", "info", "biz", "xyz", "top", "site", "online",
     "link", "live", "icu", "buzz", "click", "club", "vip", "shop", "store",
     "cc", "tk", "ml", "ga", "cf", "gq", "sbs", "cyou", "lol", "pw", "ws", "io",
     "app", "ly", "gl", "gd", "co", "me", "asia", "cloud", "mobi", "ru", "cn",
+    "tv", "eu", "de", "ca", "uk", "nl", "fr", "es", "it", "pl", "us", "in",
+    "is", "to", "la", "cx", "sh", "ms", "tw", "li", "fm", "su", "ai", "gg",
+    "bid", "one", "pro", "fun", "win", "bet", "golf", "vegas", "auction",
+    "games", "support", "news", "life", "world", "today", "space", "website",
+    "tech", "work", "cfd", "rest", "bar", "lat", "mom", "monster", "quest",
+    "best", "zone", "plus", "dev", "page", "vin", "st", "digital", "email",
+    "ht", "my", "sg", "jp", "kr", "hk", "vn", "au", "nz", "br", "ac", "nu",
+    "fyi", "lc", "mx", "wang", "fo", "qpon",
 )
+# Two-letter endings that are also everyday Filipino words (ng, sa, mo, ba,
+# si, at, ...) are left out on purpose so "word.ng" is not mistaken for a link.
 
 _WHITESPACE_RE = re.compile(
-    "[\t\n\r\f\v \u0085   -​    　﻿]+"
+    "[\t\n\r\f\v \u0085\u00a0\u1680\u2000-\u200b\u2028\u2029\u202f\u205f\u3000\ufeff]+"
 )
 
 _ACCENTS = str.maketrans("áàâäãéèêëíìîïóòôöõúùûü", "aaaaaeeeeiiiiooooouuuu")
@@ -59,7 +85,13 @@ def _alternation(words):
     return "|".join(re.escape(w) for w in ordered)
 
 
+REDACTION_RE = re.compile(r"[\[<](phone|email|name|real name|account)[\]>]")
+# "site(.)com", "site[.]com", "site dot com": a dot written to dodge link filters.
+OBFUSCATED_DOT_RE = re.compile(r"\(\.\)|\[\.\]|(?<=[a-z0-9]) dot (?=(?:com|net|org|ph)\b)")
 EMAIL_RE = re.compile(r"[a-z0-9._%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)+")
+# Look-alike characters used to dodge filters, only when inside a word.
+LEET = {"0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "@": "a", "$": "s", "!": "i"}
+LEET_RE = re.compile(r"(?<=[a-z])[01345@$!](?=[a-z])")
 
 URL_RE = re.compile(
     r"(?:https?://|www\.)[^ ]+"
@@ -79,7 +111,7 @@ MONEY_RE = re.compile(
 )
 
 NUMBER_RE = re.compile(r"[0-9]+")
-APOSTROPHE_RE = re.compile("['’‘`]")
+APOSTROPHE_RE = re.compile("['\u2019\u2018`]")
 ELONGATION_RE = re.compile(r"([a-z])\1{2,}")
 NON_LETTER_RE = re.compile("[^a-zñ]+")
 
@@ -114,7 +146,10 @@ def tokenize(text):
     """Splits a raw SMS message into the tokens the model is trained on."""
     text = _WHITESPACE_RE.sub(" ", text)
     text = text.lower().translate(_ACCENTS)
+    text = REDACTION_RE.sub(lambda m: f" {REDACTION_TOKENS[m.group(1)]} ", text)
+    text = OBFUSCATED_DOT_RE.sub(".", text)
     text = EMAIL_RE.sub(f" {EMAIL_TOKEN} ", text)
+    text = LEET_RE.sub(lambda m: LEET[m.group(0)], text)
     text = URL_RE.sub(_replace_link, text)
     text = PHONE_RE.sub(f" {PHONE_TOKEN} ", text)
     text = MONEY_RE.sub(f" {MONEY_TOKEN} ", text)

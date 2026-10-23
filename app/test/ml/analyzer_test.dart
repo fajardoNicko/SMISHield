@@ -16,7 +16,7 @@ SmishieldModel tinyModel() {
     'format': 'smishield-mnb',
     'preprocessing_version': preprocessingVersion,
     'created_at': '2026-10-22T00:00:00+00:00',
-    'dataset': {'source': 'test', 'is_placeholder': true},
+    'dataset': {'source': 'test', 'label_status': 'placeholder'},
     'evaluation': <String, dynamic>{},
     'vectorizer': {
       'ngram_range': [1, 1],
