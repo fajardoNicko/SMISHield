@@ -50,15 +50,22 @@ def normalize_label(value):
 
 
 def load_dataset(path, text_col=None, label_col=None):
-    """Returns a DataFrame with columns message, label (one of CLASSES)."""
+    """Returns a DataFrame with columns message, label (one of CLASSES), source.
+
+    Rows with an empty label or the label "Exclude" are left out. The source
+    column is "unknown" when the file has none.
+    """
     df = _read_table(path)
     text_col = _find_column(df, text_col, TEXT_COLUMNS)
     label_col = _find_column(df, label_col, LABEL_COLUMNS)
+    source = df["source"].astype(str) if "source" in df.columns else "unknown"
 
-    df = df[[text_col, label_col]].rename(columns={text_col: "message", label_col: "label_raw"})
+    df = df.assign(source=source)[[text_col, label_col, "source"]]
+    df = df.rename(columns={text_col: "message", label_col: "label_raw"})
     df = df.dropna(subset=["message", "label_raw"])
     df["message"] = df["message"].astype(str).str.strip()
     df = df[df["message"] != ""]
+    df = df[df["label_raw"].astype(str).str.strip().str.lower() != "exclude"]
     df["label"] = df["label_raw"].map(normalize_label)
 
     unknown = sorted(df.loc[df["label"].isna(), "label_raw"].astype(str).unique())
@@ -66,7 +73,7 @@ def load_dataset(path, text_col=None, label_col=None):
         raise SystemExit(
             f"Unrecognised labels {unknown}. Use one of {list(CLASSES)}."
         )
-    return df[["message", "label"]].reset_index(drop=True)
+    return df[["message", "label", "source"]].reset_index(drop=True)
 
 
 def _jaccard(a, b):
@@ -75,31 +82,33 @@ def _jaccard(a, b):
     return len(a & b) / len(a | b)
 
 
-def deduplicate(df, near_threshold=0.9):
+def deduplicate(df, near_threshold=0.9, text_col="message", label_col="label", id_col=None):
     """Drops repeated messages so the same text cannot be in both train and test.
 
-    - Messages that are identical after preprocessing are kept once. If the
-      copies were given different labels, all copies are dropped and reported
-      so the researchers can settle the label.
+    - Messages that are identical after preprocessing are kept once (the
+      first one). If label_col is given and the copies were labelled
+      differently, all copies are dropped and reported so the researchers
+      can settle the label.
     - If near_threshold > 0, a message whose token set overlaps an earlier
       kept message by at least that Jaccard similarity is also dropped.
 
     Returns (clean DataFrame, DataFrame of dropped rows with a reason).
     """
     df = df.copy()
-    df["normalized"] = df["message"].map(normalize)
+    df["normalized"] = df[text_col].map(normalize)
+    name = (lambda i: df.at[i, id_col]) if id_col else (lambda i: f"row {i}")
     dropped = []
 
     keep_rows = []
     for _, group in df.groupby("normalized", sort=False):
-        labels = set(group["label"])
+        labels = set(group[label_col]) if label_col else set()
         if len(labels) > 1:
             for _, row in group.iterrows():
                 dropped.append({**row, "reason": "same text, conflicting labels: " + ", ".join(sorted(labels))})
             continue
         keep_rows.append(group.index[0])
         for idx in group.index[1:]:
-            dropped.append({**df.loc[idx], "reason": f"duplicate of row {group.index[0]}"})
+            dropped.append({**df.loc[idx], "reason": f"duplicate of {name(group.index[0])}"})
 
     kept = df.loc[sorted(keep_rows)]
 
@@ -114,8 +123,8 @@ def deduplicate(df, near_threshold=0.9):
             if match is None:
                 accepted.append(i)
             else:
-                dropped.append({**kept.loc[i], "reason": f"near-duplicate of row {match}"})
+                dropped.append({**kept.loc[i], "reason": f"near-duplicate of {name(match)}"})
         kept = kept.loc[accepted]
 
-    dropped_df = pd.DataFrame(dropped, columns=["message", "label", "normalized", "reason"])
+    dropped_df = pd.DataFrame(dropped, columns=[*df.columns, "reason"])
     return kept.drop(columns=["normalized"]).reset_index(drop=True), dropped_df
