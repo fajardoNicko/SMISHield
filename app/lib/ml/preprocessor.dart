@@ -7,7 +7,7 @@
 /// test/ml/model_parity_test.dart fails when they drift apart.
 library;
 
-const int preprocessingVersion = 1;
+const int preprocessingVersion = 2;
 
 const String urlToken = 'tokurl';
 const String shortUrlToken = 'tokshorturl';
@@ -15,6 +15,7 @@ const String emailToken = 'tokemail';
 const String phoneToken = 'tokphone';
 const String moneyToken = 'tokmoney';
 const String numberToken = 'toknum';
+const String nameToken = 'tokname';
 
 const Set<String> markerTokens = {
   urlToken,
@@ -23,6 +24,15 @@ const Set<String> markerTokens = {
   phoneToken,
   moneyToken,
   numberToken,
+  nameToken,
+};
+
+/// Placeholders used when personal details are removed from a message.
+const Map<String, String> redactionTokens = {
+  'phone': phoneToken,
+  'email': emailToken,
+  'name': nameToken,
+  'account': numberToken,
 };
 
 const List<String> shortenerDomains = [
@@ -100,7 +110,80 @@ const List<String> linkTlds = [
   'mobi',
   'ru',
   'cn',
+  'tv',
+  'eu',
+  'de',
+  'ca',
+  'uk',
+  'nl',
+  'fr',
+  'es',
+  'it',
+  'pl',
+  'us',
+  'in',
+  'is',
+  'to',
+  'la',
+  'cx',
+  'sh',
+  'ms',
+  'tw',
+  'li',
+  'fm',
+  'su',
+  'ai',
+  'gg',
+  'bid',
+  'one',
+  'pro',
+  'fun',
+  'win',
+  'bet',
+  'golf',
+  'vegas',
+  'auction',
+  'games',
+  'support',
+  'news',
+  'life',
+  'world',
+  'today',
+  'space',
+  'website',
+  'tech',
+  'work',
+  'cfd',
+  'rest',
+  'bar',
+  'lat',
+  'mom',
+  'monster',
+  'quest',
+  'best',
+  'zone',
+  'plus',
+  'dev',
+  'page',
+  'vin',
+  'st',
+  'digital',
+  'email',
+  'ht',
+  'my',
+  'sg',
+  'jp',
+  'kr',
+  'hk',
+  'vn',
+  'au',
+  'nz',
+  'br',
+  'ac',
+  'nu',
 ];
+// Two-letter endings that are also everyday Filipino words (ng, sa, mo, ba,
+// si, at, ...) are left out on purpose so "word.ng" is not mistaken for a link.
 
 String _alternation(Iterable<String> words) {
   // Longest first so the order is deterministic and identical in Python.
@@ -112,11 +195,18 @@ String _alternation(Iterable<String> words) {
   return ordered.map(RegExp.escape).join('|');
 }
 
-final RegExp _whitespace = RegExp('[\t\n\r\f\v \u0085   -​    　﻿]+');
+final RegExp _whitespace = RegExp(
+  '[\t\n\r\f\v \u0085\u00a0\u1680\u2000-\u200b\u2028\u2029\u202f\u205f\u3000\ufeff]+',
+);
 
 const String _accented = 'áàâäãéèêëíìîïóòôöõúùûü';
 const String _unaccented = 'aaaaaeeeeiiiiooooouuuu';
 final RegExp _accent = RegExp('[$_accented]');
+
+final RegExp _redaction = RegExp(r'[\[<](phone|email|name|account)[\]>]');
+
+/// "site(.)com" / "site[.]com": a dot written to dodge link filters.
+final RegExp _obfuscatedDot = RegExp(r'\(\.\)|\[\.\]');
 
 final RegExp emailPattern = RegExp(
   r'[a-z0-9._%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)+',
@@ -145,7 +235,7 @@ final RegExp moneyPattern = RegExp(
 );
 
 final RegExp _number = RegExp(r'[0-9]+');
-final RegExp _apostrophe = RegExp("['’‘`]");
+final RegExp _apostrophe = RegExp("['\u2019\u2018`]");
 final RegExp _elongation = RegExp(r'([a-z])\1{2,}');
 final RegExp _nonLetter = RegExp('[^a-zñ]+');
 
@@ -183,6 +273,8 @@ String normalize(String text) => tokenize(text).join(' ');
 List<String> tokenize(String text) {
   var t = text.replaceAll(_whitespace, ' ');
   t = _stripAccents(t.toLowerCase());
+  t = t.replaceAllMapped(_redaction, (m) => ' ${redactionTokens[m[1]]} ');
+  t = t.replaceAll(_obfuscatedDot, '.');
   t = t.replaceAll(emailPattern, ' $emailToken ');
   t = t.replaceAllMapped(linkPattern, (m) => _replaceLink(m[0]!));
   t = t.replaceAll(phonePattern, ' $phoneToken ');
