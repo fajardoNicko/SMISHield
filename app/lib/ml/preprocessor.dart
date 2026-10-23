@@ -7,7 +7,7 @@
 /// test/ml/model_parity_test.dart fails when they drift apart.
 library;
 
-const int preprocessingVersion = 2;
+const int preprocessingVersion = 3;
 
 const String urlToken = 'tokurl';
 const String shortUrlToken = 'tokshorturl';
@@ -32,6 +32,7 @@ const Map<String, String> redactionTokens = {
   'phone': phoneToken,
   'email': emailToken,
   'name': nameToken,
+  'real name': nameToken,
   'account': numberToken,
 };
 
@@ -181,6 +182,12 @@ const List<String> linkTlds = [
   'br',
   'ac',
   'nu',
+  'fyi',
+  'lc',
+  'mx',
+  'wang',
+  'fo',
+  'qpon',
 ];
 // Two-letter endings that are also everyday Filipino words (ng, sa, mo, ba,
 // si, at, ...) are left out on purpose so "word.ng" is not mistaken for a link.
@@ -203,14 +210,33 @@ const String _accented = 'áàâäãéèêëíìîïóòôöõúùûü';
 const String _unaccented = 'aaaaaeeeeiiiiooooouuuu';
 final RegExp _accent = RegExp('[$_accented]');
 
-final RegExp _redaction = RegExp(r'[\[<](phone|email|name|account)[\]>]');
+final RegExp _redaction = RegExp(
+  r'[\[<](phone|email|name|real name|account)[\]>]',
+);
 
-/// "site(.)com" / "site[.]com": a dot written to dodge link filters.
-final RegExp _obfuscatedDot = RegExp(r'\(\.\)|\[\.\]');
+/// "site(.)com", "site[.]com", "site dot com": a dot written to dodge link
+/// filters.
+final RegExp _obfuscatedDot = RegExp(
+  r'\(\.\)|\[\.\]|(?<=[a-z0-9]) dot (?=(?:com|net|org|ph)\b)',
+);
 
 final RegExp emailPattern = RegExp(
   r'[a-z0-9._%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)+',
 );
+
+/// Look-alike characters used to dodge filters, only when inside a word
+/// ("n0w" -> "now", "h@bang" -> "habang", "s!gn" -> "sign").
+const Map<String, String> _leet = {
+  '0': 'o',
+  '1': 'i',
+  '3': 'e',
+  '4': 'a',
+  '5': 's',
+  '@': 'a',
+  r'$': 's',
+  '!': 'i',
+};
+final RegExp _leetPattern = RegExp(r'(?<=[a-z])[01345@$!](?=[a-z])');
 
 /// Matches links in lowercased text. Use [linkPatternAnyCase] on raw text.
 final RegExp linkPattern = RegExp(_linkSource);
@@ -276,6 +302,7 @@ List<String> tokenize(String text) {
   t = t.replaceAllMapped(_redaction, (m) => ' ${redactionTokens[m[1]]} ');
   t = t.replaceAll(_obfuscatedDot, '.');
   t = t.replaceAll(emailPattern, ' $emailToken ');
+  t = t.replaceAllMapped(_leetPattern, (m) => _leet[m[0]]!);
   t = t.replaceAllMapped(linkPattern, (m) => _replaceLink(m[0]!));
   t = t.replaceAll(phonePattern, ' $phoneToken ');
   t = t.replaceAll(moneyPattern, ' $moneyToken ');

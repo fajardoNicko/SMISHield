@@ -224,11 +224,18 @@ labelled with the criteria above.
 | | `spam` | Suspicious, or High Risk if an H criterion applies | Harmless chat or political texts (Safe or Exclude) |
 | Philippine Spam/Scam SMS (bwandowando) | all spam/scam | Suspicious or High Risk | Same as above |
 
-In the Tagalog-SMS file, after duplicates are removed, the provisional rules
-suggest 1,271 Safe, 496 Suspicious and **34 High Risk**. High Risk is far too
-small to train on reliably. The second Kaggle file and the VCSMS form, which
-should specifically ask for scam messages received, need to supply most of
-the High Risk examples.
+With both Kaggle files, 4,475 messages shrink to 2,492 unique ones once
+duplicates are removed. 209 messages in the Philippine Spam/Scam SMS file were
+copies of Tagalog-SMS messages, because the same campaigns reached both
+collectors. The provisional rules suggest 1,249 Safe, 1,128 Suspicious and
+**109 High Risk**, and 6 to exclude. Two gaps remain for the VCSMS form to fill:
+
+- **More High Risk examples.** The form should explicitly ask for scam
+  messages that tried to get codes, passwords or money.
+- **Everyday personal messages.** Almost every Safe message in the Kaggle data
+  is a corporate notification, while casual Filipino text appears mostly in
+  spam. Without personal and family texts, the model learns that informal
+  Filipino means spam.
 
 ---
 

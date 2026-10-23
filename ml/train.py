@@ -87,6 +87,9 @@ PARITY_EDGE_CASES = [
     "end with link gcash.com.",
     "Mixed CASE Http://Maya-Rewards.XYZ/claim",
     "Hi [NAME], text [PHONE] or <NAME> at [EMAIL] re account [ACCOUNT]",
+    "B0ss pan@lunin kita, n0w lang h@bang n@nd!to pa ak0. Panal0 s!gn up, GoSURF50 5GB",
+    "Visit ltoviolation(.)com or come.to/BDO and kol.vin/x",
+    "<REAL NAME>, join sigebet1 dot com or bonus.lc and asace.wang/p",
 ]
 
 

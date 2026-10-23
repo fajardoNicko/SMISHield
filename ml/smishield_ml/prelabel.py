@@ -7,7 +7,10 @@ study's ground truth: the final labels come from the researchers' manual
 annotation (see LABELING_GUIDE.md, section 4).
 
 The keyword rules are deliberately simple and will make mistakes, which is why
-anything uncertain is flagged with needs_review.
+anything uncertain is flagged with needs_review. One deliberate difference
+from the guide: a message from a spam/scam source that matches no criterion is
+suggested as Suspicious (and flagged), not Safe, because in practice most of
+these are scams whose wording the rules missed.
 """
 
 import re

@@ -54,9 +54,9 @@ def sender_type(sender):
         return "unknown"
     if "@" in s:
         return "email"
-    digits = s.lstrip("+")
-    if digits.isdigit():
-        return "mobile" if len(digits) >= 10 else "shortcode"
+    # Digits, possibly masked by the dataset author ("+63969****493").
+    if re.fullmatch(r"\+?[0-9*]+", s) and any(ch.isdigit() for ch in s):
+        return "mobile" if len(s.lstrip("+")) >= 10 else "shortcode"
     return "alphanumeric"
 
 
@@ -85,8 +85,10 @@ def load_tagalog_sms(path):
 def load_ph_spam(path):
     """bwandowando, "Philippine Spam/Scam SMS" (Kaggle, CC BY-NC-SA 4.0).
 
-    Every message in this collection was received as spam or a scam, so the
-    source category is "spam" for all rows.
+    SPAM_SMS.csv: masked_celphone_number, hashed_cellphone_number, date,
+    text, carrier. Every message was received as spam or a scam, so the
+    source category is "spam" for all rows. The hashed number and carrier
+    are not kept.
     """
     path = Path(path)
     df = pd.read_excel(path) if path.suffix.lower() in (".xlsx", ".xls") else pd.read_csv(path)
@@ -98,7 +100,8 @@ def load_ph_spam(path):
     text = column("text", "message", "sms", "content", "body", "message_text")
     if text is None:
         raise SystemExit(f"No message column found in {path.name}: {list(df.columns)}")
-    sender = column("sender", "from", "sender_number", "number", "phone_number")
+    sender = column("masked_celphone_number", "masked_cellphone_number", "sender", "from",
+                    "sender_number", "number", "phone_number")
     date = column("date", "date_received", "received", "timestamp", "datetime")
     df = pd.DataFrame({
         "message": df[text],

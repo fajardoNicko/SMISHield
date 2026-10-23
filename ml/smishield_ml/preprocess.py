@@ -12,7 +12,8 @@ Steps (in order):
      also written <NAME>) with the same marker a real number, address or
      name would get, so redacted training data matches real input. Undo
      dots disguised as "(.)" or "[.]". Then replace e-mail addresses with a
-     marker token.
+     marker token, and read a digit or symbol between two letters as the
+     letter it imitates ("n0w" -> "now", "h@bang" -> "habang", "s!gn" -> "sign").
   4. Replace links with a marker token followed by the words of the domain
      (bpi-secure-login.com -> "tokurl bpi secure login com"); known link
      shorteners (bit.ly, tinyurl.com, ...) get an extra marker instead.
@@ -26,7 +27,7 @@ Taglish wording is kept as written.
 
 import re
 
-PREPROCESSING_VERSION = 2
+PREPROCESSING_VERSION = 3
 
 URL_TOKEN = "tokurl"
 SHORT_URL_TOKEN = "tokshorturl"
@@ -41,6 +42,7 @@ REDACTION_TOKENS = {
     "phone": PHONE_TOKEN,
     "email": EMAIL_TOKEN,
     "name": NAME_TOKEN,
+    "real name": NAME_TOKEN,
     "account": NUMBER_TOKEN,
 }
 
@@ -65,6 +67,7 @@ LINK_TLDS = (
     "tech", "work", "cfd", "rest", "bar", "lat", "mom", "monster", "quest",
     "best", "zone", "plus", "dev", "page", "vin", "st", "digital", "email",
     "ht", "my", "sg", "jp", "kr", "hk", "vn", "au", "nz", "br", "ac", "nu",
+    "fyi", "lc", "mx", "wang", "fo", "qpon",
 )
 # Two-letter endings that are also everyday Filipino words (ng, sa, mo, ba,
 # si, at, ...) are left out on purpose so "word.ng" is not mistaken for a link.
@@ -82,10 +85,13 @@ def _alternation(words):
     return "|".join(re.escape(w) for w in ordered)
 
 
-REDACTION_RE = re.compile(r"[\[<](phone|email|name|account)[\]>]")
-# "site(.)com" / "site[.]com": a dot written to dodge link filters.
-OBFUSCATED_DOT_RE = re.compile(r"\(\.\)|\[\.\]")
+REDACTION_RE = re.compile(r"[\[<](phone|email|name|real name|account)[\]>]")
+# "site(.)com", "site[.]com", "site dot com": a dot written to dodge link filters.
+OBFUSCATED_DOT_RE = re.compile(r"\(\.\)|\[\.\]|(?<=[a-z0-9]) dot (?=(?:com|net|org|ph)\b)")
 EMAIL_RE = re.compile(r"[a-z0-9._%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)+")
+# Look-alike characters used to dodge filters, only when inside a word.
+LEET = {"0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "@": "a", "$": "s", "!": "i"}
+LEET_RE = re.compile(r"(?<=[a-z])[01345@$!](?=[a-z])")
 
 URL_RE = re.compile(
     r"(?:https?://|www\.)[^ ]+"
@@ -143,6 +149,7 @@ def tokenize(text):
     text = REDACTION_RE.sub(lambda m: f" {REDACTION_TOKENS[m.group(1)]} ", text)
     text = OBFUSCATED_DOT_RE.sub(".", text)
     text = EMAIL_RE.sub(f" {EMAIL_TOKEN} ", text)
+    text = LEET_RE.sub(lambda m: LEET[m.group(0)], text)
     text = URL_RE.sub(_replace_link, text)
     text = PHONE_RE.sub(f" {PHONE_TOKEN} ", text)
     text = MONEY_RE.sub(f" {MONEY_TOKEN} ", text)

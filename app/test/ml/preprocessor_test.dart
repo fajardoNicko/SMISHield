@@ -56,6 +56,7 @@ void main() {
       ],
     );
     expect(tokenize('Call 09171234567'), tokenize('Call [PHONE]'));
+    expect(tokenize('<REAL NAME>, hi'), [nameToken, 'hi']);
   });
 
   test('undoes disguised dots and knows smishing domain endings', () {
@@ -66,12 +67,37 @@ void main() {
       'com',
     ]);
     expect(tokenize('come.to/OnlineBDOPh'), [urlToken, 'come', 'to']);
+    expect(tokenize('sigebet1 dot com'), [
+      urlToken,
+      'sigebet',
+      numberToken,
+      'com',
+    ]);
     expect(tokenize('claim at kqlx.uk'), [
       'claim',
       'at',
       urlToken,
       'kqlx',
       'uk',
+    ]);
+  });
+
+  test('reads look-alike characters inside words as letters', () {
+    expect(tokenize('B0ss n0w h@bang n@nd!to s!gn'), [
+      'boss',
+      'now',
+      'habang',
+      'nandito',
+      'sign',
+    ]);
+    // Digits at the edge of a word are real numbers, not disguised letters.
+    expect(tokenize('GoSURF50 5GB ak0'), [
+      'gosurf',
+      numberToken,
+      numberToken,
+      'gb',
+      'ak',
+      numberToken,
     ]);
   });
 
