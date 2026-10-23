@@ -28,8 +28,11 @@ void main(List<String> args) {
   );
   final out = stdout;
 
-  if (model.info.isPlaceholder) {
-    out.writeln('(model trained on PLACEHOLDER data)');
+  if (!model.info.isFinal) {
+    out.writeln(
+      '(model trained on ${model.info.labelStatus.toUpperCase()} labels; '
+      'not for reporting)',
+    );
   }
   for (final message in messages) {
     out.writeln('\n$message');

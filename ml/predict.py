@@ -28,8 +28,9 @@ def main():
     args = parser.parse_args()
 
     model = ExportedModel.load(args.model)
-    if model.data["dataset"].get("is_placeholder"):
-        print("(model was trained on PLACEHOLDER data)")
+    status = model.data["dataset"].get("label_status", "final")
+    if status != "final":
+        print(f"(model trained on {status.upper()} labels; not for reporting)")
     for text in args.messages or (line.strip() for line in sys.stdin if line.strip()):
         show(model, text)
 

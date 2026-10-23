@@ -33,12 +33,15 @@ SMS inbox and works offline.
 
 ```
 pip install -r ml/requirements.txt
-python ml/train.py --data ml/data/placeholder_dataset.csv   # or the real dataset
+python ml/prepare_dataset.py                                   # Kaggle files in ml/data/raw/
+python ml/train.py --data ml/data/prepared/public_sms_prepared.csv --label-col provisional_label
 
 cd app
 flutter test
 dart run tool/analyze.dart "Your message here"
 ```
 
-The bundled model is currently trained on **placeholder data** and must be
-retrained with the collected dataset before evaluation.
+The bundled model is currently trained on **provisional (rule-suggested)
+labels** for the Tagalog-SMS Kaggle dataset. It must be retrained on the
+researchers' manual labels before evaluation; see
+[ml/LABELING_GUIDE.md](ml/LABELING_GUIDE.md) and [ml/README.md](ml/README.md).

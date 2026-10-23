@@ -9,6 +9,16 @@ __pycache__/
 # Generated training reports (re-create with: python ml/train.py)
 ml/reports/
 
+# Downloaded source files (re-download from Kaggle; see ml/data/README.md)
+ml/data/raw/
+
+# VCSMS student submissions and anything labelled from them. This repository
+# is PUBLIC: research-team-only data must never be committed.
+ml/data/private/
+
+# Annotation workbooks are shared within the team, not versioned
+ml/annotation/
+
 # OS / editors
 .DS_Store
 Thumbs.db

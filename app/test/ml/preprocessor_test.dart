@@ -41,6 +41,66 @@ void main() {
     ]);
   });
 
+  test('maps redaction placeholders to the same markers as real details', () {
+    expect(
+      tokenize('Text [PHONE] or [EMAIL], [NAME] / <NAME> acct [ACCOUNT]'),
+      [
+        'text',
+        phoneToken,
+        'or',
+        emailToken,
+        nameToken,
+        nameToken,
+        'acct',
+        numberToken,
+      ],
+    );
+    expect(tokenize('Call 09171234567'), tokenize('Call [PHONE]'));
+    expect(tokenize('<REAL NAME>, hi'), [nameToken, 'hi']);
+  });
+
+  test('undoes disguised dots and knows smishing domain endings', () {
+    expect(tokenize('Visit ltoviolation(.)com'), [
+      'visit',
+      urlToken,
+      'ltoviolation',
+      'com',
+    ]);
+    expect(tokenize('come.to/OnlineBDOPh'), [urlToken, 'come', 'to']);
+    expect(tokenize('sigebet1 dot com'), [
+      urlToken,
+      'sigebet',
+      numberToken,
+      'com',
+    ]);
+    expect(tokenize('claim at kqlx.uk'), [
+      'claim',
+      'at',
+      urlToken,
+      'kqlx',
+      'uk',
+    ]);
+  });
+
+  test('reads look-alike characters inside words as letters', () {
+    expect(tokenize('B0ss n0w h@bang n@nd!to s!gn'), [
+      'boss',
+      'now',
+      'habang',
+      'nandito',
+      'sign',
+    ]);
+    // Digits at the edge of a word are real numbers, not disguised letters.
+    expect(tokenize('GoSURF50 5GB ak0'), [
+      'gosurf',
+      numberToken,
+      numberToken,
+      'gb',
+      'ak',
+      numberToken,
+    ]);
+  });
+
   test('does not treat words joined by a period as a link', () {
     expect(tokenize('salamat.at ingat'), ['salamat', 'at', 'ingat']);
   });
