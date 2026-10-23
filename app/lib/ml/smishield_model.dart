@@ -9,7 +9,7 @@ class ModelInfo {
   const ModelInfo({
     required this.createdAt,
     required this.datasetSource,
-    required this.isPlaceholder,
+    required this.labelStatus,
     required this.testAccuracy,
     required this.termCount,
   });
@@ -17,8 +17,12 @@ class ModelInfo {
   final DateTime? createdAt;
   final String datasetSource;
 
-  /// True when the model was trained on the made-up placeholder dataset.
-  final bool isPlaceholder;
+  /// "final" for the researchers' manual labels; "provisional" for
+  /// rule-based suggested labels; "placeholder" for the made-up dataset.
+  final String labelStatus;
+
+  /// Whether this model's results may be reported as study results.
+  bool get isFinal => labelStatus == 'final';
   final double? testAccuracy;
   final int termCount;
 }
@@ -112,7 +116,7 @@ class SmishieldModel {
       info: ModelInfo(
         createdAt: DateTime.tryParse(json['created_at'] as String? ?? ''),
         datasetSource: dataset['source'] as String? ?? 'unknown',
-        isPlaceholder: dataset['is_placeholder'] as bool? ?? false,
+        labelStatus: dataset['label_status'] as String? ?? 'final',
         testAccuracy: (evaluation['accuracy'] as num?)?.toDouble(),
         termCount: terms.length,
       ),
