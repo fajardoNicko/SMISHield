@@ -19,6 +19,10 @@ ml/data/private/
 # Annotation workbooks are shared within the team, not versioned
 ml/annotation/
 
+# The team's working folder (filled-in workbooks, VCSMS submissions). The
+# leading slash matters: on Windows "Data/" would also match ml/data/.
+/Data/
+
 # OS / editors
 .DS_Store
 Thumbs.db

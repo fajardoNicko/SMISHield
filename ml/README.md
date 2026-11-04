@@ -48,10 +48,21 @@ alone on the agreement sample; the rest of the team splits the main workbook.
 python ml/finalize_labels.py
 ```
 
-The first run reports Cohen's kappa and writes `adjudication.xlsx` with the
-messages R1 and R2 labelled differently. After a third researcher fills
-`final_label` there and the main workbook is complete, the next run writes
-`ml/data/labeled/public_sms_labeled.csv`.
+The first run reports Cohen's kappa (and any labels whose criteria codes do
+not fit them) in `ml/annotation/agreement_report.md`, and writes
+`adjudication.xlsx` with the messages R1 and R2 labelled differently. After a
+third researcher fills `final_label` there and the main workbook is complete,
+the next run writes `ml/data/labeled/public_sms_labeled.csv`.
+
+If the filled-in agreement workbooks are elsewhere, point to them with
+`--r1` / `--r2`. To train before the main workbook is done, `--interim` writes
+just the agreement sample's settled messages, and train.py marks the result
+INTERIM:
+
+```
+python ml/finalize_labels.py --r1 "Data/20%/agreement_sort(1).xlsx" --r2 "Data/20%/saiah-and-nina.xlsx" --interim
+python ml/train.py --data ml/data/labeled/interim_agreement_sample.csv --label-status interim
+```
 
 **5. Train and evaluate:**
 
