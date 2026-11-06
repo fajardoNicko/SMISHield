@@ -181,6 +181,11 @@ tested, and the results evaluated.
 5. **Main annotation** (`main_annotation.xlsx`). The remaining 80% is
    labelled once, divided among the researchers. Each writes their initials
    in the *annotator* column.
+   - *As done for the public data:* the team labelled the main set **twice
+     as well**, by the same two annotators (each a pair of researchers:
+     Yuri & Niway, and Isaiah & Jeanina). Every message is then
+     double-annotated: agreement is reported for the main set and for all
+     messages, and every disagreement goes to adjudication.
 6. **Final dataset** (`python ml/finalize_labels.py`). The script computes
    the agreement report, merges the agreed, adjudicated and single labels,
    drops excluded messages, and writes `ml/data/labeled/public_sms_labeled.csv`.
