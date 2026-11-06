@@ -5,10 +5,10 @@ classifies Filipino and Taglish SMS messages as **Safe**, **Suspicious** or
 **High Risk**, writes the evaluation reports for Chapter 4, and exports the
 model for the Android app.
 
-> **The bundled model is trained on PROVISIONAL labels**: rule-based
-> suggestions for the Tagalog-SMS Kaggle dataset, not the researchers' manual
-> labels. Its numbers must not be reported. Retrain once the manual labelling
-> is finished (step 4 below).
+> **The bundled model is trained on INTERIM labels**: the researchers' manual
+> labels, but only for the messages both annotators agreed on; the 176 still
+> waiting for adjudication are left out. Its numbers must not be reported.
+> Retrain once adjudication is finished (step 4 below).
 
 How messages are labelled, and the published sources behind the method, are
 in **[LABELING_GUIDE.md](LABELING_GUIDE.md)**. Where the data comes from and
@@ -54,14 +54,17 @@ not fit them) in `ml/annotation/agreement_report.md`, and writes
 third researcher fills `final_label` there and the main workbook is complete,
 the next run writes `ml/data/labeled/public_sms_labeled.csv`.
 
-If the filled-in agreement workbooks are elsewhere, point to them with
-`--r1` / `--r2`. To train before the main workbook is done, `--interim` writes
-just the agreement sample's settled messages, and train.py marks the result
+If the filled-in workbooks are elsewhere, point to them with `--r1` / `--r2`
+and `--main`. When the main set was labelled twice too, give `--main` both
+workbooks, in the same annotator order as `--r1` / `--r2`: its agreement is
+reported as well and its disagreements join `adjudication.xlsx` (final labels
+already entered there are kept). To train before every message is settled,
+`--interim` writes just the settled ones, and train.py marks the result
 INTERIM:
 
 ```
-python ml/finalize_labels.py --r1 "Data/20%/agreement_sort(1).xlsx" --r2 "Data/20%/saiah-and-nina.xlsx" --interim
-python ml/train.py --data ml/data/labeled/interim_agreement_sample.csv --label-status interim
+python ml/finalize_labels.py --r1 "Data/20%/<R1>.xlsx" --r2 "Data/20%/<R2>.xlsx" --main "Data/80%/<R1>.xlsx" "Data/80%/<R2>.xlsx" --interim
+python ml/train.py --data ml/data/labeled/interim_labeled.csv --label-status interim
 ```
 
 **5. Train and evaluate:**
