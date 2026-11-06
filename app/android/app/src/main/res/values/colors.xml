@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The dark navy behind the logo (research plan mock-ups). -->
+    <color name="brand_navy">#000917</color>
+</resources>
