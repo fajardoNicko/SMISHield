@@ -99,7 +99,12 @@ def read_sheet(path):
     wb.close()
     if not rows:
         return pd.DataFrame()
-    df = pd.DataFrame(rows[1:], columns=rows[0])
+    header = list(rows[0])
+    # After Excel saves a file, rows whose last cells are empty come back
+    # shorter than the header; pad them, and skip rows that are entirely empty.
+    body = [list(r[:len(header)]) + [None] * (len(header) - len(r)) for r in rows[1:]]
+    body = [r for r in body if any(v not in (None, "") for v in r)]
+    df = pd.DataFrame(body, columns=header)
     for col in ("label", "final_label"):
         if col in df.columns:
             df[col] = df[col].map(lambda v: str(v).strip() if v is not None and str(v).strip() else None)
