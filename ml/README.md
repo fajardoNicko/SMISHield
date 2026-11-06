@@ -63,7 +63,7 @@ already entered there are kept). To train before every message is settled,
 INTERIM:
 
 ```
-python ml/finalize_labels.py --r1 "Data/20%/agreement_sort(1).xlsx" --r2 "Data/20%/saiah-and-nina.xlsx" --main "Data/80%/YURI & NIWAY #2.xlsx" "Data/80%/batch-2-saiah-and-nina.xlsx" --interim
+python ml/finalize_labels.py --r1 "Data/20%/<R1>.xlsx" --r2 "Data/20%/<R2>.xlsx" --main "Data/80%/<R1>.xlsx" "Data/80%/<R2>.xlsx" --interim
 python ml/train.py --data ml/data/labeled/interim_labeled.csv --label-status interim
 ```
 

@@ -21,7 +21,7 @@ Run it again after each step; it reports what is still missing.
 
 Options:
   --r1 / --r2   read the two agreement workbooks from another folder, e.g.
-                --r1 "Data/20%/agreement_sort(1).xlsx" --r2 "Data/20%/saiah-and-nina.xlsx"
+                --r1 "Data/20%/<R1>.xlsx" --r2 "Data/20%/<R2>.xlsx"
   --main        the main set's workbook, or two workbooks when the main set was
                 also labelled by both annotators (give them in the same
                 annotator order as --r1/--r2)
