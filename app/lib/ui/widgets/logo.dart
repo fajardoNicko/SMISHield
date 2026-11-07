@@ -106,7 +106,8 @@ class _LogoPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
-/// "SMISH" + "SHIELD" with the tag line underneath.
+/// The name "SMISHield" with "SHield" in blue (SMISHing + sHIELD share the
+/// "SH"), and the tag line underneath.
 class Wordmark extends StatelessWidget {
   const Wordmark({super.key, required this.strings, this.scale = 1});
 
@@ -130,11 +131,11 @@ class Wordmark extends StatelessWidget {
               ),
               children: [
                 TextSpan(
-                  text: 'SMISH',
+                  text: 'SMI',
                   style: TextStyle(color: first),
                 ),
                 const TextSpan(
-                  text: 'SHIELD',
+                  text: 'SHield',
                   style: TextStyle(color: Palette.brandBlue),
                 ),
               ],
