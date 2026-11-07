@@ -26,3 +26,7 @@ ml/annotation/
 # OS / editors
 .DS_Store
 Thumbs.db
+
+# Built APKs to share, and rendered screen previews (re-create: see app/README.md)
+/dist/
+app/screenshots/shots/

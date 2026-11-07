@@ -11,7 +11,7 @@ SMS inbox and works offline.
 | Path | What it is |
 |---|---|
 | `ml/` | Python pipeline: preprocessing, TF-IDF + Multinomial Naive Bayes training, evaluation reports, model export. See [ml/README.md](ml/README.md). |
-| `app/` | Flutter (Dart) Android app. |
+| `app/` | Flutter (Dart) Android app: local accounts, analysis, history, tips, profile and settings screens. See [app/README.md](app/README.md). |
 | `app/lib/ml/` | On-device analysis: preprocessing and inference identical to the Python pipeline, rule-based warning signs, explanations in English and Filipino. |
 | `app/assets/model/` | The exported model the app loads. |
 
