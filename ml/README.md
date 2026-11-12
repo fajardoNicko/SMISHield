@@ -6,9 +6,10 @@ classifies Filipino and Taglish SMS messages as **Safe**, **Suspicious** or
 model for the Android app.
 
 > **The bundled model is trained on INTERIM labels**: the researchers' manual
-> labels, but only for the messages both annotators agreed on; the 176 still
-> waiting for adjudication are left out. Its numbers must not be reported.
-> Retrain once adjudication is finished (step 4 below).
+> labels for the Kaggle messages both annotators agreed on (the 176 still
+> waiting for adjudication are left out) plus the first VCSMS submissions,
+> labelled once. Its numbers must not be reported. Retrain once adjudication
+> is finished (step 4 below).
 
 How messages are labelled, and the published sources behind the method, are
 in **[LABELING_GUIDE.md](LABELING_GUIDE.md)**. Where the data comes from and
@@ -67,11 +68,44 @@ python ml/finalize_labels.py --r1 "Data/20%/<R1>.xlsx" --r2 "Data/20%/<R2>.xlsx"
 python ml/train.py --data ml/data/labeled/interim_labeled.csv --label-status interim
 ```
 
+**VCSMS submissions** (private: student data never enters the repository).
+Put the Google Form export in `Data/vcsms/` and run:
+
+```
+python ml/prepare_vcsms.py "Data/vcsms/<export>.xlsx"
+```
+
+This redacts the messages, gives them ids (`VC-00001`, ...), and writes the
+labelled ones to `ml/data/private/vcsms_labeled.csv`. It also writes a blank
+copy, `ml/annotation/vcsms_R2.xlsx`, for a second annotator.
+
+**Synthetic messages (training only).** Synthetic messages fill gaps in the
+collected data: everyday personal texts, and the same promo sent with an
+official link and with a look-alike link. Pass them with `--train-only`. They
+are added to the training set only, after removing any that repeat or nearly
+repeat a real message. Validation and test stay 100% real, and the reports and
+the model file record how many were used. Report them in Chapter 3, for
+example:
+
+> To cover message types missing from the collected data (everyday personal
+> texts, and scams that differ from genuine promotions only in their link),
+> N synthetic messages were written and labelled by the researchers with the
+> same codebook. They were used for training only; the validation and test
+> sets contain only real messages (Feng et al., 2021).
+
+Feng, S. Y., Gangal, V., Wei, J., Chandar, S., Vosoughi, S., Mitamura, T., &
+Hovy, E. (2021). A survey of data augmentation approaches for NLP. In
+*Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021*
+(pp. 968–988). https://doi.org/10.18653/v1/2021.findings-acl.84
+
 **5. Train and evaluate:**
 
 ```
-python ml/train.py --data ml/data/labeled/public_sms_labeled.csv
+python ml/train.py --data ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv --train-only ml/data/private/synthetic_labeled.csv
 ```
+
+Several `--data` files are combined before the split, which is stratified
+by label and source. The reports show the test results for each source.
 
 Until step 4 is done, a provisional model can be trained from the suggested
 labels. Its reports are marked PROVISIONAL:

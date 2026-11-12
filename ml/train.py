@@ -2,13 +2,16 @@
 
 Run from the repository root:
 
-    python ml/train.py --data path/to/dataset.csv
+    python ml/train.py --data path/to/dataset.csv [more.csv ...] [--train-only synthetic.csv]
 
 What it does:
-  1. Loads the labelled dataset (CSV or XLSX; Safe / Suspicious / High Risk).
+  1. Loads the labelled datasets (CSV or XLSX; Safe / Suspicious / High Risk).
   2. Drops duplicate and near-duplicate messages (listed in the reports).
   3. Splits 70:10:20 into training, validation and test sets, stratified by
-     label (fixed seed, so results are repeatable).
+     label and source (fixed seed, so results are repeatable).
+     --train-only files (e.g. synthetic messages) are added to the training
+     set only, after removing any that duplicate or nearly duplicate a real
+     message, so validation and testing use real messages only.
   4. Fits every candidate TF-IDF / Multinomial Naive Bayes setting on the
      training set and keeps the one with the best macro F1 on the validation
      set. The test set is not used for any choice.
@@ -32,15 +35,19 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 
 from smishield_ml import CLASSES
-from smishield_ml.dataset import deduplicate, load_dataset
+from smishield_ml.dataset import _jaccard, deduplicate, load_dataset
 from smishield_ml.exported_model import ExportedModel, export_model
 from smishield_ml.metrics import evaluate
-from smishield_ml.preprocess import PREPROCESSING_VERSION, tokenize
+from smishield_ml.preprocess import PREPROCESSING_VERSION, normalize, tokenize
 
 REPO = Path(__file__).resolve().parent.parent
 DEFAULT_MODEL_OUT = REPO / "app" / "assets" / "model" / "smishield_model.json"
 DEFAULT_PARITY_OUT = REPO / "app" / "test" / "fixtures" / "model_parity_cases.json"
 DEFAULT_REPORTS = REPO / "ml" / "reports"
+
+# Only messages from these public sources may go into the parity fixture, which
+# is committed; VCSMS submissions are private.
+PUBLIC_SOURCES = {"tagalog-sms", "ph-spam-scam"}
 
 DEFAULT_PARAMS = {"tfidf__ngram_range": (1, 2), "tfidf__sublinear_tf": True,
                   "nb__alpha": 0.1, "nb__fit_prior": True}
@@ -77,6 +84,7 @@ PARITY_EDGE_CASES = [
     "Sobrang gandaaaa ng araw, pleaseeee reply",
     "Héllo, pañuelo at ÉXITO",
     "Mag-log-in sa 192.168.10.1:8080/admin para ma-verify",
+    "Redeem at smartan.help/rewards or smartp.bond/ph today",
     "Don’t share your OTP 123456 with anyone. ‘Wag ibigay.",
     "Hi po​mama,\tnasaan\nka?",
     "gcash.com.ph/promo and shorturl.at/abc12 and t.co/x",
@@ -95,6 +103,37 @@ PARITY_EDGE_CASES = [
     "Visit ltoviolation(.)com or come.to/BDO and kol.vin/x",
     "<REAL NAME>, join sigebet1 dot com or bonus.lc and asace.wang/p",
 ]
+
+
+def load_all(paths, text_col=None, label_col=None):
+    parts = []
+    for path in paths:
+        part = load_dataset(path, text_col, label_col)
+        part.loc[part["source"] == "unknown", "source"] = Path(path).stem
+        parts.append(part)
+    return pd.concat(parts, ignore_index=True)
+
+
+def drop_overlap(extra, real, threshold):
+    """Removes extra messages that repeat or nearly repeat a real message."""
+    real_norm = [normalize(m) for m in real["message"]]
+    real_exact = set(real_norm)
+    real_sets = [set(n.split()) for n in real_norm]
+    keep, dropped = [], []
+    for i, message in extra["message"].items():
+        norm = normalize(message)
+        tokens = set(norm.split())
+        if norm in real_exact or (threshold > 0 and any(_jaccard(tokens, r) >= threshold for r in real_sets)):
+            dropped.append({**extra.loc[i], "reason": "training-only message too close to a real message"})
+        else:
+            keep.append(i)
+    return extra.loc[keep].reset_index(drop=True), pd.DataFrame(dropped)
+
+
+def strata(df):
+    """Label and source, when every combination is big enough to split; else label."""
+    key = df["label"] + " | " + df["source"]
+    return key if df["source"].nunique() > 1 and key.value_counts().min() >= 10 else df["label"]
 
 
 def build_pipeline():
@@ -160,10 +199,14 @@ def write_summary(path, info, metrics, params, val_f1, by_source):
         f"- Dataset: `{info['source']}` (labels: {info['label_status']})",
         f"- Messages loaded: {info['messages_loaded']}; after removing duplicates: {info['messages_used']}",
         f"- Training / validation / test: {info['train_size']} / {info['val_size']} / {info['test_size']} "
-        f"(70:10:20, stratified by label, seed {info['seed']})",
+        f"(70:10:20 of the real messages, stratified, seed {info['seed']})",
         "- Class counts (all / training / validation / test): "
         + "; ".join(f"{c}: {info['class_counts'][c]} / {info['train_counts'][c]} / "
                     f"{info['val_counts'][c]} / {info['test_counts'][c]}" for c in CLASSES),
+        *([f"- **Training only:** {info['train_only_size']} messages from `{info['train_only_source']}` ("
+           + ", ".join(f"{c} {info['train_only_counts'][c]}" for c in CLASSES)
+           + "), added to the training set; validation and test contain real messages only"]
+          if info["train_only_size"] else []),
         f"- Settings chosen on the validation set (macro F1 {val_f1:.4f}): n-grams "
         f"{tuple(params['tfidf__ngram_range'])}, sublinear TF {params['tfidf__sublinear_tf']}, "
         f"alpha {params['nb__alpha']}, learned class priors {params['nb__fit_prior']}",
@@ -224,7 +267,11 @@ def write_summary(path, info, metrics, params, val_f1, by_source):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--data", required=True, help="CSV or XLSX file with message and label columns")
+    parser.add_argument("--data", required=True, nargs="+",
+                        help="CSV or XLSX files with message and label columns (real messages)")
+    parser.add_argument("--train-only", nargs="*", default=[],
+                        help="files added to the training set only, never validation or test "
+                             "(e.g. synthetic messages)")
     parser.add_argument("--text-col", help="name of the message column (auto-detected if omitted)")
     parser.add_argument("--label-col", help="name of the label column (auto-detected if omitted)")
     parser.add_argument("--val-size", type=float, default=0.1, help="share of all messages used for validation")
@@ -241,23 +288,34 @@ def main():
     parser.add_argument("--reports-dir", type=Path, default=DEFAULT_REPORTS)
     args = parser.parse_args()
 
-    data_path = Path(args.data)
+    data_paths = [Path(p) for p in args.data]
     status = args.label_status or (
-        "placeholder" if "placeholder" in data_path.name.lower()
+        "placeholder" if any("placeholder" in p.name.lower() for p in data_paths)
         else "provisional" if (args.label_col or "").lower().startswith("provisional")
         else "final"
     )
 
-    print(f"Loading {data_path} ...")
-    raw = load_dataset(data_path, args.text_col, args.label_col)
+    print(f"Loading {', '.join(str(p) for p in data_paths)} ...")
+    raw = load_all(data_paths, args.text_col, args.label_col)
     clean, dropped = deduplicate(raw, args.near_dup_threshold)
     print(f"  {len(raw)} messages loaded, {len(dropped)} dropped as duplicates, {len(clean)} used")
+    print("  by source: " + ", ".join(f"{s} {n}" for s, n in clean["source"].value_counts().items()))
 
     rest, test = train_test_split(clean, test_size=args.test_size,
-                                  stratify=clean["label"], random_state=args.seed)
+                                  stratify=strata(clean), random_state=args.seed)
     train, val = train_test_split(rest, test_size=args.val_size / (1 - args.test_size),
-                                  stratify=rest["label"], random_state=args.seed)
-    x_train, y_train = train["message"], train["label"]
+                                  stratify=strata(rest), random_state=args.seed)
+
+    extra = pd.DataFrame(columns=["message", "label", "source"])
+    if args.train_only:
+        loaded = load_all(args.train_only)
+        extra, extra_dupes = deduplicate(loaded, args.near_dup_threshold)
+        extra, overlap = drop_overlap(extra, clean, args.near_dup_threshold)
+        dropped = pd.concat([dropped, extra_dupes, overlap], ignore_index=True)
+        print(f"  training only: {len(loaded)} loaded, {len(extra_dupes)} duplicates and "
+              f"{len(overlap)} too close to a real message dropped, {len(extra)} added")
+    fit = pd.concat([train, extra], ignore_index=True)
+    x_train, y_train = fit["message"], fit["label"]
     x_test, y_test = test["message"], test["label"]
 
     print("Training TF-IDF + Multinomial Naive Bayes ...")
@@ -285,7 +343,7 @@ def main():
 
     counts = lambda s: {c: int((s == c).sum()) for c in CLASSES}  # noqa: E731
     info = {
-        "source": data_path.name,
+        "source": " + ".join(p.name for p in data_paths),
         "label_status": status,
         "seed": args.seed,
         "messages_loaded": len(raw),
@@ -294,7 +352,10 @@ def main():
         "val_size": len(val),
         "test_size": len(test),
         "class_counts": counts(clean["label"]),
-        "train_counts": counts(y_train),
+        "train_counts": counts(train["label"]),
+        "train_only_source": " + ".join(Path(p).name for p in args.train_only),
+        "train_only_size": len(extra),
+        "train_only_counts": counts(extra["label"]),
         "val_counts": counts(val["label"]),
         "test_counts": counts(y_test),
     }
@@ -322,7 +383,8 @@ def main():
         sys.exit(f"Exported model differs from scikit-learn by {worst:.2e}")
     print(f"  export check vs scikit-learn: max difference {worst:.1e}")
 
-    parity_texts = PARITY_EDGE_CASES + list(x_test.iloc[:40])
+    public_test = [t for t, s in zip(x_test, test["source"]) if s in PUBLIC_SOURCES]
+    parity_texts = PARITY_EDGE_CASES + public_test[:40]
     parity = {
         "preprocessing_version": PREPROCESSING_VERSION,
         "model_created_at": exported.data["created_at"],
@@ -352,7 +414,8 @@ def main():
                                 "actual": list(y_test), "predicted": list(y_pred)})
     predictions["correct"] = predictions["actual"] == predictions["predicted"]
     pd.concat([predictions, proba.round(4)], axis=1).to_csv(reports / "test_predictions.csv", index=False, encoding="utf-8-sig")
-    split = pd.concat([train.assign(split="train"), val.assign(split="validation"), test.assign(split="test")])
+    split = pd.concat([train.assign(split="train"), extra.assign(split="train (training only)"),
+                       val.assign(split="validation"), test.assign(split="test")])
     split.to_csv(reports / "train_val_test_split.csv", index=False, encoding="utf-8-sig")
     dropped.to_csv(reports / "dropped_duplicates.csv", index=False, encoding="utf-8-sig")
     write_summary(reports / "summary.md", info, metrics, params, val_f1, by_source)
