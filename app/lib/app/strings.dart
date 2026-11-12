@@ -248,12 +248,25 @@ class Strings {
         'inuuna ng SMISHield ang iyong privacy habang tinutulungan kang maprotektahan laban sa '
         'scam, phishing, at mapanlinlang na SMS.',
   );
-  String modelInfo(int messages, bool isFinal) => _t(
-    'Model: TF-IDF + Multinomial Naive Bayes, trained on $messages labelled messages'
-        '${isFinal ? '' : ' (interim labels, still being finalized)'}.',
-    'Model: TF-IDF + Multinomial Naive Bayes, sinanay sa $messages na may label na mensahe'
-        '${isFinal ? '' : ' (pansamantalang label, tinatapos pa)'}.',
-  );
+  String modelInfo(int messages, bool isFinal, {int synthetic = 0}) {
+    final status = isFinal
+        ? ''
+        : _t(
+            ' (interim labels, still being finalized)',
+            ' (pansamantalang label, tinatapos pa)',
+          );
+    final extra = synthetic == 0
+        ? ''
+        : _t(
+            ' plus $synthetic synthetic messages',
+            ' at $synthetic synthetic na mensahe',
+          );
+    return _t(
+      'Model: TF-IDF + Multinomial Naive Bayes, trained on $messages real labelled messages$extra$status.',
+      'Model: TF-IDF + Multinomial Naive Bayes, sinanay sa $messages totoong mensaheng may label$extra$status.',
+    );
+  }
+
   String get versionInfo =>
       _t('Version 0.1.0 (preview)', 'Bersyon 0.1.0 (preview)');
   String get darkModeLabel => 'Dark Mode';

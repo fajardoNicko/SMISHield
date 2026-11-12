@@ -1,6 +1,6 @@
 {
- "preprocessing_version": 3,
- "model_created_at": "2026-11-06T12:36:03+00:00",
+ "preprocessing_version": 4,
+ "model_created_at": "2026-11-12T13:03:01+00:00",
  "cases": [
   {
    "text": "URGENT!!! Your BPI account has been LOCKED. Verify now at https://bpi-secure-login.com/verify?id=123",
@@ -22,9 +22,9 @@
     "com"
    ],
    "probabilities": [
-    0.1902794861991604,
-    0.011146929778008534,
-    0.7985735840228311
+    0.03144535531737967,
+    0.0009550565215658552,
+    0.9675995881610544
    ]
   },
   {
@@ -41,9 +41,9 @@
     "mo"
    ],
    "probabilities": [
-    0.0028938391355264764,
-    0.9970034041375468,
-    0.00010275672692672406
+    0.0016462491882941418,
+    0.9983240650280812,
+    2.968578362471996e-05
    ]
   },
   {
@@ -58,9 +58,9 @@
     "tokphone"
    ],
    "probabilities": [
-    0.9989428705267933,
-    0.0005577613361795958,
-    0.0004993681370271032
+    0.9991001900078569,
+    0.0003813881031208719,
+    0.0005184218890221727
    ]
   },
   {
@@ -76,9 +76,9 @@
     "tokphone"
    ],
    "probabilities": [
-    0.9953472162640056,
-    0.003957908979166863,
-    0.000694874756827512
+    0.99513241056057,
+    0.0031895606847009315,
+    0.001678028754729059
    ]
   },
   {
@@ -97,9 +97,9 @@
     "fee"
    ],
    "probabilities": [
-    0.01023900315332902,
-    0.9893832205519819,
-    0.0003777762946890626
+    0.0021331477147724432,
+    0.9978304956113345,
+    3.6356673893134e-05
    ]
   },
   {
@@ -114,9 +114,9 @@
     "po"
    ],
    "probabilities": [
-    0.9281945896392666,
-    0.044748454403944406,
-    0.02705695595678889
+    0.9034213218673174,
+    0.055521860983260535,
+    0.04105681714942203
    ]
   },
   {
@@ -130,9 +130,9 @@
     "reply"
    ],
    "probabilities": [
-    0.22939542687531336,
-    0.7656588087719106,
-    0.004945764352775977
+    0.7334528798135176,
+    0.24566008933714936,
+    0.020887030849333094
    ]
   },
   {
@@ -144,9 +144,9 @@
     "exito"
    ],
    "probabilities": [
-    0.03398625672451079,
-    0.9537328595247875,
-    0.01228088375070164
+    0.06434341189610747,
+    0.9213205840707333,
+    0.014336004033159377
    ]
   },
   {
@@ -166,9 +166,29 @@
     "verify"
    ],
    "probabilities": [
-    0.10853059352003153,
-    0.8909745892660768,
-    0.0004948172138916395
+    0.03373946516338352,
+    0.9656371369042898,
+    0.0006233979323267107
+   ]
+  },
+  {
+   "text": "Redeem at smartan.help/rewards or smartp.bond/ph today",
+   "tokens": [
+    "redeem",
+    "at",
+    "tokurl",
+    "smartan",
+    "help",
+    "or",
+    "tokurl",
+    "smartp",
+    "bond",
+    "today"
+   ],
+   "probabilities": [
+    0.9800981314295355,
+    0.007405973781855259,
+    0.012495894788609184
    ]
   },
   {
@@ -185,9 +205,9 @@
     "ibigay"
    ],
    "probabilities": [
-    0.9999834112642454,
-    2.650466486236748e-06,
-    1.393826926831193e-05
+    0.9999926957359087,
+    3.1885797767755105e-06,
+    4.115684314536778e-06
    ]
   },
   {
@@ -200,9 +220,9 @@
     "ka"
    ],
    "probabilities": [
-    0.8363712993930383,
-    0.1629195622480541,
-    0.000709138358907473
+    0.5813351682052095,
+    0.417021074616843,
+    0.0016437571779475439
    ]
   },
   {
@@ -220,9 +240,9 @@
     "tokshorturl"
    ],
    "probabilities": [
-    0.7831787089658445,
-    0.030152473635134736,
-    0.18666881739902086
+    0.7988689466553927,
+    0.014633933678254435,
+    0.18649711966635296
    ]
   },
   {
@@ -231,9 +251,9 @@
     "congrats"
    ],
    "probabilities": [
-    0.5019369309124924,
-    0.4855107731387907,
-    0.012552295948716919
+    0.43060979333224547,
+    0.5616929535679478,
+    0.007697253099806742
    ]
   },
   {
@@ -242,9 +262,9 @@
     "toknum"
    ],
    "probabilities": [
-    0.5394330959063193,
-    0.4557624868798935,
-    0.004804417213787195
+    0.4855639251635292,
+    0.5045396929929975,
+    0.009896381843473362
    ]
   },
   {
@@ -256,9 +276,9 @@
     "salamat"
    ],
    "probabilities": [
-    0.9434358559358436,
-    0.021141795819852763,
-    0.03542234824430368
+    0.9505560997486984,
+    0.021879032534460992,
+    0.027564867716840566
    ]
   },
   {
@@ -273,9 +293,9 @@
     "lang"
    ],
    "probabilities": [
-    0.13578020265931254,
-    0.860839979895013,
-    0.0033798174456744724
+    0.3463330320046066,
+    0.6525006765117487,
+    0.0011662914836447717
    ]
   },
   {
@@ -290,18 +310,18 @@
     "tokmoney"
    ],
    "probabilities": [
-    0.07970536268760067,
-    0.9020539002882346,
-    0.01824073702416475
+    0.10827547964937127,
+    0.8550579612357596,
+    0.036666559114869095
    ]
   },
   {
    "text": "",
    "tokens": [],
    "probabilities": [
-    0.5346106304149544,
-    0.43139678614827676,
-    0.03399258343676889
+    0.531547619052481,
+    0.4255952380916793,
+    0.04285714285583959
    ]
   },
   {
@@ -311,9 +331,9 @@
     "ñoño"
    ],
    "probabilities": [
-    0.5346106304149544,
-    0.43139678614827676,
-    0.03399258343676889
+    0.531547619052481,
+    0.4255952380916793,
+    0.04285714285583959
    ]
   },
   {
@@ -332,9 +352,9 @@
     "is"
    ],
    "probabilities": [
-    0.9859701219032907,
-    0.0021639414978099434,
-    0.011865936598899344
+    0.9874176851234666,
+    0.008572424981780655,
+    0.0040098898947526695
    ]
   },
   {
@@ -348,9 +368,9 @@
     "com"
    ],
    "probabilities": [
-    0.9409547923607076,
-    0.017432075560586867,
-    0.04161313207870565
+    0.9446420553503028,
+    0.009359071174478989,
+    0.04599887347521836
    ]
   },
   {
@@ -364,9 +384,9 @@
     "xyz"
    ],
    "probabilities": [
-    0.8321939918298323,
-    0.12220098032149679,
-    0.045605027848670945
+    0.8669589145956575,
+    0.1100041900144229,
+    0.023036895389919633
    ]
   },
   {
@@ -385,9 +405,9 @@
     "toknum"
    ],
    "probabilities": [
-    0.8949386914131339,
-    0.10442421983216446,
-    0.0006370887547015765
+    0.9584823297659354,
+    0.03972797404249342,
+    0.0017896961915712648
    ]
   },
   {
@@ -413,9 +433,9 @@
     "gb"
    ],
    "probabilities": [
-    1.238487962770387e-05,
-    0.9999148178338491,
-    7.279728652320278e-05
+    1.0303727268738794e-05,
+    0.9999553234287085,
+    3.4372844022740894e-05
    ]
   },
   {
@@ -435,9 +455,9 @@
     "vin"
    ],
    "probabilities": [
-    0.004873169111514398,
-    0.02792068809887034,
-    0.9672061427896151
+    0.00016667486319654537,
+    0.0006609828879893031,
+    0.999172342248814
    ]
   },
   {
@@ -459,211 +479,210 @@
     "wang"
    ],
    "probabilities": [
-    2.068654151483417e-05,
-    0.9679409977828678,
-    0.032038315675617386
+    8.840300346325933e-05,
+    0.9537484942726839,
+    0.04616310272385287
    ]
   },
   {
-   "text": "<REAL NAME>, Jackpotcity is fantastic site usability and you recieve welcome offers upt to 50% daily bonus click here! and register now @ jackpotcitybets.com",
+   "text": "Sign up for a random free reward,up to P1688,minimum P22,no strings attached,Act Now!\n\nauvip.eu\n\nGet another P188 for downloading the app!",
    "tokens": [
-    "tokname",
-    "jackpotcity",
-    "is",
-    "fantastic",
-    "site",
-    "usability",
-    "and",
-    "you",
-    "recieve",
-    "welcome",
-    "offers",
-    "upt",
+    "sign",
+    "up",
+    "for",
+    "a",
+    "random",
+    "free",
+    "reward",
+    "up",
     "to",
-    "toknum",
-    "daily",
-    "bonus",
-    "click",
-    "here",
-    "and",
-    "register",
+    "tokmoney",
+    "minimum",
+    "tokmoney",
+    "no",
+    "strings",
+    "attached",
+    "act",
     "now",
     "tokurl",
-    "jackpotcitybets",
-    "com"
-   ],
-   "probabilities": [
-    2.6596345959069725e-05,
-    0.9999683709694828,
-    5.032684558114894e-06
-   ]
-  },
-  {
-   "text": "[BDO-ALERT] Your account is on hold please verify here: www.onlinebdo-banking.online if your registered number is still active.",
-   "tokens": [
-    "bdo",
-    "alert",
-    "your",
-    "account",
-    "is",
-    "on",
-    "hold",
-    "please",
-    "verify",
-    "here",
-    "tokurl",
-    "onlinebdo",
-    "banking",
-    "online",
-    "if",
-    "your",
-    "registered",
-    "number",
-    "is",
-    "still",
-    "active"
-   ],
-   "probabilities": [
-    6.705987195022654e-07,
-    1.1397656742380436e-09,
-    0.9999993282615147
-   ]
-  },
-  {
-   "text": "Ka-LBC! Your shipment 139697032101 was released to SG TAMBOONG, GUARD ON DUTY/S/G OIC|HandHeld on 19-08-2021. Share your experience, click bit.ly/CSATPh. Thanks",
-   "tokens": [
-    "ka",
-    "lbc",
-    "your",
-    "shipment",
-    "toknum",
-    "was",
-    "released",
-    "to",
-    "sg",
-    "tamboong",
-    "guard",
-    "on",
-    "duty",
-    "s",
-    "g",
-    "oic",
-    "handheld",
-    "on",
-    "toknum",
-    "toknum",
-    "toknum",
-    "share",
-    "your",
-    "experience",
-    "click",
-    "tokurl",
-    "tokshorturl",
-    "thanks"
-   ],
-   "probabilities": [
-    0.9997309000023686,
-    0.0001931004350919849,
-    7.599956253926014e-05
-   ]
-  },
-  {
-   "text": "P158 mobile freebie, iyo na ngayon! Plus, hanggang P1188 bonus sa unang deposito. 2cbraah00ildlvg1o.bonus.lc",
-   "tokens": [
+    "auvip",
+    "eu",
+    "get",
+    "another",
     "tokmoney",
-    "mobile",
-    "freebie",
-    "iyo",
-    "na",
-    "ngayon",
-    "plus",
-    "hanggang",
-    "tokmoney",
-    "bonus",
-    "sa",
-    "unang",
-    "deposito",
-    "tokurl",
-    "toknum",
-    "cbraah",
-    "toknum",
-    "ildlvgio",
-    "bonus",
-    "lc"
+    "for",
+    "downloading",
+    "the",
+    "app"
    ],
    "probabilities": [
-    1.2273896575571373e-08,
-    0.9999838553651221,
-    1.6132360981456123e-05
+    0.0005975822688675507,
+    0.9992664621303365,
+    0.00013595560079598539
    ]
   },
   {
-   "text": "It's time to put your health first! Access health services 24/7 at home with KonsultaMD on GLife, and just pay safely with GCash! No advisories? Tap go.gcash.com/optout",
+   "text": "Hi, immediately withdraw 1999 p for free. login.   https://hya568.com",
    "tokens": [
-    "its",
-    "time",
-    "to",
-    "put",
-    "your",
-    "health",
-    "first",
-    "access",
-    "health",
-    "services",
+    "hi",
+    "immediately",
+    "withdraw",
     "toknum",
-    "toknum",
-    "at",
-    "home",
-    "with",
-    "konsultamd",
-    "on",
-    "glife",
-    "and",
-    "just",
-    "pay",
-    "safely",
-    "with",
-    "gcash",
-    "no",
-    "advisories",
-    "tap",
-    "tokurl",
-    "go",
-    "gcash",
-    "com"
-   ],
-   "probabilities": [
-    0.9999765071093526,
-    1.101866838978505e-06,
-    2.2391023808376646e-05
-   ]
-  },
-  {
-   "text": "mag deposit ka ng 100 at may FREE 168 ka:sv33.tv",
-   "tokens": [
-    "mag",
-    "deposit",
-    "ka",
-    "ng",
-    "toknum",
-    "at",
-    "may",
+    "p",
+    "for",
     "free",
-    "toknum",
-    "ka",
+    "login",
     "tokurl",
-    "sv",
+    "hya",
     "toknum",
-    "tv"
+    "com"
    ],
    "probabilities": [
-    2.3693287986353492e-05,
-    0.9999695370027336,
-    6.769709280069589e-06
+    7.618380154473235e-06,
+    0.9999776709773279,
+    1.4710642517548089e-05
    ]
   },
   {
-   "text": "22/05 21:02: P50.00 loaded to [PHONE] from [PHONE] for 1 year. Ref:8EM2JP4XJW !Use *123# or smrt.ph/GigaLifeApp to get DOUBLE GIGA: VIDEO OR STORIES!",
+   "text": "May promo pa rin? Sulitin mo na 'yan bago pa mag-expire! Expired na ang promo? Load your fave ALLNET 50 with just a tap sa https://smrt.ph/GetSmartApp o sa suking tindahan!",
+   "tokens": [
+    "may",
+    "promo",
+    "pa",
+    "rin",
+    "sulitin",
+    "mo",
+    "na",
+    "yan",
+    "bago",
+    "pa",
+    "mag",
+    "expire",
+    "expired",
+    "na",
+    "ang",
+    "promo",
+    "load",
+    "your",
+    "fave",
+    "allnet",
+    "toknum",
+    "with",
+    "just",
+    "a",
+    "tap",
+    "sa",
+    "tokurl",
+    "smrt",
+    "ph",
+    "o",
+    "sa",
+    "suking",
+    "tindahan"
+   ],
+   "probabilities": [
+    0.9999999698065143,
+    3.188228236455196e-09,
+    2.7005257354941247e-08
+   ]
+  },
+  {
+   "text": "Log in at forward sa FB para makakuha ng P38 ng libre cj78s.loan",
+   "tokens": [
+    "log",
+    "in",
+    "at",
+    "forward",
+    "sa",
+    "fb",
+    "para",
+    "makakuha",
+    "ng",
+    "tokmoney",
+    "ng",
+    "libre",
+    "cj",
+    "toknum",
+    "s",
+    "loan"
+   ],
+   "probabilities": [
+    4.206063301465987e-05,
+    0.9999531271052676,
+    4.812261717658882e-06
+   ]
+  },
+  {
+   "text": "Hi! As of 03/22/23 19:02, there is 13.20MB left from your SURF4ALL group promo. This is valid until 03/23/23 01:21.",
+   "tokens": [
+    "hi",
+    "as",
+    "of",
+    "toknum",
+    "toknum",
+    "toknum",
+    "toknum",
+    "toknum",
+    "there",
+    "is",
+    "toknum",
+    "toknum",
+    "mb",
+    "left",
+    "from",
+    "your",
+    "surfaall",
+    "group",
+    "promo",
+    "this",
+    "is",
+    "valid",
+    "until",
+    "toknum",
+    "toknum",
+    "toknum",
+    "toknum",
+    "toknum"
+   ],
+   "probabilities": [
+    0.999917425244334,
+    4.239357924276328e-06,
+    7.833539774166804e-05
+   ]
+  },
+  {
+   "text": "Starting June 1, 2021, the validity and expiration terms of GigaPoints will be updated. To know more, visit smrt.ph/gigapoints",
+   "tokens": [
+    "starting",
+    "june",
+    "toknum",
+    "toknum",
+    "the",
+    "validity",
+    "and",
+    "expiration",
+    "terms",
+    "of",
+    "gigapoints",
+    "will",
+    "be",
+    "updated",
+    "to",
+    "know",
+    "more",
+    "visit",
+    "tokurl",
+    "smrt",
+    "ph"
+   ],
+   "probabilities": [
+    0.9987153486682919,
+    5.031249317943981e-06,
+    0.0012796200823901563
+   ]
+  },
+  {
+   "text": "02/12 17:24: P60.00 loaded to [PHONE] from xxxxxxxx4306 for 1 year. Ref:9L27QQOAK1. Load EXTRA LOAD P75 & up to get EXTRA FREEBIES!",
    "tokens": [
     "toknum",
     "toknum",
@@ -674,33 +693,977 @@
     "to",
     "tokphone",
     "from",
+    "xx",
+    "toknum",
+    "for",
+    "toknum",
+    "year",
+    "ref",
+    "toknum",
+    "l",
+    "toknum",
+    "qqoak",
+    "toknum",
+    "load",
+    "extra",
+    "load",
+    "tokmoney",
+    "up",
+    "to",
+    "get",
+    "extra",
+    "freebies"
+   ],
+   "probabilities": [
+    0.9999999969597866,
+    1.9583125931746243e-09,
+    1.0819009152069136e-09
+   ]
+  },
+  {
+   "text": "<NAME>., GoJackpot's exclusive offers, Claim your 100% welcome bonus 777 + 3% deposit Bonus. Play now gojvip2.com",
+   "tokens": [
+    "tokname",
+    "gojackpots",
+    "exclusive",
+    "offers",
+    "claim",
+    "your",
+    "toknum",
+    "welcome",
+    "bonus",
+    "toknum",
+    "toknum",
+    "deposit",
+    "bonus",
+    "play",
+    "now",
+    "tokurl",
+    "gojvip",
+    "toknum",
+    "com"
+   ],
+   "probabilities": [
+    1.5283151859605097e-07,
+    0.9999995561109621,
+    2.910575191936088e-07
+   ]
+  },
+  {
+   "text": "<NAME>.! Win a Different prizes at unibetbonu1.com Deposit now to get a Real-time Rebate of up to 1%-1.5.",
+   "tokens": [
+    "tokname",
+    "win",
+    "a",
+    "different",
+    "prizes",
+    "at",
+    "tokurl",
+    "unibetbonu",
+    "toknum",
+    "com",
+    "deposit",
+    "now",
+    "to",
+    "get",
+    "a",
+    "real",
+    "time",
+    "rebate",
+    "of",
+    "up",
+    "to",
+    "toknum",
+    "toknum",
+    "toknum"
+   ],
+   "probabilities": [
+    0.0012426923810335423,
+    0.9987498970081006,
+    7.4106108658332125e-06
+   ]
+  },
+  {
+   "text": "Magparehistro para makakuha ng 7777, tumaya araw-araw: slots2.auction/sOMhSeq",
+   "tokens": [
+    "magparehistro",
+    "para",
+    "makakuha",
+    "ng",
+    "toknum",
+    "tumaya",
+    "araw",
+    "araw",
+    "tokurl",
+    "slots",
+    "toknum",
+    "auction"
+   ],
+   "probabilities": [
+    1.4155063651116715e-08,
+    0.9999999379036982,
+    4.794123821723431e-08
+   ]
+  },
+  {
+   "text": "Get a chance to win P5,000 Bench GCs and more at the Bench Baby & Kids Fair when you pay with Maya! Visit the Playground of Bench Tower, BGC from Sep 1-4.",
+   "tokens": [
+    "get",
+    "a",
+    "chance",
+    "to",
+    "win",
+    "tokmoney",
+    "bench",
+    "gcs",
+    "and",
+    "more",
+    "at",
+    "the",
+    "bench",
+    "baby",
+    "kids",
+    "fair",
+    "when",
+    "you",
+    "pay",
+    "with",
+    "maya",
+    "visit",
+    "the",
+    "playground",
+    "of",
+    "bench",
+    "tower",
+    "bgc",
+    "from",
+    "sep",
+    "toknum",
+    "toknum"
+   ],
+   "probabilities": [
+    0.9999672571795536,
+    2.9423512292994656e-05,
+    3.3193081534067905e-06
+   ]
+  },
+  {
+   "text": "29/07 16:04: P10.00 loaded to [PHONE] for 1 year. Ref:9GT3AZWREZ. Use GigaLife App for the best promos & deals! smrt.ph/GigaLifeApp",
+   "tokens": [
+    "toknum",
+    "toknum",
+    "toknum",
+    "toknum",
+    "tokmoney",
+    "loaded",
+    "to",
     "tokphone",
     "for",
     "toknum",
     "year",
     "ref",
     "toknum",
-    "em",
-    "toknum",
-    "jpaxjw",
+    "gteazwrez",
     "use",
-    "toknum",
-    "or",
+    "gigalife",
+    "app",
+    "for",
+    "the",
+    "best",
+    "promos",
+    "deals",
     "tokurl",
     "smrt",
-    "ph",
-    "to",
-    "get",
-    "double",
-    "giga",
-    "video",
-    "or",
-    "stories"
+    "ph"
    ],
    "probabilities": [
-    0.9999999999262832,
-    1.2910190448994702e-11,
-    6.08065890413798e-11
+    0.9999999999541032,
+    8.735784713536229e-12,
+    3.7161000433764666e-11
+   ]
+  },
+  {
+   "text": "Milyun-milyong manlalaro ang sabay-sabay na online, magrehistro kaagad para makakuha ng 8-888P http://fpin.u.dwx1.sbs/kOCJf6s",
+   "tokens": [
+    "milyun",
+    "milyong",
+    "manlalaro",
+    "ang",
+    "sabay",
+    "sabay",
+    "na",
+    "online",
+    "magrehistro",
+    "kaagad",
+    "para",
+    "makakuha",
+    "ng",
+    "toknum",
+    "toknum",
+    "p",
+    "tokurl",
+    "fpin",
+    "u",
+    "dwx",
+    "toknum",
+    "sbs"
+   ],
+   "probabilities": [
+    7.256452852336192e-05,
+    0.9999072286040709,
+    2.0206867405681444e-05
+   ]
+  },
+  {
+   "text": "Load at least P15 and get FREE 100 Allnet Calls + 100 Allnet Texts for 3 days FREEBIE namin ito, para sayo! Get it NOW until 02-June-2024 ONLY!",
+   "tokens": [
+    "load",
+    "at",
+    "least",
+    "tokmoney",
+    "and",
+    "get",
+    "free",
+    "toknum",
+    "allnet",
+    "calls",
+    "toknum",
+    "allnet",
+    "texts",
+    "for",
+    "toknum",
+    "days",
+    "freebie",
+    "namin",
+    "ito",
+    "para",
+    "sayo",
+    "get",
+    "it",
+    "now",
+    "until",
+    "toknum",
+    "june",
+    "toknum",
+    "only"
+   ],
+   "probabilities": [
+    0.9999973728267237,
+    2.1363452739618843e-06,
+    4.908280023077666e-07
+   ]
+  },
+  {
+   "text": "Bibigyan ka ng MAYA ng 100% na bonus sa iyong unang deposito 177bets.xyz",
+   "tokens": [
+    "bibigyan",
+    "ka",
+    "ng",
+    "maya",
+    "ng",
+    "toknum",
+    "na",
+    "bonus",
+    "sa",
+    "iyong",
+    "unang",
+    "deposito",
+    "tokurl",
+    "toknum",
+    "bets",
+    "xyz"
+   ],
+   "probabilities": [
+    1.758465730379529e-07,
+    0.9999995472502843,
+    2.769031426671232e-07
+   ]
+  },
+  {
+   "text": "Be smarter than a scammer: BDO will never ask to check your account through links. Use the official BDO app or type the official BDO web address in a browser.",
+   "tokens": [
+    "be",
+    "smarter",
+    "than",
+    "a",
+    "scammer",
+    "bdo",
+    "will",
+    "never",
+    "ask",
+    "to",
+    "check",
+    "your",
+    "account",
+    "through",
+    "links",
+    "use",
+    "the",
+    "official",
+    "bdo",
+    "app",
+    "or",
+    "type",
+    "the",
+    "official",
+    "bdo",
+    "web",
+    "address",
+    "in",
+    "a",
+    "browser"
+   ],
+   "probabilities": [
+    0.9997997668652056,
+    6.188780197149272e-08,
+    0.00020017124699249974
+   ]
+  },
+  {
+   "text": "Magparehistro para sa libreng ?7777, tumaya:?dice16.tw/mQH",
+   "tokens": [
+    "magparehistro",
+    "para",
+    "sa",
+    "libreng",
+    "toknum",
+    "tumaya",
+    "tokurl",
+    "dice",
+    "toknum",
+    "tw"
+   ],
+   "probabilities": [
+    9.192149732829003e-08,
+    0.9999989506198569,
+    9.574586457177873e-07
+   ]
+  },
+  {
+   "text": "Casino  sabong Slots Bingo Fish Free 1888P Good Luck Simulan ang Pagsali sa https://a22.pw/#",
+   "tokens": [
+    "casino",
+    "sabong",
+    "slots",
+    "bingo",
+    "fish",
+    "free",
+    "toknum",
+    "p",
+    "good",
+    "luck",
+    "simulan",
+    "ang",
+    "pagsali",
+    "sa",
+    "tokurl",
+    "a",
+    "toknum",
+    "pw"
+   ],
+   "probabilities": [
+    3.7812025024811718e-06,
+    0.9999938890115739,
+    2.3297859235370227e-06
+   ]
+  },
+  {
+   "text": "334 520 is your Instagram code. Don't share it. #ig",
+   "tokens": [
+    "toknum",
+    "toknum",
+    "is",
+    "your",
+    "instagram",
+    "code",
+    "dont",
+    "share",
+    "it",
+    "ig"
+   ],
+   "probabilities": [
+    0.9999718259196381,
+    8.648338116207032e-06,
+    1.9525742245770784e-05
+   ]
+  },
+  {
+   "text": "<REAL NAME>, Share More, Earn More: Lifetime Benefits up to P79,100 + Uncapped 1% Bonus at UNIBET! Visit uninowph0.com",
+   "tokens": [
+    "tokname",
+    "share",
+    "more",
+    "earn",
+    "more",
+    "lifetime",
+    "benefits",
+    "up",
+    "to",
+    "tokmoney",
+    "uncapped",
+    "toknum",
+    "bonus",
+    "at",
+    "unibet",
+    "visit",
+    "tokurl",
+    "uninowph",
+    "toknum",
+    "com"
+   ],
+   "probabilities": [
+    2.7700238000174933e-05,
+    0.9999546189957824,
+    1.7680766217408372e-05
+   ]
+  },
+  {
+   "text": "Mr/Ms <NAME>, claim your PALAWAN Express CBN-13-81593-ZAW at any Palawan Pawnshop/Palawan Express/Tambunting/LBC/SM/Robinsons.Bring ID.",
+   "tokens": [
+    "mr",
+    "ms",
+    "tokname",
+    "claim",
+    "your",
+    "palawan",
+    "express",
+    "cbn",
+    "toknum",
+    "toknum",
+    "zaw",
+    "at",
+    "any",
+    "palawan",
+    "pawnshop",
+    "palawan",
+    "express",
+    "tambunting",
+    "lbc",
+    "sm",
+    "robinsons",
+    "bring",
+    "id"
+   ],
+   "probabilities": [
+    0.9950476975299182,
+    0.000979198500191656,
+    0.0039731039698902345
+   ]
+  },
+  {
+   "text": "Nanalo ng Jackp0t! Nanalo ka ng Prize na P64,347! I-download na para makakuha ng P57 nang libre. Makakuha ng 128 libre para sa 1st Deposit. gghnm.dhaui.ca",
+   "tokens": [
+    "nanalo",
+    "ng",
+    "jackpot",
+    "nanalo",
+    "ka",
+    "ng",
+    "prize",
+    "na",
+    "tokmoney",
+    "i",
+    "download",
+    "na",
+    "para",
+    "makakuha",
+    "ng",
+    "tokmoney",
+    "nang",
+    "libre",
+    "makakuha",
+    "ng",
+    "toknum",
+    "libre",
+    "para",
+    "sa",
+    "toknum",
+    "st",
+    "deposit",
+    "tokurl",
+    "gghnm",
+    "dhaui",
+    "ca"
+   ],
+   "probabilities": [
+    4.207297664017433e-07,
+    0.9999995003642944,
+    7.890593934087231e-08
+   ]
+  },
+  {
+   "text": "You have paid P50.00 of GCash to purchase Php 50 load for [PHONE] on 10-31-22 06:37 AM. Your GCash balance is P304.52. Ref. No. 035920799.",
+   "tokens": [
+    "you",
+    "have",
+    "paid",
+    "tokmoney",
+    "of",
+    "gcash",
+    "to",
+    "purchase",
+    "tokmoney",
+    "load",
+    "for",
+    "tokphone",
+    "on",
+    "toknum",
+    "toknum",
+    "toknum",
+    "toknum",
+    "toknum",
+    "am",
+    "your",
+    "gcash",
+    "balance",
+    "is",
+    "tokmoney",
+    "ref",
+    "no",
+    "toknum"
+   ],
+   "probabilities": [
+    0.9999997397991194,
+    6.066054152087068e-10,
+    2.5959427523693206e-07
+   ]
+  },
+  {
+   "text": "Ikaw ang maswerteng 5JL\nMakatanggap ng P555 na \nbonus >>> ras525.pgwinwin.fi",
+   "tokens": [
+    "ikaw",
+    "ang",
+    "maswerteng",
+    "toknum",
+    "jl",
+    "makatanggap",
+    "ng",
+    "tokmoney",
+    "na",
+    "bonus",
+    "ras",
+    "toknum",
+    "pgwinwin",
+    "fi"
+   ],
+   "probabilities": [
+    2.873720973313641e-07,
+    0.9999990889436614,
+    6.236842412236536e-07
+   ]
+  },
+  {
+   "text": "Hello, new free money bonus 550 with no deposit condition, please login https://os5524.com/ to get free money 550 ! first come first served!!",
+   "tokens": [
+    "hello",
+    "new",
+    "free",
+    "money",
+    "bonus",
+    "toknum",
+    "with",
+    "no",
+    "deposit",
+    "condition",
+    "please",
+    "login",
+    "tokurl",
+    "os",
+    "toknum",
+    "com",
+    "to",
+    "get",
+    "free",
+    "money",
+    "toknum",
+    "first",
+    "come",
+    "first",
+    "served"
+   ],
+   "probabilities": [
+    5.715631024825115e-09,
+    0.9999998850139816,
+    1.0927038733325684e-07
+   ]
+  },
+  {
+   "text": "Dear BANCO DE ORO Customer,\n\nAccount re-verification needed due to a system update. Follow instructions at official.link/update.bdo.ph . Thank you for your coop",
+   "tokens": [
+    "dear",
+    "banco",
+    "de",
+    "oro",
+    "customer",
+    "account",
+    "re",
+    "verification",
+    "needed",
+    "due",
+    "to",
+    "a",
+    "system",
+    "update",
+    "follow",
+    "instructions",
+    "at",
+    "tokurl",
+    "official",
+    "link",
+    "thank",
+    "you",
+    "for",
+    "your",
+    "coop"
+   ],
+   "probabilities": [
+    2.2753509278490494e-09,
+    2.2209524029957116e-12,
+    0.9999999977224281
+   ]
+  },
+  {
+   "text": "With BDO Pay, you can enjoy free transfers to BDO accounts and only P10 via InstaPay for other banks or wallets. Download the BDO Pay app now to get 50 Peso Points upon sign up! 1 Peso Point = P1. T&Cs apply. DTI201874",
+   "tokens": [
+    "with",
+    "bdo",
+    "pay",
+    "you",
+    "can",
+    "enjoy",
+    "free",
+    "transfers",
+    "to",
+    "bdo",
+    "accounts",
+    "and",
+    "only",
+    "tokmoney",
+    "via",
+    "instapay",
+    "for",
+    "other",
+    "banks",
+    "or",
+    "wallets",
+    "download",
+    "the",
+    "bdo",
+    "pay",
+    "app",
+    "now",
+    "to",
+    "get",
+    "tokmoney",
+    "points",
+    "upon",
+    "sign",
+    "up",
+    "tokmoney",
+    "point",
+    "tokmoney",
+    "t",
+    "cs",
+    "apply",
+    "dti",
+    "toknum"
+   ],
+   "probabilities": [
+    0.999999899046387,
+    4.5145882136785776e-09,
+    9.643902493511577e-08
+   ]
+  },
+  {
+   "text": "Napili ang number na ito upang manalo ng P2874! Sumali sa zxcd.eu gamit ang number na ito at maglagay ng P100 upang ma-claim sa 24/7 customer support",
+   "tokens": [
+    "napili",
+    "ang",
+    "number",
+    "na",
+    "ito",
+    "upang",
+    "manalo",
+    "ng",
+    "tokmoney",
+    "sumali",
+    "sa",
+    "tokurl",
+    "zxcd",
+    "eu",
+    "gamit",
+    "ang",
+    "number",
+    "na",
+    "ito",
+    "at",
+    "maglagay",
+    "ng",
+    "tokmoney",
+    "upang",
+    "ma",
+    "claim",
+    "sa",
+    "toknum",
+    "toknum",
+    "customer",
+    "support"
+   ],
+   "probabilities": [
+    1.5047814119793361e-07,
+    0.9999619017676623,
+    3.794775419652873e-05
+   ]
+  },
+  {
+   "text": "Co in Makati needs Software Java Developer, knowledgeable in JAVA,  in design, development & implementation of software applications , can start asap, [EMAIL]",
+   "tokens": [
+    "co",
+    "in",
+    "makati",
+    "needs",
+    "software",
+    "java",
+    "developer",
+    "knowledgeable",
+    "in",
+    "java",
+    "in",
+    "design",
+    "development",
+    "implementation",
+    "of",
+    "software",
+    "applications",
+    "can",
+    "start",
+    "asap",
+    "tokemail"
+   ],
+   "probabilities": [
+    0.9994039968841801,
+    1.7478189475994372e-06,
+    0.0005942552968721962
+   ]
+  },
+  {
+   "text": "Suki, na-miss ka namin! Balik ka na dahil soon ay mas pabibilisin namin ang pag-login sa PalawanPay gamit ang Quick PIN!",
+   "tokens": [
+    "suki",
+    "na",
+    "miss",
+    "ka",
+    "namin",
+    "balik",
+    "ka",
+    "na",
+    "dahil",
+    "soon",
+    "ay",
+    "mas",
+    "pabibilisin",
+    "namin",
+    "ang",
+    "pag",
+    "login",
+    "sa",
+    "palawanpay",
+    "gamit",
+    "ang",
+    "quick",
+    "pin"
+   ],
+   "probabilities": [
+    0.9997322891516499,
+    0.00014614637376807605,
+    0.00012156447458203105
+   ]
+  },
+  {
+   "text": "Your Luck Awaits! Grab P3000 Gift today at GJP PH GoJPLucks.golf",
+   "tokens": [
+    "your",
+    "luck",
+    "awaits",
+    "grab",
+    "tokmoney",
+    "gift",
+    "today",
+    "at",
+    "gjp",
+    "ph",
+    "tokurl",
+    "gojplucks",
+    "golf"
+   ],
+   "probabilities": [
+    3.912030451723488e-05,
+    0.9998209739090699,
+    0.0001399057864129202
+   ]
+  },
+  {
+   "text": "Be the luckiest one and claim your free ?777 only today! tinyurl.com/5afw2des",
+   "tokens": [
+    "be",
+    "the",
+    "luckiest",
+    "one",
+    "and",
+    "claim",
+    "your",
+    "free",
+    "toknum",
+    "only",
+    "today",
+    "tokurl",
+    "tokshorturl"
+   ],
+   "probabilities": [
+    0.008547399685417912,
+    0.9826381410316114,
+    0.008814459282970595
+   ]
+  },
+  {
+   "text": "Good day from GCash,\n\nWe would like to inform you that your account is under review, we request you to verify your account to continually access our eWallet services.\n\nVerify here: \ntitan.is/GCashUpdateAdvisory",
+   "tokens": [
+    "good",
+    "day",
+    "from",
+    "gcash",
+    "we",
+    "would",
+    "like",
+    "to",
+    "inform",
+    "you",
+    "that",
+    "your",
+    "account",
+    "is",
+    "under",
+    "review",
+    "we",
+    "request",
+    "you",
+    "to",
+    "verify",
+    "your",
+    "account",
+    "to",
+    "continually",
+    "access",
+    "our",
+    "ewallet",
+    "services",
+    "verify",
+    "here",
+    "tokurl",
+    "titan",
+    "is"
+   ],
+   "probabilities": [
+    3.0834647195891196e-07,
+    1.7681694093955545e-11,
+    0.9999996916358462
+   ]
+  },
+  {
+   "text": "slotsph.tv/sq4 Join now for free deposit money and a chance to win big. Your gaming adventure starts here.",
+   "tokens": [
+    "tokurl",
+    "slotsph",
+    "tv",
+    "join",
+    "now",
+    "for",
+    "free",
+    "deposit",
+    "money",
+    "and",
+    "a",
+    "chance",
+    "to",
+    "win",
+    "big",
+    "your",
+    "gaming",
+    "adventure",
+    "starts",
+    "here"
+   ],
+   "probabilities": [
+    3.970727255072357e-05,
+    0.9999596394591611,
+    6.532682882293133e-07
+   ]
+  },
+  {
+   "text": "Mag-stream all day, everyday with Giga Video 50! Enjoy 1GB data + 1 GB/day for YouTube, iWanTFC & more. Mag-load na!",
+   "tokens": [
+    "mag",
+    "stream",
+    "all",
+    "day",
+    "everyday",
+    "with",
+    "giga",
+    "video",
+    "toknum",
+    "enjoy",
+    "toknum",
+    "gb",
+    "data",
+    "toknum",
+    "gb",
+    "day",
+    "for",
+    "youtube",
+    "iwantfc",
+    "more",
+    "mag",
+    "load",
+    "na"
+   ],
+   "probabilities": [
+    0.9999962129062823,
+    3.6073950264505406e-06,
+    1.7969869129960822e-07
+   ]
+  },
+  {
+   "text": "Hello, new free money bonus 777 with no deposit condition, please login http://5s30c.com to get free money 777 now",
+   "tokens": [
+    "hello",
+    "new",
+    "free",
+    "money",
+    "bonus",
+    "toknum",
+    "with",
+    "no",
+    "deposit",
+    "condition",
+    "please",
+    "login",
+    "tokurl",
+    "toknum",
+    "s",
+    "toknum",
+    "c",
+    "com",
+    "to",
+    "get",
+    "free",
+    "money",
+    "toknum",
+    "now"
+   ],
+   "probabilities": [
+    9.208959073068839e-09,
+    0.9999999759850179,
+    1.4806023113322617e-08
    ]
   },
   {
@@ -726,1271 +1689,177 @@
     "pjyel"
    ],
    "probabilities": [
-    0.9999997757571669,
-    1.6780875846069022e-07,
-    5.6434074576640137e-08
+    0.9999995921730862,
+    2.487767700752337e-07,
+    1.590501437550882e-07
    ]
   },
   {
-   "text": "Exclusive benefits are waiting for you! Get a free umbrella, T-shirt, hat, and P200 bonus! Join our Telegram: @SpinsPHLive",
+   "text": "Mag-shopping spree ka na with GGives installments dahil free ang last installment mo! Promo is available for 12 month installments at select stores. T&Cs apply. To learn more, login to GCash > tap Borrow > GGives > View More on our Special Offers.",
    "tokens": [
-    "exclusive",
-    "benefits",
-    "are",
-    "waiting",
-    "for",
-    "you",
-    "get",
-    "a",
-    "free",
-    "umbrella",
-    "t",
-    "shirt",
-    "hat",
-    "and",
-    "tokmoney",
-    "bonus",
-    "join",
-    "our",
-    "telegram",
-    "spinsphlive"
-   ],
-   "probabilities": [
-    0.009668341812694053,
-    0.9900609633212538,
-    0.0002706948660520815
-   ]
-  },
-  {
-   "text": "Link your chosen BDO account or card on the BDO Pay app to discover exclusive deals for you! Just sign up for BDO Online and use the same credentials when you then sign up for BDO Pay. Download now!",
-   "tokens": [
-    "link",
-    "your",
-    "chosen",
-    "bdo",
-    "account",
-    "or",
-    "card",
-    "on",
-    "the",
-    "bdo",
-    "pay",
-    "app",
-    "to",
-    "discover",
-    "exclusive",
-    "deals",
-    "for",
-    "you",
-    "just",
-    "sign",
-    "up",
-    "for",
-    "bdo",
-    "online",
-    "and",
-    "use",
-    "the",
-    "same",
-    "credentials",
-    "when",
-    "you",
-    "then",
-    "sign",
-    "up",
-    "for",
-    "bdo",
-    "pay",
-    "download",
-    "now"
-   ],
-   "probabilities": [
-    0.9999986103466767,
-    2.7382316845749483e-07,
-    1.1158301547734896e-06
-   ]
-  },
-  {
-   "text": "TIMES TWO NA ang Open Access Data. Surprise Introductory Sale! Get DOUBLE open access data pag nag subscribe ka sa Giga Video or Stories or Games 60 and 120. DOUBLE ang data para sa'yo, para mas masaya! Limited time only! Kaya load na sa inyong suking tindahan,*123#, SMART App at mga e-wallets.",
-   "tokens": [
-    "times",
-    "two",
-    "na",
-    "ang",
-    "open",
-    "access",
-    "data",
-    "surprise",
-    "introductory",
-    "sale",
-    "get",
-    "double",
-    "open",
-    "access",
-    "data",
-    "pag",
-    "nag",
-    "subscribe",
-    "ka",
-    "sa",
-    "giga",
-    "video",
-    "or",
-    "stories",
-    "or",
-    "games",
-    "toknum",
-    "and",
-    "toknum",
-    "double",
-    "ang",
-    "data",
-    "para",
-    "sayo",
-    "para",
-    "mas",
-    "masaya",
-    "limited",
-    "time",
-    "only",
-    "kaya",
-    "load",
-    "na",
-    "sa",
-    "inyong",
-    "suking",
-    "tindahan",
-    "toknum",
-    "smart",
-    "app",
-    "at",
-    "mga",
-    "e",
-    "wallets"
-   ],
-   "probabilities": [
-    0.9999999803397289,
-    2.0646645569264572e-09,
-    1.7595606444802753e-08
-   ]
-  },
-  {
-   "text": "1/2 27-Feb 14:59: [PHONE] ay nagpasa ng 500MB sa iyong account. Ang iyong available Pasa Data MB ay 1500.00. Ref:290877694751",
-   "tokens": [
-    "toknum",
-    "toknum",
-    "toknum",
-    "feb",
-    "toknum",
-    "toknum",
-    "tokphone",
-    "ay",
-    "nagpasa",
-    "ng",
-    "toknum",
-    "mb",
-    "sa",
-    "iyong",
-    "account",
-    "ang",
-    "iyong",
-    "available",
-    "pasa",
-    "data",
-    "mb",
-    "ay",
-    "toknum",
-    "toknum",
-    "ref",
-    "toknum"
-   ],
-   "probabilities": [
-    0.9999415997499491,
-    3.162545257015202e-05,
-    2.6774797480654543e-05
-   ]
-  },
-  {
-   "text": "28/01 18:39: P50.00 loaded to [PHONE] from [PHONE] for 1 year. Ref:9AS4KTBY6E. Use GigaLife App for the best promos & deals! smrt.ph/GigaLifeApp",
-   "tokens": [
-    "toknum",
-    "toknum",
-    "toknum",
-    "toknum",
-    "tokmoney",
-    "loaded",
-    "to",
-    "tokphone",
-    "from",
-    "tokphone",
-    "for",
-    "toknum",
-    "year",
-    "ref",
-    "toknum",
-    "asaktby",
-    "toknum",
-    "e",
-    "use",
-    "gigalife",
-    "app",
-    "for",
-    "the",
-    "best",
-    "promos",
-    "deals",
-    "tokurl",
-    "smrt",
-    "ph"
-   ],
-   "probabilities": [
-    0.9999999999124476,
-    5.2829140708624726e-11,
-    3.472317433188083e-11
-   ]
-  },
-  {
-   "text": "189637 is your verification code for JobYoDA. xZF4y9Z3qrl",
-   "tokens": [
-    "toknum",
-    "is",
-    "your",
-    "verification",
-    "code",
-    "for",
-    "jobyoda",
-    "xzfay",
-    "toknum",
-    "zeqrl"
-   ],
-   "probabilities": [
-    0.9997839468703351,
-    1.5342450798767473e-05,
-    0.0002007106788660435
-   ]
-  },
-  {
-   "text": "908147 is your OTP. Please enter this to confirm your CIMB Bank GSave account transaction.",
-   "tokens": [
-    "toknum",
-    "is",
-    "your",
-    "otp",
-    "please",
-    "enter",
-    "this",
-    "to",
-    "confirm",
-    "your",
-    "cimb",
-    "bank",
-    "gsave",
-    "account",
-    "transaction"
-   ],
-   "probabilities": [
-    0.9741011831219857,
-    2.7378900619145516e-06,
-    0.02589607898795232
-   ]
-  },
-  {
-   "text": "Dumoble ang deposit ! Dito lamang sa PanaloKa! 2,000 mo ay magiging 4,000! Claim your 300% FIRST BONUS! Panaloka.buzz",
-   "tokens": [
-    "dumoble",
-    "ang",
-    "deposit",
-    "dito",
-    "lamang",
-    "sa",
-    "panaloka",
-    "toknum",
-    "toknum",
-    "mo",
-    "ay",
-    "magiging",
-    "toknum",
-    "toknum",
-    "claim",
-    "your",
-    "toknum",
-    "first",
-    "bonus",
-    "tokurl",
-    "panaloka",
-    "buzz"
-   ],
-   "probabilities": [
-    4.904595993868716e-09,
-    0.999999806338852,
-    1.8875655199284764e-07
-   ]
-  },
-  {
-   "text": "A message from GOMO and the Credit Card Association of the Philippines: Watch out for unsolicited text messages with website links asking for your bank account details and One-Time Password (OTP). Never engage or respond to these messages. These are fraudulent texts sent via spoofing, where fraudsters impersonate sender IDs of phone companies, banks, and government agencies. Let's all be vigilant. #FightBudol",
-   "tokens": [
-    "a",
-    "message",
-    "from",
-    "gomo",
-    "and",
-    "the",
-    "credit",
-    "card",
-    "association",
-    "of",
-    "the",
-    "philippines",
-    "watch",
-    "out",
-    "for",
-    "unsolicited",
-    "text",
-    "messages",
-    "with",
-    "website",
-    "links",
-    "asking",
-    "for",
-    "your",
-    "bank",
-    "account",
-    "details",
-    "and",
-    "one",
-    "time",
-    "password",
-    "otp",
-    "never",
-    "engage",
-    "or",
-    "respond",
-    "to",
-    "these",
-    "messages",
-    "these",
-    "are",
-    "fraudulent",
-    "texts",
-    "sent",
-    "via",
-    "spoofing",
-    "where",
-    "fraudsters",
-    "impersonate",
-    "sender",
-    "ids",
-    "of",
-    "phone",
-    "companies",
-    "banks",
-    "and",
-    "government",
-    "agencies",
-    "lets",
-    "all",
-    "be",
-    "vigilant",
-    "fightbudol"
-   ],
-   "probabilities": [
-    0.9999708153403734,
-    2.668078026640604e-10,
-    2.918439281875496e-05
-   ]
-  },
-  {
-   "text": "Last day to get up to P500 when you send P10,000 to 10 different PayMaya users! Send Money now! DTI127152 https://official.paymaya.com/0zgc/SendMoneyWeekend",
-   "tokens": [
-    "last",
-    "day",
-    "to",
-    "get",
-    "up",
-    "to",
-    "tokmoney",
-    "when",
-    "you",
-    "send",
-    "tokmoney",
-    "to",
-    "toknum",
-    "different",
-    "paymaya",
-    "users",
-    "send",
-    "money",
-    "now",
-    "dti",
-    "toknum",
-    "tokurl",
-    "official",
-    "paymaya",
-    "com"
-   ],
-   "probabilities": [
-    0.999564245885401,
-    0.0004350991510659452,
-    6.549635330065055e-07
-   ]
-  },
-  {
-   "text": "[Bondee] Verification Code: 7388. Please complete verification within 30 minutes. Don't share this code with others.",
-   "tokens": [
-    "bondee",
-    "verification",
-    "code",
-    "toknum",
-    "please",
-    "complete",
-    "verification",
-    "within",
-    "toknum",
-    "minutes",
-    "dont",
-    "share",
-    "this",
-    "code",
-    "with",
-    "others"
-   ],
-   "probabilities": [
-    0.9988783311362327,
-    9.02953672220343e-07,
-    0.0011207659100949652
-   ]
-  },
-  {
-   "text": "The Rise Makati along Ayala-Ave\nBnew-1BR Starts @5.8M by Shangri-La\n\nThe Only \"Premium Grade Office Tower for sale in Ortigas CBD\" along ADB AVE\n5units left for 58K/month over 68mos w/0% interest\n\nHigh-end Residential Tower in Ortigas Center\n23-35K ONLY/mo.\n\nSend name&email for details.Message now!",
-   "tokens": [
-    "the",
-    "rise",
-    "makati",
-    "along",
-    "ayala",
-    "ave",
-    "bnew",
-    "toknum",
-    "br",
-    "starts",
-    "toknum",
-    "toknum",
-    "m",
-    "by",
-    "shangri",
-    "la",
-    "the",
-    "only",
-    "premium",
-    "grade",
-    "office",
-    "tower",
-    "for",
-    "sale",
-    "in",
-    "ortigas",
-    "cbd",
-    "along",
-    "adb",
-    "ave",
-    "toknum",
-    "units",
-    "left",
-    "for",
-    "tokmoney",
-    "month",
-    "over",
-    "toknum",
-    "mos",
-    "w",
-    "toknum",
-    "interest",
-    "high",
-    "end",
-    "residential",
-    "tower",
-    "in",
-    "ortigas",
-    "center",
-    "toknum",
-    "tokmoney",
-    "only",
-    "mo",
-    "send",
-    "name",
-    "email",
-    "for",
-    "details",
-    "message",
-    "now"
-   ],
-   "probabilities": [
-    0.9999910064291011,
-    1.4665812233527852e-07,
-    8.846912776544356e-06
-   ]
-  },
-  {
-   "text": "Congratulations! Redeem your P11,500 from G Cash Care. Reference ID:40798928 Claim here:cashsurprise.cl",
-   "tokens": [
-    "congratulations",
-    "redeem",
-    "your",
-    "tokmoney",
-    "from",
-    "g",
-    "cash",
-    "care",
-    "reference",
-    "id",
-    "toknum",
-    "claim",
-    "here",
-    "cashsurprise",
-    "cl"
-   ],
-   "probabilities": [
-    0.3963066575952035,
-    0.5858724315851903,
-    0.01782091081960621
-   ]
-  },
-  {
-   "text": "08/07 18:37: P50.00 loaded to [PHONE] from [PHONE] for 1 year. Ref:8G84QHLR3A !Use *123# or smrt.ph/GigaLifeApp to get DOUBLE GIGA: VIDEO OR STORIES!",
-   "tokens": [
-    "toknum",
-    "toknum",
-    "toknum",
-    "toknum",
-    "tokmoney",
-    "loaded",
-    "to",
-    "tokphone",
-    "from",
-    "tokphone",
-    "for",
-    "toknum",
-    "year",
-    "ref",
-    "toknum",
-    "g",
-    "toknum",
-    "qhlrea",
-    "use",
-    "toknum",
-    "or",
-    "tokurl",
-    "smrt",
-    "ph",
-    "to",
-    "get",
-    "double",
-    "giga",
-    "video",
-    "or",
-    "stories"
-   ],
-   "probabilities": [
-    0.9999999999537912,
-    3.410685070346544e-11,
-    1.2101886773365124e-11
-   ]
-  },
-  {
-   "text": "Update your Maya app to join the Maya Early Access Challenge and get the chance to become a Bitcoin Millionaire! Visit https://www.maya.ph/earlyaccess to know more.",
-   "tokens": [
-    "update",
-    "your",
-    "maya",
-    "app",
-    "to",
-    "join",
-    "the",
-    "maya",
-    "early",
-    "access",
-    "challenge",
-    "and",
-    "get",
-    "the",
-    "chance",
-    "to",
-    "become",
-    "a",
-    "bitcoin",
-    "millionaire",
-    "visit",
-    "tokurl",
-    "maya",
-    "ph",
-    "to",
-    "know",
-    "more"
-   ],
-   "probabilities": [
-    0.9968692911015268,
-    0.0026943164908637554,
-    0.0004363924076093356
-   ]
-  },
-  {
-   "text": "Good news for you! This website has a BUG. Recharge 500P and get 500P free. You can withdraw money immediately v1i77ba1et.at",
-   "tokens": [
-    "good",
-    "news",
-    "for",
-    "you",
-    "this",
-    "website",
-    "has",
-    "a",
-    "bug",
-    "recharge",
-    "toknum",
-    "p",
-    "and",
-    "get",
-    "toknum",
-    "p",
-    "free",
-    "you",
-    "can",
-    "withdraw",
-    "money",
-    "immediately",
-    "vii",
-    "toknum",
-    "baiet",
-    "at"
-   ],
-   "probabilities": [
-    3.1033175523892424e-05,
-    0.9999654583924226,
-    3.50843205352097e-06
-   ]
-  },
-  {
-   "text": "Tuluy-tuloy ang pagdating ng exciting rewards na hatid sa'yo ng Globe At Home. May 10 points ka pag successfully registered ang iyong Home Prepaid WiFi SIM until June 30, 2023 via https://globeone.onelink.me/ej7I/G1SMS. Wag kalimutan ang valid government ID with photo para masiguradong successful ang registration. Failure to register before the deadline will result in SIM deactivation. I-disregard lang ang message na ito kung nakapag-register na.",
-   "tokens": [
-    "tuluy",
-    "tuloy",
-    "ang",
-    "pagdating",
-    "ng",
-    "exciting",
-    "rewards",
-    "na",
-    "hatid",
-    "sayo",
-    "ng",
-    "globe",
-    "at",
-    "home",
-    "may",
-    "toknum",
-    "points",
-    "ka",
-    "pag",
-    "successfully",
-    "registered",
-    "ang",
-    "iyong",
-    "home",
-    "prepaid",
-    "wifi",
-    "sim",
-    "until",
-    "june",
-    "toknum",
-    "toknum",
-    "via",
-    "tokurl",
-    "globeone",
-    "onelink",
-    "me",
-    "wag",
-    "kalimutan",
-    "ang",
-    "valid",
-    "government",
-    "id",
-    "with",
-    "photo",
-    "para",
-    "masiguradong",
-    "successful",
-    "ang",
-    "registration",
-    "failure",
-    "to",
-    "register",
-    "before",
-    "the",
-    "deadline",
-    "will",
-    "result",
-    "in",
-    "sim",
-    "deactivation",
-    "i",
-    "disregard",
-    "lang",
-    "ang",
-    "message",
-    "na",
-    "ito",
-    "kung",
-    "nakapag",
-    "register",
-    "na"
-   ],
-   "probabilities": [
-    0.10941737007929116,
-    2.0208889935423983e-10,
-    0.89058262971862
-   ]
-  },
-  {
-   "text": "25/05 13:29: P50.00 loaded to [PHONE] from [PHONE] for 1 year. Ref:8EP0K2IFKK !Use *123# or smrt.ph/GigaLifeApp to get DOUBLE GIGA: VIDEO OR STORIES!",
-   "tokens": [
-    "toknum",
-    "toknum",
-    "toknum",
-    "toknum",
-    "tokmoney",
-    "loaded",
-    "to",
-    "tokphone",
-    "from",
-    "tokphone",
-    "for",
-    "toknum",
-    "year",
-    "ref",
-    "toknum",
-    "epok",
-    "toknum",
-    "ifkk",
-    "use",
-    "toknum",
-    "or",
-    "tokurl",
-    "smrt",
-    "ph",
-    "to",
-    "get",
-    "double",
-    "giga",
-    "video",
-    "or",
-    "stories"
-   ],
-   "probabilities": [
-    0.9999999999716511,
-    1.1215730996734962e-11,
-    1.713316241455636e-11
-   ]
-  },
-  {
-   "text": "Limited time bnus 555! Register to receive: 5111.55665jl.ca",
-   "tokens": [
-    "limited",
-    "time",
-    "bnus",
-    "toknum",
-    "register",
-    "to",
-    "receive",
-    "tokurl",
-    "toknum",
-    "toknum",
-    "jl",
-    "ca"
-   ],
-   "probabilities": [
-    0.0014983793761309827,
-    0.9979045256461837,
-    0.0005970949776853619
-   ]
-  },
-  {
-   "text": "YoEarn lucky draw, Apple mobile watch is waiting for you, click to register!http://whgv05.com",
-   "tokens": [
-    "yoearn",
-    "lucky",
-    "draw",
-    "apple",
-    "mobile",
-    "watch",
-    "is",
-    "waiting",
-    "for",
-    "you",
-    "click",
-    "to",
-    "registeri",
-    "tokurl",
-    "whgv",
-    "toknum",
-    "com"
-   ],
-   "probabilities": [
-    0.0017101883182976125,
-    0.998010826878367,
-    0.00027898480333538305
-   ]
-  },
-  {
-   "text": "Secure your accounts and cards your way with BDO Online! Confirm app transactions with biometrics or 6-digit PIN, and web transactions with SMS OTP. Lock or unlock Debit and Credit Cards, set limits for Debit Cards, enable or disable overseas Debit Card transactions. Log in now!",
-   "tokens": [
-    "secure",
-    "your",
-    "accounts",
-    "and",
-    "cards",
-    "your",
-    "way",
-    "with",
-    "bdo",
-    "online",
-    "confirm",
-    "app",
-    "transactions",
-    "with",
-    "biometrics",
-    "or",
-    "toknum",
-    "digit",
-    "pin",
-    "and",
-    "web",
-    "transactions",
-    "with",
-    "sms",
-    "otp",
-    "lock",
-    "or",
-    "unlock",
-    "debit",
-    "and",
-    "credit",
-    "cards",
-    "set",
-    "limits",
-    "for",
-    "debit",
-    "cards",
-    "enable",
-    "or",
-    "disable",
-    "overseas",
-    "debit",
-    "card",
-    "transactions",
-    "log",
-    "in",
-    "now"
-   ],
-   "probabilities": [
-    0.9999247126487973,
-    5.072659951764983e-08,
-    7.523662460303861e-05
-   ]
-  },
-  {
-   "text": "Nangangarap ka bang gawing 50k ang 30 pesos mo? Sa Fortune Gems, posible yan! Sali na sa bonus.fm/hu3J13wQHKwT.",
-   "tokens": [
-    "nangangarap",
-    "ka",
-    "bang",
-    "gawing",
-    "tokmoney",
-    "ang",
-    "tokmoney",
-    "mo",
-    "sa",
-    "fortune",
-    "gems",
-    "posible",
-    "yan",
-    "sali",
-    "na",
-    "sa",
-    "tokurl",
-    "bonus",
-    "fm"
-   ],
-   "probabilities": [
-    1.570175529829577e-05,
-    0.9999762574928214,
-    8.04075188036369e-06
-   ]
-  },
-  {
-   "text": "Get ahead of your bills with the BDO Online app! Now you can set scheduled and recurring Pay Bills and Buy Load transactions. Try it now!",
-   "tokens": [
-    "get",
-    "ahead",
-    "of",
-    "your",
-    "bills",
-    "with",
-    "the",
-    "bdo",
-    "online",
-    "app",
-    "now",
-    "you",
-    "can",
-    "set",
-    "scheduled",
-    "and",
-    "recurring",
-    "pay",
-    "bills",
-    "and",
-    "buy",
-    "load",
-    "transactions",
-    "try",
-    "it",
-    "now"
-   ],
-   "probabilities": [
-    0.9999986886098728,
-    4.5032082973594826e-08,
-    1.26635804427306e-06
-   ]
-  },
-  {
-   "text": "You have received P999.90 GCash from 7eleven Kiosk w/ MSG - 2425-4002-4921. Your new balance is P1006.60 09-10-24 3:35AM. Ref no. 0020730710034.",
-   "tokens": [
-    "you",
-    "have",
-    "received",
-    "tokmoney",
-    "gcash",
-    "from",
-    "toknum",
-    "eleven",
-    "kiosk",
-    "w",
-    "msg",
-    "toknum",
-    "toknum",
-    "toknum",
-    "your",
-    "new",
-    "balance",
-    "is",
-    "tokmoney",
-    "toknum",
-    "toknum",
-    "toknum",
-    "toknum",
-    "toknum",
-    "am",
-    "ref",
-    "no",
-    "toknum"
-   ],
-   "probabilities": [
-    0.9999999382771338,
-    5.813477861867849e-09,
-    5.5909388175889706e-08
-   ]
-  },
-  {
-   "text": "Your payment of P149.00 to Netflix has been successfully processed on 04-06-25 08:35:17 PM. Ref. No. 067285940",
-   "tokens": [
-    "your",
-    "payment",
-    "of",
-    "tokmoney",
-    "to",
-    "netflix",
-    "has",
-    "been",
-    "successfully",
-    "processed",
-    "on",
-    "toknum",
-    "toknum",
-    "toknum",
-    "toknum",
-    "toknum",
-    "toknum",
-    "pm",
-    "ref",
-    "no",
-    "toknum"
-   ],
-   "probabilities": [
-    0.9999993601990388,
-    3.4900843833298357e-08,
-    6.049001173723702e-07
-   ]
-  },
-  {
-   "text": "1/2 01-Nov 23:06: P60 loaded to [PHONE] from XXXXXXXX8660 for 1 year. Ref:BK134OO36R. Get MORE with PROMO LOAD in the Smart App!",
-   "tokens": [
-    "toknum",
-    "toknum",
-    "toknum",
-    "nov",
-    "toknum",
-    "toknum",
-    "tokmoney",
-    "loaded",
-    "to",
-    "tokphone",
-    "from",
-    "xx",
-    "toknum",
-    "for",
-    "toknum",
-    "year",
-    "ref",
-    "bk",
-    "toknum",
-    "oo",
-    "toknum",
-    "r",
-    "get",
-    "more",
-    "with",
-    "promo",
-    "load",
-    "in",
-    "the",
-    "smart",
-    "app"
-   ],
-   "probabilities": [
-    0.9999999884806409,
-    8.679726373934741e-09,
-    2.8396326547888543e-09
-   ]
-  },
-  {
-   "text": "<NAME>., Grab the opportunity at SugarBet! Claim your free prize of 2,000 + 3% Deposit bonus. Visit sgbett3.com and claim your rewards.",
-   "tokens": [
-    "tokname",
-    "grab",
-    "the",
-    "opportunity",
-    "at",
-    "sugarbet",
-    "claim",
-    "your",
-    "free",
-    "prize",
-    "of",
-    "toknum",
-    "toknum",
-    "toknum",
-    "deposit",
-    "bonus",
-    "visit",
-    "tokurl",
-    "sgbett",
-    "toknum",
-    "com",
-    "and",
-    "claim",
-    "your",
-    "rewards"
-   ],
-   "probabilities": [
-    1.2490495388841063e-06,
-    0.9999984036333116,
-    3.473171495074258e-07
-   ]
-  },
-  {
-   "text": "won 3000 p a day，click; https://www.taya3651.com/?a=101202",
-   "tokens": [
-    "won",
-    "toknum",
-    "p",
-    "a",
-    "day",
-    "click",
-    "tokurl",
-    "taya",
-    "toknum",
-    "com"
-   ],
-   "probabilities": [
-    0.00023596063565614337,
-    0.9992357541739572,
-    0.0005282851903866169
-   ]
-  },
-  {
-   "text": "[Epicwin ]: Join us & enjoy limited 100% BONUS Trusted website : EpicWinph5.icu Deposit and get 100% & get BONUS everyday",
-   "tokens": [
-    "epicwin",
-    "join",
-    "us",
-    "enjoy",
-    "limited",
-    "toknum",
-    "bonus",
-    "trusted",
-    "website",
-    "tokurl",
-    "epicwinph",
-    "toknum",
-    "icu",
-    "deposit",
-    "and",
-    "get",
-    "toknum",
-    "get",
-    "bonus",
-    "everyday"
-   ],
-   "probabilities": [
-    3.148575267250387e-08,
-    0.999999730734881,
-    2.377793663149139e-07
-   ]
-  },
-  {
-   "text": "Loaded ka sa groceries ngayong pasukan with GCash and Globe At Home! Mag-load na ng FamSURF499 or higher via GCash today, para makakuha ka ng P50 Puregold voucher na pwede mong gamitin para sa pang-grocery ng pamilya! Para sa loaded na grocery shopping, load na! Available today only, until supplies last. No advisories? Text OFF to 2686 for free.",
-   "tokens": [
-    "loaded",
-    "ka",
-    "sa",
-    "groceries",
-    "ngayong",
-    "pasukan",
-    "with",
-    "gcash",
-    "and",
-    "globe",
-    "at",
-    "home",
     "mag",
-    "load",
-    "na",
-    "ng",
-    "famsurf",
-    "toknum",
-    "or",
-    "higher",
-    "via",
-    "gcash",
-    "today",
-    "para",
-    "makakuha",
-    "ka",
-    "ng",
-    "tokmoney",
-    "puregold",
-    "voucher",
-    "na",
-    "pwede",
-    "mong",
-    "gamitin",
-    "para",
-    "sa",
-    "pang",
-    "grocery",
-    "ng",
-    "pamilya",
-    "para",
-    "sa",
-    "loaded",
-    "na",
-    "grocery",
     "shopping",
-    "load",
+    "spree",
+    "ka",
     "na",
-    "available",
-    "today",
-    "only",
-    "until",
-    "supplies",
+    "with",
+    "ggives",
+    "installments",
+    "dahil",
+    "free",
+    "ang",
     "last",
-    "no",
-    "advisories",
-    "text",
-    "off",
-    "to",
-    "toknum",
+    "installment",
+    "mo",
+    "promo",
+    "is",
+    "available",
     "for",
-    "free"
-   ],
-   "probabilities": [
-    0.9999993140350145,
-    3.74138695232648e-08,
-    6.485511158125397e-07
-   ]
-  },
-  {
-   "text": "betmanila.tv/KMjkVjQF Libreng pera para sa mas exciting na laro. Huwag magpahuli, mag-claim na!",
-   "tokens": [
-    "tokurl",
-    "betmanila",
-    "tv",
-    "libreng",
-    "pera",
-    "para",
-    "sa",
-    "mas",
-    "exciting",
-    "na",
-    "laro",
-    "huwag",
-    "magpahuli",
-    "mag",
-    "claim",
-    "na"
-   ],
-   "probabilities": [
-    4.715872453240083e-07,
-    0.9999987431966276,
-    7.852161270284885e-07
-   ]
-  },
-  {
-   "text": "Begin your journey to prosperity! Grab the New User Giveaway at JILI747! 8000p + 888p. Let luck guide your adventures at JILi747a.tv",
-   "tokens": [
-    "begin",
-    "your",
-    "journey",
+    "toknum",
+    "month",
+    "installments",
+    "at",
+    "select",
+    "stores",
+    "t",
+    "cs",
+    "apply",
     "to",
-    "prosperity",
-    "grab",
-    "the",
-    "new",
-    "user",
-    "giveaway",
-    "at",
-    "jili",
-    "toknum",
-    "toknum",
-    "p",
-    "toknum",
-    "p",
-    "let",
-    "luck",
-    "guide",
-    "your",
-    "adventures",
-    "at",
-    "tokurl",
-    "jili",
-    "toknum",
-    "a",
-    "tv"
+    "learn",
+    "more",
+    "login",
+    "to",
+    "gcash",
+    "tap",
+    "borrow",
+    "ggives",
+    "view",
+    "more",
+    "on",
+    "our",
+    "special",
+    "offers"
    ],
    "probabilities": [
-    2.4169477773577393e-08,
-    0.9999985078562119,
-    1.4679743101779931e-06
+    0.9999999848634289,
+    2.2808469714709616e-11,
+    1.5113762649596806e-08
+   ]
+  },
+  {
+   "text": "phluck.tv/AU3 100% deposit bonus, para sayo na! I-activate at simulan ang iyong winning streak.",
+   "tokens": [
+    "tokurl",
+    "phluck",
+    "tv",
+    "toknum",
+    "deposit",
+    "bonus",
+    "para",
+    "sayo",
+    "na",
+    "i",
+    "activate",
+    "at",
+    "simulan",
+    "ang",
+    "iyong",
+    "winning",
+    "streak"
+   ],
+   "probabilities": [
+    0.00013067807175443444,
+    0.9998623220434043,
+    6.999884841270943e-06
+   ]
+  },
+  {
+   "text": "Hello good day! :)\nCommercial lots in the first master-planned CBD in Batangas - Lima Estate\n\n- with 70 hectare existing components like The Outlets at Lipa, Aboitiz Pitch, office bldgs, Holiday Inn and residential\n- 40 hectare expansion area with parks and open spaces\n- FAR 4 to 5\n\nlot size 1,165 to 3,215 sqm\nprice range 75k to 93k per sqm with terms\n\npre selling commercial lots also available in other areas\n\nkindly message me for details\n\nErwin Sia",
+   "tokens": [
+    "hello",
+    "good",
+    "day",
+    "commercial",
+    "lots",
+    "in",
+    "the",
+    "first",
+    "master",
+    "planned",
+    "cbd",
+    "in",
+    "batangas",
+    "lima",
+    "estate",
+    "with",
+    "toknum",
+    "hectare",
+    "existing",
+    "components",
+    "like",
+    "the",
+    "outlets",
+    "at",
+    "lipa",
+    "aboitiz",
+    "pitch",
+    "office",
+    "bldgs",
+    "holiday",
+    "inn",
+    "and",
+    "residential",
+    "toknum",
+    "hectare",
+    "expansion",
+    "area",
+    "with",
+    "parks",
+    "and",
+    "open",
+    "spaces",
+    "far",
+    "toknum",
+    "to",
+    "toknum",
+    "lot",
+    "size",
+    "toknum",
+    "toknum",
+    "to",
+    "toknum",
+    "toknum",
+    "sqm",
+    "price",
+    "range",
+    "tokmoney",
+    "to",
+    "tokmoney",
+    "per",
+    "sqm",
+    "with",
+    "terms",
+    "pre",
+    "selling",
+    "commercial",
+    "lots",
+    "also",
+    "available",
+    "in",
+    "other",
+    "areas",
+    "kindly",
+    "message",
+    "me",
+    "for",
+    "details",
+    "erwin",
+    "sia"
+   ],
+   "probabilities": [
+    0.9999529373790014,
+    3.06529263266503e-07,
+    4.675609173540314e-05
    ]
   }
  ]

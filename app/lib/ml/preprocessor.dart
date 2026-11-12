@@ -7,7 +7,7 @@
 /// test/ml/model_parity_test.dart fails when they drift apart.
 library;
 
-const int preprocessingVersion = 3;
+const int preprocessingVersion = 4;
 
 const String urlToken = 'tokurl';
 const String shortUrlToken = 'tokshorturl';
@@ -188,6 +188,9 @@ const List<String> linkTlds = [
   'wang',
   'fo',
   'qpon',
+  'help',
+  'bond',
+  'gle',
 ];
 // Two-letter endings that are also everyday Filipino words (ng, sa, mo, ba,
 // si, at, ...) are left out on purpose so "word.ng" is not mistaken for a link.
