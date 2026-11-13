@@ -118,7 +118,10 @@ class SmishieldAnalyzer {
       },
       if (d.has(IndicatorType.sensitiveInfoRequest))
         SafetyAction.neverShareCodes,
-      if (label != RiskLabel.safe && d.has(IndicatorType.paymentRequest))
+      // A threat's own advice already says not to send money.
+      if (label != RiskLabel.safe &&
+          d.has(IndicatorType.paymentRequest) &&
+          !d.has(IndicatorType.harmThreat))
         SafetyAction.dontSendMoney,
       if (label != RiskLabel.safe && imitatesBrand) SafetyAction.useOfficialApp,
       if (label == RiskLabel.highRisk) SafetyAction.reportToCicc,
