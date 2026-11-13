@@ -106,8 +106,8 @@ class _LogoPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
-/// The name "SMISHield" with "SHield" in blue (SMISHing + sHIELD share the
-/// "SH"), and the tag line underneath.
+/// The name "SMISHield": "SMISH" (from smishing) in white on dark screens
+/// and navy on light ones, "ield" in blue, and the tag line underneath.
 class Wordmark extends StatelessWidget {
   const Wordmark({super.key, required this.strings, this.scale = 1});
 
@@ -131,11 +131,11 @@ class Wordmark extends StatelessWidget {
               ),
               children: [
                 TextSpan(
-                  text: 'SMI',
+                  text: 'SMISH',
                   style: TextStyle(color: first),
                 ),
                 const TextSpan(
-                  text: 'SHield',
+                  text: 'ield',
                   style: TextStyle(color: Palette.brandBlue),
                 ),
               ],

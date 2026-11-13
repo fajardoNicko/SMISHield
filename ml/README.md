@@ -99,10 +99,43 @@ Hovy, E. (2021). A survey of data augmentation approaches for NLP. In
 *Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021*
 (pp. 968–988). https://doi.org/10.18653/v1/2021.findings-acl.84
 
+**Threat messages (training only, AI-written).** None of the collected
+messages threatens anyone, so the model had learned nothing about threats and
+rated "Papatayin ko anak mo penge pera" Safe. `ml/data/private/synthetic_threats.csv`
+adds 270 messages that Claude (AI) wrote and labelled with criterion H5 of the
+guide:
+
+- 108 threats and extortion texts (High Risk): killing, hurting or kidnapping
+  the recipient or their family, "hawak namin anak mo", fake kidnapping
+  victims asking for money, and threats to spread private photos;
+- 60 everyday uses of the same words (Safe): "papatayin ako ni mama",
+  "patayin mo na yung ilaw", family texts asking for money, and PNP or CICC
+  advisories;
+- 102 **counterfactual twins** (Safe, `twin_of` column): each one keeps a
+  threat's everyday words and drops the threat and the demand ("Papatayin
+  namin ang anak mo kapag hindi ka nagpadala..." becomes "Susunduin namin ang
+  anak mo kapag hindi ka nakarating..."). Without them, words such as "ka
+  namin", "pag di mo" and "anak" appeared almost only in threats, and the
+  model started rating ordinary texts and promos High Risk. Pairs that differ
+  only in the part that matters teach the model to rely on that part
+  (Kaushik et al., 2020).
+
+The team checked every label in `Data/synthetic/threats_to_verify.xlsx` and
+kept all 270. The AI's label was shown next to each message, so this is a
+review, not a second independent annotation, and gives no agreement figure.
+Chapter 3 must say that these synthetic messages were written and labelled by
+AI and reviewed by the researchers, and report them alongside the team's
+synthetic messages.
+
+Kaushik, D., Hovy, E., & Lipton, Z. C. (2020). Learning the difference that
+makes a difference with counterfactually-augmented data. In *International
+Conference on Learning Representations (ICLR 2020)*.
+https://arxiv.org/abs/1909.12434
+
 **5. Train and evaluate:**
 
 ```
-python ml/train.py --data ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv --train-only ml/data/private/synthetic_labeled.csv
+python ml/train.py --data ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv --train-only ml/data/private/synthetic_labeled.csv ml/data/private/synthetic_threats.csv
 ```
 
 Several `--data` files are combined before the split, which is stratified
@@ -118,7 +151,7 @@ python ml/train.py --data ml/data/prepared/public_sms_prepared.csv --label-col p
 **6. Deliverables (system testing with the app itself):**
 
 ```
-python ml/build_deliverables.py --sources ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv ml/data/private/synthetic_labeled.csv
+python ml/build_deliverables.py --sources ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv ml/data/private/synthetic_labeled.csv ml/data/private/synthetic_threats.csv
 ```
 
 - **Combined workbook:** `Data/SMISHield_all_datasets.xlsx` holds every message with its label and whether it went to training, validation, test, training only, or was not used. It also lists the messages still waiting for adjudication.
