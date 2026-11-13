@@ -120,9 +120,12 @@ guide:
   only in the part that matters teach the model to rely on that part
   (Kaushik et al., 2020).
 
-The team should check the labels in `Data/synthetic/threats_to_verify.xlsx`.
-Chapter 3 must say that these synthetic messages were written by AI, and
-report them alongside the team's synthetic messages.
+The team checked every label in `Data/synthetic/threats_to_verify.xlsx` and
+kept all 270. The AI's label was shown next to each message, so this is a
+review, not a second independent annotation, and gives no agreement figure.
+Chapter 3 must say that these synthetic messages were written and labelled by
+AI and reviewed by the researchers, and report them alongside the team's
+synthetic messages.
 
 Kaushik, D., Hovy, E., & Lipton, Z. C. (2020). Learning the difference that
 makes a difference with counterfactually-augmented data. In *International

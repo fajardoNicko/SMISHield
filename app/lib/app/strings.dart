@@ -268,7 +268,7 @@ class Strings {
   }
 
   String get versionInfo =>
-      _t('Version 0.3.2 (preview)', 'Bersyon 0.3.2 (preview)');
+      _t('Version 0.3.3 (preview)', 'Bersyon 0.3.3 (preview)');
   String get darkModeLabel => 'Dark Mode';
   String get darkModeText => _t(
     'Reduce screen glare and improve viewing comfort in low-light environments.',
