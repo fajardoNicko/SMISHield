@@ -99,10 +99,27 @@ Hovy, E. (2021). A survey of data augmentation approaches for NLP. In
 *Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021*
 (pp. 968–988). https://doi.org/10.18653/v1/2021.findings-acl.84
 
+**Threat messages (training only, AI-written).** None of the collected
+messages threatens anyone, so the model had learned nothing about threats and
+rated "Papatayin ko anak mo penge pera" Safe. `ml/data/private/synthetic_threats.csv`
+adds 168 messages that Claude (AI) wrote and labelled with criterion H5 of the
+guide:
+
+- 108 threats and extortion texts (High Risk): killing, hurting or kidnapping
+  the recipient or their family, "hawak namin anak mo", fake kidnapping
+  victims asking for money, and threats to spread private photos;
+- 60 everyday uses of the same words (Safe): "papatayin ako ni mama",
+  "patayin mo na yung ilaw", family texts asking for money, and PNP or CICC
+  advisories.
+
+The team should check the labels in `Data/synthetic/threats_to_verify.xlsx`.
+Chapter 3 must say that these synthetic messages were written by AI, and
+report them alongside the team's synthetic messages.
+
 **5. Train and evaluate:**
 
 ```
-python ml/train.py --data ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv --train-only ml/data/private/synthetic_labeled.csv
+python ml/train.py --data ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv --train-only ml/data/private/synthetic_labeled.csv ml/data/private/synthetic_threats.csv
 ```
 
 Several `--data` files are combined before the split, which is stratified
@@ -118,7 +135,7 @@ python ml/train.py --data ml/data/prepared/public_sms_prepared.csv --label-col p
 **6. Deliverables (system testing with the app itself):**
 
 ```
-python ml/build_deliverables.py --sources ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv ml/data/private/synthetic_labeled.csv
+python ml/build_deliverables.py --sources ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv ml/data/private/synthetic_labeled.csv ml/data/private/synthetic_threats.csv
 ```
 
 - **Combined workbook:** `Data/SMISHield_all_datasets.xlsx` holds every message with its label and whether it went to training, validation, test, training only, or was not used. It also lists the messages still waiting for adjudication.
