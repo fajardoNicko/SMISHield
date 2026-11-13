@@ -102,7 +102,7 @@ Hovy, E. (2021). A survey of data augmentation approaches for NLP. In
 **Threat messages (training only, AI-written).** None of the collected
 messages threatens anyone, so the model had learned nothing about threats and
 rated "Papatayin ko anak mo penge pera" Safe. `ml/data/private/synthetic_threats.csv`
-adds 168 messages that Claude (AI) wrote and labelled with criterion H5 of the
+adds 270 messages that Claude (AI) wrote and labelled with criterion H5 of the
 guide:
 
 - 108 threats and extortion texts (High Risk): killing, hurting or kidnapping
@@ -110,11 +110,24 @@ guide:
   victims asking for money, and threats to spread private photos;
 - 60 everyday uses of the same words (Safe): "papatayin ako ni mama",
   "patayin mo na yung ilaw", family texts asking for money, and PNP or CICC
-  advisories.
+  advisories;
+- 102 **counterfactual twins** (Safe, `twin_of` column): each one keeps a
+  threat's everyday words and drops the threat and the demand ("Papatayin
+  namin ang anak mo kapag hindi ka nagpadala..." becomes "Susunduin namin ang
+  anak mo kapag hindi ka nakarating..."). Without them, words such as "ka
+  namin", "pag di mo" and "anak" appeared almost only in threats, and the
+  model started rating ordinary texts and promos High Risk. Pairs that differ
+  only in the part that matters teach the model to rely on that part
+  (Kaushik et al., 2020).
 
 The team should check the labels in `Data/synthetic/threats_to_verify.xlsx`.
 Chapter 3 must say that these synthetic messages were written by AI, and
 report them alongside the team's synthetic messages.
+
+Kaushik, D., Hovy, E., & Lipton, Z. C. (2020). Learning the difference that
+makes a difference with counterfactually-augmented data. In *International
+Conference on Learning Representations (ICLR 2020)*.
+https://arxiv.org/abs/1909.12434
 
 **5. Train and evaluate:**
 
