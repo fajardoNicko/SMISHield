@@ -5,11 +5,12 @@ classifies Filipino and Taglish SMS messages as **Safe**, **Suspicious** or
 **High Risk**, writes the evaluation reports for Chapter 4, and exports the
 model for the Android app.
 
-> **The bundled model is trained on INTERIM labels**: the researchers' manual
-> labels for the Kaggle messages both annotators agreed on (the 176 still
-> waiting for adjudication are left out) plus the first VCSMS submissions,
-> labelled once. Its numbers must not be reported. Retrain once adjudication
-> is finished (step 4 below).
+> **The bundled model is trained on the final labels.** Kaggle messages are
+> labelled by both annotator pairs. The 176 they disagreed on were adjudicated
+> by Claude (AI) with this guide, giving a reason for each in
+> `ml/annotation/adjudication.xlsx`, for the team to verify. VCSMS submissions
+> are labelled once. Synthetic messages are used for training only. Chapter 3
+> must state the AI adjudication.
 
 How messages are labelled, and the published sources behind the method, are
 in **[LABELING_GUIDE.md](LABELING_GUIDE.md)**. Where the data comes from and
