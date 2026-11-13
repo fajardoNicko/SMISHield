@@ -89,6 +89,10 @@ class Explanations {
         'May be impersonating $subject',
         'Maaaring nagpapanggap na $subject',
       ),
+      IndicatorType.harmThreat => _t(
+        'Threatens you or your family',
+        'Nagbabanta sa iyo o sa pamilya mo',
+      ),
       IndicatorType.paymentRequest => _t(
         'Asks you to pay or send money',
         'Pinapabayad o pinapapadala ka ng pera',
@@ -146,6 +150,14 @@ class Explanations {
       IndicatorType.impersonation => _t(
         'Scammers often pretend to be banks, e-wallets, couriers, or government agencies.',
         'Madalas magpanggap ang mga scammer bilang bangko, e-wallet, courier, o ahensya ng gobyerno.',
+      ),
+      IndicatorType.harmThreat => _t(
+        'Threats to hurt or kidnap someone, or to spread private photos, are used '
+            'to scare you into paying. Scammers often claim to hold a family member '
+            'who is actually safe.',
+        'Ginagamit ang banta ng pananakit, pagdukot, o pagkalat ng pribadong litrato '
+            'para takutin kang magbayad. Madalas sabihin ng scammer na hawak nila ang '
+            'kapamilya mo kahit ligtas naman ito.',
       ),
       IndicatorType.paymentRequest => _t(
         'Be careful with messages asking for fees, fines, or money transfers.',
@@ -282,6 +294,12 @@ class Explanations {
     SafetyAction.reportToCicc => _t(
       'You can report scams to the CICC hotline 1326.',
       'Maaari mong i-report ang scam sa CICC hotline 1326.',
+    ),
+    SafetyAction.checkFamilyCall911 => _t(
+      'Do not reply or send money. Call your family member directly to check they '
+          'are safe, and call 911 if anyone may be in danger.',
+      'Huwag sumagot o magpadala ng pera. Tawagan mismo ang kapamilya mo para '
+          'matiyak na ligtas sila, at tumawag sa 911 kung may maaaring nasa panganib.',
     ),
   };
 

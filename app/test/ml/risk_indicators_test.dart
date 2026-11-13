@@ -89,6 +89,62 @@ void main() {
     );
   });
 
+  test('threats to harm or kidnap the reader or their family', () {
+    for (final message in [
+      'Papatayin ko anak mo penge pera',
+      'Sasaksakin kita pag di mo binigay yung pera bukas',
+      'Kinidnap namin ang asawa mo. 200k kapalit ng buhay niya',
+      'hawak ko anak mo wag kang tatawag sa pulis',
+      'Nasa amin ang anak mo. Ihanda ang pantubos',
+      'Ipapakalat ko mga pictures mo kapag hindi ka nagbayad ng 5000',
+      'Ma tulungan mo ko kinidnap ako, padalhan mo sila ng 50k',
+      'I will kill your son if you dont send money',
+      'We have your daughter. Send 100k now',
+    ]) {
+      expect(
+        types(message),
+        contains(IndicatorType.harmThreat),
+        reason: message,
+      );
+    }
+    final threat = detector
+        .detect('Papatayin ko anak mo penge pera')
+        .find(IndicatorType.harmThreat)!;
+    expect(threat.severity, Severity.high);
+    expect(threat.spans.single, const MessageSpan(0, 9));
+    // "penge pera" asks for money.
+    expect(
+      types('Papatayin ko anak mo penge pera'),
+      contains(IndicatorType.paymentRequest),
+    );
+  });
+
+  test('everyday uses of violent words are not threats', () {
+    for (final message in [
+      'papatayin ako ni mama pag late ako umuwi',
+      'Lagot ka, papatayin ka ni maam pag di mo pinasa yung project',
+      'patayin mo na yung ilaw sa sala bago ka matulog',
+      'nasaktan ka ba kanina? ingat ka sa pag uwi',
+      'grabe yung exam kanina, pinatay kami ng prof',
+      'hawak ko na yung susi, nasa labas na ako',
+      'saksakin mo na yung charger lowbat na ako',
+      'PNP: Suspek sa pamamaril sa Batangas, arestado na',
+    ]) {
+      expect(
+        types(message),
+        isNot(contains(IndicatorType.harmThreat)),
+        reason: message,
+      );
+    }
+  });
+
+  test('advice not to send money is not a payment request', () {
+    expect(
+      types('Huwag magpadala ng pera sa hindi mo kakilala.'),
+      isNot(contains(IndicatorType.paymentRequest)),
+    );
+  });
+
   test('confirmed payments are not payment requests', () {
     expect(
       types('GCash: You have paid P120.00 to 7-ELEVEN. Ref No. 7001234567.'),

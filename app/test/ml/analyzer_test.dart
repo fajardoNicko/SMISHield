@@ -87,15 +87,33 @@ void main() {
     expect(result.highlights.any((h) => h.isLearnedPattern), isTrue);
   });
 
+  test('a threat of harm is shown with advice even when the label is Safe', () {
+    // The tiny model only knows "salamat", so it says Safe.
+    final result = analyzer.analyze('Salamat. Papatayin ko anak mo penge pera');
+    expect(result.label, RiskLabel.safe);
+    expect(result.indicators.first.type, IndicatorType.harmThreat);
+    expect(result.passedChecks, isNot(contains(SafeCheck.noUrgencyOrThreat)));
+    expect(
+      result.passedChecks,
+      isNot(contains(SafeCheck.noFinancialOrPrizeClaims)),
+    );
+    expect(result.actions.first, SafetyAction.checkFamilyCall911);
+    expect(
+      result.highlights.where((h) => h.type == IndicatorType.harmThreat),
+      isNotEmpty,
+    );
+  });
+
   test(
     'every indicator, check, action and error has text in both languages',
     () {
       final result = analyzer.analyze(
         'URGENT: verify your BPI OTP now at bpi-secure-login.com',
       );
+      final threat = analyzer.analyze('Salamat. Papatayin ko anak mo');
       for (final language in AppLanguage.values) {
         final text = Explanations(language);
-        for (final indicator in result.indicators) {
+        for (final indicator in [...result.indicators, ...threat.indicators]) {
           expect(text.indicatorTitle(indicator), isNotEmpty);
           expect(text.indicatorDetail(indicator), isNotEmpty);
         }
