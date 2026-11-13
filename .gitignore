@@ -30,3 +30,6 @@ Thumbs.db
 # Built APKs to share, and rendered screen previews (re-create: see app/README.md)
 /dist/
 app/screenshots/shots/
+
+# Personal Claude Code settings (permissions) for this project
+.claude/settings.local.json

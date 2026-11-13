@@ -114,6 +114,24 @@ labels. Its reports are marked PROVISIONAL:
 python ml/train.py --data ml/data/prepared/public_sms_prepared.csv --label-col provisional_label
 ```
 
+**6. Deliverables (system testing with the app itself):**
+
+```
+python ml/build_deliverables.py --sources ml/data/labeled/public_sms_labeled.csv ml/data/private/vcsms_labeled.csv ml/data/private/synthetic_labeled.csv
+```
+
+- **Combined workbook:** `Data/SMISHield_all_datasets.xlsx` holds every message with its label and whether it went to training, validation, test, training only, or was not used. It also lists the messages still waiting for adjudication.
+- **System testing:** the test set is classified by the app's own analyzer (`app/tool/evaluate.dart`, the same code and model as the APK). The script also checks that the app gives the same label as the Python model.
+- **Results:** `Data/results/SMISHield_results.xlsx` and `confusion_matrix.png`, with:
+  - the confusion matrix;
+  - accuracy;
+  - per-class precision, recall and F1;
+  - the Figure 19 TP/TN/FP/FN scheme;
+  - results per source;
+  - every prediction, and the errors.
+
+Both outputs contain VCSMS messages, so they stay in the gitignored `Data/` folder.
+
 ## What train.py does
 
 1. Loads the dataset (CSV or XLSX). Labels are `Safe`, `Suspicious`, `High Risk`
