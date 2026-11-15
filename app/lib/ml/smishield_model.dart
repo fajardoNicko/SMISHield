@@ -13,6 +13,7 @@ class ModelInfo {
     required this.testAccuracy,
     required this.termCount,
     this.trainingMessages,
+    this.syntheticMessages = 0,
   });
 
   final DateTime? createdAt;
@@ -29,6 +30,9 @@ class ModelInfo {
 
   /// Size of the training split the shipped model was fitted on.
   final int? trainingMessages;
+
+  /// Synthetic messages added to the training set only (never tested on).
+  final int syntheticMessages;
 }
 
 /// How much one word or word pair pushed the message towards its label.
@@ -124,6 +128,7 @@ class SmishieldModel {
         testAccuracy: (evaluation['accuracy'] as num?)?.toDouble(),
         termCount: terms.length,
         trainingMessages: dataset['train_size'] as int?,
+        syntheticMessages: dataset['train_only_size'] as int? ?? 0,
       ),
       classes: [
         for (final name in json['classes'] as List)

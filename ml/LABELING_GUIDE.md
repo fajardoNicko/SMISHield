@@ -178,6 +178,13 @@ tested, and the results evaluated.
      and label a fresh sample.
 4. **Adjudication** (`adjudication.xlsx`). A third researcher decides every
    message R1 and R2 labelled differently, using this guide.
+   - *As done for the public data:* because all four researchers had
+     labelled, the 176 disagreements were adjudicated by an AI model (Claude,
+     Anthropic) applying this guide. It recorded the codes and a one-line
+     reason for each decision (`notes` and `adjudicator` columns) for the
+     researchers to verify and overrule. LLM-assisted annotation is an
+     established practice (Gilardi et al., 2023) but must be reported as
+     such.
 5. **Main annotation** (`main_annotation.xlsx`). The remaining 80% is
    labelled once, divided among the researchers. Each writes their initials
    in the *annotator* column.
@@ -255,6 +262,8 @@ Cohen, J. (1960). A coefficient of agreement for nominal scales. *Educational an
 Cohen, J. (1968). Weighted kappa: Nominal scale agreement with provision for scaled disagreement or partial credit. *Psychological Bulletin, 70*(4), 213–220. https://doi.org/10.1037/h0026256
 
 Dawkins, S., & Jacobs, J. (2023). *NIST Phish Scale user guide* (NIST Technical Note 2276). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.TN.2276
+
+Gilardi, F., Alizadeh, M., & Kubli, M. (2023). ChatGPT outperforms crowd workers for text-annotation tasks. *Proceedings of the National Academy of Sciences, 120*(30), e2305016120. https://doi.org/10.1073/pnas.2305016120
 
 Fort, K., & Sagot, B. (2010). Influence of pre-annotation on POS-tagged corpus development. In *Proceedings of the Fourth Linguistic Annotation Workshop* (pp. 56–63). Association for Computational Linguistics. https://aclanthology.org/W10-1807/
 

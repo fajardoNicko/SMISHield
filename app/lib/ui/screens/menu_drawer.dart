@@ -121,7 +121,11 @@ class _MenuDrawerState extends State<MenuDrawer> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          s.modelInfo(info.trainingMessages ?? 0, info.isFinal),
+                          s.modelInfo(
+                            info.trainingMessages ?? 0,
+                            info.isFinal,
+                            synthetic: info.syntheticMessages,
+                          ),
                           style: description,
                         ),
                         Text(s.versionInfo, style: description),

@@ -80,6 +80,9 @@ void main() {
       'kqlx',
       'uk',
     ]);
+    expect(tokenize('smartan.help/rewards'), [urlToken, 'smartan', 'help']);
+    expect(tokenize('smartp.bond/ph'), [urlToken, 'smartp', 'bond']);
+    expect(tokenize('forms.gle/abc'), [urlToken, 'forms', 'gle']);
   });
 
   test('reads look-alike characters inside words as letters', () {

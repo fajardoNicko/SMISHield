@@ -191,13 +191,16 @@ def update_adjudication(path, disagreements):
     return read_sheet(path)
 
 
-def settle(pairs, final):
+def settle(pairs, final, adjudicators=None):
     """Label for each pair that is settled: agreed by both, or adjudicated."""
+    adjudicators = adjudicators or {}
     agreed = (pairs["label_R1"] == pairs["label_R2"]) & pairs["label_R1"].notna()
     adjudicated = pairs["id"].isin(final)
     settled = pairs[agreed | adjudicated].copy()
     settled["label"] = [final.get(i, a) for i, a in zip(settled["id"], settled["label_R1"])]
-    settled["label_origin"] = ["adjudicated" if i in final else "agreed by both annotators" for i in settled["id"]]
+    settled["label_origin"] = [
+        (f"adjudicated by {adjudicators[i]}" if adjudicators.get(i) else "adjudicated") if i in final
+        else "agreed by both annotators" for i in settled["id"]]
     return settled[["id", "label", "label_origin"]], len(pairs) - len(settled)
 
 
@@ -270,7 +273,10 @@ def main():
     bad = sorted(set(final.values()) - set(LABELS_ALLOWED))
     if bad:
         raise SystemExit(f"adjudication.xlsx: unknown labels {bad}")
-    labeled, waiting = settle(pairs, final)
+    adjudicators = {} if adjudicated is None or "adjudicator" not in adjudicated else {
+        i: str(who).strip() for i, who in zip(adjudicated["id"], adjudicated["adjudicator"])
+        if not pd.isna(who) and str(who).strip()}
+    labeled, waiting = settle(pairs, final, adjudicators)
     if single is not None:
         done = single[single["label"].notna()].assign(label_origin="single annotator")
         labeled = pd.concat([labeled, done[["id", "label", "label_origin"]]])

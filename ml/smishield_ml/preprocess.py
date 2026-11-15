@@ -27,7 +27,7 @@ Taglish wording is kept as written.
 
 import re
 
-PREPROCESSING_VERSION = 3
+PREPROCESSING_VERSION = 4
 
 URL_TOKEN = "tokurl"
 SHORT_URL_TOKEN = "tokshorturl"
@@ -67,7 +67,7 @@ LINK_TLDS = (
     "tech", "work", "cfd", "rest", "bar", "lat", "mom", "monster", "quest",
     "best", "zone", "plus", "dev", "page", "vin", "st", "digital", "email",
     "ht", "my", "sg", "jp", "kr", "hk", "vn", "au", "nz", "br", "ac", "nu",
-    "fyi", "lc", "mx", "wang", "fo", "qpon",
+    "fyi", "lc", "mx", "wang", "fo", "qpon", "help", "bond", "gle",
 )
 # Two-letter endings that are also everyday Filipino words (ng, sa, mo, ba,
 # si, at, ...) are left out on purpose so "word.ng" is not mistaken for a link.

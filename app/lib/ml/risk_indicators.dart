@@ -294,6 +294,8 @@ const Set<String> _unusualEndings = {
   'auction',
   'cx',
   'su',
+  'help',
+  'bond',
 };
 
 const Set<String> _baitWords = {
