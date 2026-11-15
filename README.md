@@ -41,7 +41,8 @@ flutter test
 dart run tool/analyze.dart "Your message here"
 ```
 
-The bundled model is currently trained on **provisional (rule-suggested)
-labels** for the Tagalog-SMS Kaggle dataset. It must be retrained on the
-researchers' manual labels before evaluation; see
+The bundled model is currently trained on **interim labels**: the
+researchers' manual labels for the two Kaggle datasets, limited to the
+messages both annotators agreed on while the rest wait for adjudication. It
+must be retrained on the final labels before evaluation; see
 [ml/LABELING_GUIDE.md](ml/LABELING_GUIDE.md) and [ml/README.md](ml/README.md).
