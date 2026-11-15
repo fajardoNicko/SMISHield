@@ -3,7 +3,8 @@
 Run from the repository root after ml/train.py:
 
     python ml/build_deliverables.py --sources ml/data/labeled/interim_labeled.csv \\
-        ml/data/private/vcsms_labeled.csv ml/data/private/synthetic_labeled.csv
+        ml/data/private/vcsms_labeled.csv ml/data/private/synthetic_labeled.csv \\
+        ml/data/private/synthetic_threats.csv
 
 1. Data/SMISHield_all_datasets.xlsx: every message from every source with its
    label, where it went (training, validation, test, training only, or not

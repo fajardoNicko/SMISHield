@@ -24,6 +24,7 @@ enum SafetyAction {
   dontSendMoney,
   useOfficialApp,
   reportToCicc,
+  checkFamilyCall911,
 }
 
 /// Why a message could not be analysed.

@@ -23,6 +23,7 @@ INSTRUCTIONS = [
     "     H2 poses as a bank, e-wallet, agency, courier, telco or a person you know AND asks you to click, call, reply or pay",
     "     H3 asks for money, a fee, load or gift cards under a pretext (prize, parcel, loan, penalty, emergency)",
     "     H4 makes a false claim about your account or money (on hold, money waiting for you) to make you act",
+    "     H5 threatens to kill, hurt or kidnap you or your family, or to spread your private photos",
     "  2. Suspicious if ANY of (and no H criterion):",
     "     S1 gambling or betting promotion     S2 too-good-to-be-true offer: prize, free money, bonus",
     "     S3 moves you to Telegram/WhatsApp or an unknown contact     S4 unknown or shortened link",

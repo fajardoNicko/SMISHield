@@ -13,6 +13,7 @@ enum IndicatorType {
   link,
   sensitiveInfoRequest,
   impersonation,
+  harmThreat,
   paymentRequest,
   threat,
   urgency,
@@ -32,6 +33,7 @@ const Map<IndicatorType, Severity> indicatorSeverity = {
   IndicatorType.suspiciousLink: Severity.high,
   IndicatorType.sensitiveInfoRequest: Severity.high,
   IndicatorType.impersonation: Severity.high,
+  IndicatorType.harmThreat: Severity.high,
   IndicatorType.paymentRequest: Severity.medium,
   IndicatorType.shortenedLink: Severity.medium,
   IndicatorType.threat: Severity.medium,
@@ -407,6 +409,68 @@ final RegExp _threat = _re(
   r"|ipapahiya|irereport)\b",
 );
 
+// Threats to hurt, kill or kidnap the recipient or their family. Only flagged
+// with a second-person target (below), so "papatayin ako ni mama" is left
+// alone. A verb followed by "mo" is something the reader does ("patayin mo na
+// yung ilaw"), not something done to them.
+final RegExp _harmVerb = _re(
+  r"\b(?:patayin|papatayin|pinatay|pinapatay|pumatay|papatay|ipapatay"
+  r"|ipapapatay|ipinapatay|itutumba|ipapatumba|ipatumba|saksakin|sasaksakin"
+  r"|pagsasaksakin|barilin|babarilin|binaril|pagbabarilin|saktan|sasaktan"
+  r"|sinaktan|bugbugin|bubugbugin|binugbog|dukutin|dudukutin|dinukot"
+  r"|(?:i-?|ki-?)?kidnap(?:in|pin|ped|ping)?|kinidnap|kikidnap(?:in|pin)?"
+  r"|gahasain|gagahasain|ginahasa|rape|raped|susunugin|sunugin|pasabugin"
+  r"|pasasabugin|papasabugin|bombahin|bobombahin|gilitan|gigilitan|tagain"
+  r"|tatagain|tadtarin|tatadtarin|kill|killed|murder|hurt|harm|shoot|stab"
+  r"|abduct(?:ed)?|bomb)\b(?! (?:mo|nyo|niyo|ninyo)\b)",
+);
+
+// "ka", "kita" and "kayo" are who the verb is done to; "mo" right after a verb
+// is who does it ("patayin mo ang ilaw"), so it only counts after a family word.
+final RegExp _harmTarget = _re(
+  r"\b(?:ka|kita|kayo|kayong|ikaw|you|your|ur|yours"
+  r"|(?:anak|asawa|pamilya|kapatid|nanay|tatay|mama|papa|magulang|lola|lolo"
+  r"|apo|baby|jowa|bahay|kasama) (?:mo|niyo|nyo|ninyo))\b",
+);
+
+// Someone close as the one "threatening": everyday hyperbole.
+final RegExp _hyperbole = _re(
+  r"\b(?:ni|ng|nina|kay) (?:mama|mommy|mom|mami|nanay|inay|papa|daddy|dad"
+  r"|tatay|itay|lola|lolo|kuya|ate|ma'?am|mam|sir|teacher|prof|boss|coach"
+  r"|adviser|tito|tita|misis|mister)\b",
+);
+
+// "Patayin" also means switching something off.
+final RegExp _switchedOff = _re(
+  r"\b(?:ilaw|aircon|tv|electric fan|bentilador|computer|pc|laptop|router"
+  r"|wifi|gripo|kalan|makina|alarm|apoy)\b",
+);
+
+// Holding a family member hostage, which needs no other cue.
+final RegExp _hostage = _re(
+  r"\b(?:hawak|nasa) (?:na )?(?:ko|namin|nila|amin|akin|kamay namin) "
+  r"(?:na )?(?:ngayon )?(?:ang |si |yung |ung )?(?:anak|asawa|pamilya|kapatid"
+  r"|nanay|tatay|mama|papa|lola|lolo|apo|baby)(?: (?:mo|niyo|nyo|ninyo))?\b"
+  r"|\b(?:we|i) (?:have|got|are holding|kidnapped|took) your (?:son|daughter"
+  r"|child|kids?|wife|husband|family|mom|mother|dad|father|baby)\b"
+  // The "victim" writing, as in fake kidnapping calls.
+  r"|\b(?:kinidnap|dinukot|na-?kidnap|hinostage) (?:ako|kami)\b"
+  r"|\b(?:i was|i've been|i have been|we were|we've been) (?:kidnapped|abducted)\b",
+);
+
+// Threats to spread private photos or videos (sextortion).
+final RegExp _leakVerb = _re(
+  r"\b(?:ipapakalat|ikakalat|ipagkakalat|ikalat|ipakalat|i-?leak|ileleak"
+  r"|ilalabas|leak|expose|spread)\b",
+);
+
+final RegExp _privateMedia = _re(
+  r"\b(?:pictures?|pics?|photos?|litrato|larawan|videos?|vids?|scandal"
+  r"|nudes?|hubad|sex ?video)\b",
+);
+
+final RegExp _possessive = _re(r"\b(?:mo|niyo|nyo|ninyo|your|ur)\b");
+
 final RegExp _prize = _re(
   r"\b(?:congrat(?:s|ulations)?|winners?|you (?:have )?won|won(?!['’]t)"
   r"|nanalo|panalo|manalo|napili ka|napiling|(?:have been |been )?selected"
@@ -427,14 +491,22 @@ final RegExp _financialOffer = _re(
 final RegExp _payVerb = _re(
   r"\b(?:pay|magbayad|bayaran|i-?settle|settle|send|magpadala|ipadala"
   r"|padalhan|padala|i-?transfer|transfer|deposit|mag-?deposit|i-?deposit"
-  r"|cash ?in|bilhan|buy)\b",
+  r"|cash ?in|bilhan|buy|penge|pengeng|pahingi|pahiram|bigyan|ibigay)\b",
+);
+
+// Advice not to pay ("Huwag magpadala ng pera sa hindi kakilala"). "Hindi" is
+// left out because threats use it as a condition ("kapag hindi ka nagpadala").
+final RegExp _dontPay = _re(
+  r"\b(?:do not|don'?t|dont|never|huwag|wag)\b[^.,!?;\n]{0,30}?"
+  r"\b(?:pay|send|transfer|deposit|magbayad|magpadala|ipadala|mag-?send"
+  r"|i-?send|ibigay|mag-?transfer|mag-?deposit)",
 );
 
 final RegExp _payObject = _re(
   r"\b(?:fees?|bayad|payment|penalty|penalties|multa|tax|buwis|customs"
   r"|processing|release|redelivery|storage|registration|piyansa|bail"
   r"|google play|gift ?cards?|codes|gcash|maya|account (?:na ito|number)"
-  r"|balance|bill)\b",
+  r"|balance|bill|pera|ransom|tubos|pantubos)\b",
 );
 
 final RegExp _paymentDone = _re(
@@ -495,6 +567,7 @@ class RiskIndicatorDetector {
     final clauses = _clauses(message);
     final sensitive = <MessageSpan>[];
     final payment = <MessageSpan>[];
+    final harm = <MessageSpan>[];
     for (final clause in clauses) {
       final text = message.substring(clause.start, clause.end);
       final terms = _find(_sensitiveTerm, text, clause.start);
@@ -504,15 +577,33 @@ class RiskIndicatorDetector {
         sensitive.addAll(terms);
       }
       final payVerbs = _find(_payVerb, text, clause.start);
-      if (payVerbs.isNotEmpty && !_paymentDone.hasMatch(text)) {
+      if (payVerbs.isNotEmpty &&
+          !_paymentDone.hasMatch(text) &&
+          !_dontPay.hasMatch(text)) {
         final objects = [
           ..._find(_payObject, text, clause.start),
           ..._find(moneyPattern, text.toLowerCase(), clause.start),
         ];
         if (objects.isNotEmpty) payment.addAll([...payVerbs, ...objects]);
       }
+      harm.addAll(_find(_hostage, text, clause.start));
+      if (!_hyperbole.hasMatch(text)) {
+        final verbs = _find(_harmVerb, text, clause.start);
+        if (verbs.isNotEmpty &&
+            _harmTarget.hasMatch(text) &&
+            !_switchedOff.hasMatch(text)) {
+          harm.addAll(verbs);
+        }
+        final leaks = _find(_leakVerb, text, clause.start);
+        if (leaks.isNotEmpty &&
+            _privateMedia.hasMatch(text) &&
+            _possessive.hasMatch(text)) {
+          harm.addAll(leaks);
+        }
+      }
     }
     addIf(IndicatorType.sensitiveInfoRequest, sensitive);
+    addIf(IndicatorType.harmThreat, harm);
     addIf(IndicatorType.paymentRequest, payment);
 
     final threat = _find(_threat, message);

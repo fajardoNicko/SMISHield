@@ -75,7 +75,9 @@ class SmishieldAnalyzer {
       SafeCheck.noSuspiciousLinks,
     if (!d.has(IndicatorType.sensitiveInfoRequest))
       SafeCheck.noSensitiveInfoRequest,
-    if (!d.has(IndicatorType.urgency) && !d.has(IndicatorType.threat))
+    if (!d.has(IndicatorType.urgency) &&
+        !d.has(IndicatorType.threat) &&
+        !d.has(IndicatorType.harmThreat))
       SafeCheck.noUrgencyOrThreat,
     if (!d.has(IndicatorType.prizeClaim) &&
         !d.has(IndicatorType.financialOffer) &&
@@ -95,6 +97,9 @@ class SmishieldAnalyzer {
                 .contains(LinkConcern.imitatesBrand) ??
             false);
     final actions = <SafetyAction>{
+      // Shown whatever the label: a threat of harm is never something to
+      // weigh against the model's confidence.
+      if (d.has(IndicatorType.harmThreat)) SafetyAction.checkFamilyCall911,
       ...switch (label) {
         RiskLabel.safe => [
           SafetyAction.beCautious,
@@ -113,7 +118,10 @@ class SmishieldAnalyzer {
       },
       if (d.has(IndicatorType.sensitiveInfoRequest))
         SafetyAction.neverShareCodes,
-      if (label != RiskLabel.safe && d.has(IndicatorType.paymentRequest))
+      // A threat's own advice already says not to send money.
+      if (label != RiskLabel.safe &&
+          d.has(IndicatorType.paymentRequest) &&
+          !d.has(IndicatorType.harmThreat))
         SafetyAction.dontSendMoney,
       if (label != RiskLabel.safe && imitatesBrand) SafetyAction.useOfficialApp,
       if (label == RiskLabel.highRisk) SafetyAction.reportToCicc,

@@ -1,6 +1,7 @@
 # SMISHield Labeling Guide
 
-Version 1.0 · applies to the public Kaggle datasets and the VCSMS submissions
+Version 1.1 · applies to the public Kaggle datasets and the VCSMS submissions
+(1.1 adds H5, threats of harm; no real message labelled so far meets it)
 
 This guide defines how every SMS message in the SMISHield dataset is assigned
 one of three labels, **Safe**, **Suspicious** or **High Risk**, and the
@@ -71,6 +72,7 @@ content, not proof of the sender's intent (research plan, Ch. 3).
 | **H2** | Poses as a bank, e-wallet, government agency, courier, telco, employer or a person known to the recipient, **and** asks the recipient to act (click, call, reply, pay). This includes look-alike web addresses such as `sssph.pw` and `gcash-verify.xyz` | RA 12010 Sec. 4(b)(1); NIST cues *poses as friend, colleague, supervisor, authority figure* and *domain spoofing* |
 | **H3** | Asks for money, a fee, load or gift cards under a false or unverifiable pretext: to claim a prize, release a parcel, loan or refund, pay a fine, or handle a family "emergency" | Advance-fee fraud; NIST cues *too good to be true offers*, *humanitarian appeals* |
 | **H4** | Makes a false claim about the recipient's account or money to push an action: "your account is on hold", "₱6,140 is waiting for your number", "a cash deposit was made, log in to receive" | NIST cues *threatening language* and *you're special*; RA 12010 Sec. 4(b)(1) false representations |
+| **H5** | Threatens to kill, hurt or kidnap the recipient or their family, claims to hold a family member, or threatens to spread private photos or videos, with or without a demand for money yet: "papatayin ko anak mo, penge pera", "hawak namin anak mo", "ipapakalat ko pictures mo" | Grave threats, RPC Art. 282, committed through ICT, RA 10175 Sec. 6; RA 9995 Sec. 4 (spreading private photos); NIST cue *threatening language* |
 
 ### Suspicious: any one of these, and no H criterion
 
@@ -125,6 +127,8 @@ Write the codes that applied in the *criteria* column (e.g. `H2; H4` or
 | A genuine Smart or Globe promo with an official link (smrt.ph, glbe.co) | Safe (F3) | The provider's own promotion. |
 | A bank or telco message warning about scams | Safe (F2) | An advisory, even though it mentions OTPs and links. |
 | A delivery notice from a rider's mobile number with no link or payment request | Safe (F1) | A normal courier message. |
+| "Papatayin ko anak mo penge pera" | High Risk (H3, H5) | A threat against the family plus a demand for money. |
+| "papatayin ako ni mama pag late ako umuwi", "patayin mo na yung ilaw" | Safe (F4) | Everyday hyperbole, or "patayin" meaning switch off. No one threatens the recipient. |
 | Unsure between Suspicious and High Risk | Choose High Risk **only** if you can name an H code | Keeps the higher label tied to a specific criterion. |
 
 **Sender information.** The workbook shows the sender ID for brand senders and
@@ -271,6 +275,8 @@ Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The elements of statistical 
 
 Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. *Biometrics, 33*(1), 159–174. https://doi.org/10.2307/2529310
 
+Act No. 3815. (1930, December 8). *The Revised Penal Code*. Philippine Legislature. https://lawphil.net/statutes/acts/act1930/act_3815_1930.html
+
 Mishra, S., & Soni, D. (2022). *SMS phishing dataset for machine learning and pattern recognition* (Version 1) [Data set]. Mendeley Data. https://doi.org/10.17632/f45bkkt8pr.1
 
 Mishra, S., & Soni, D. (2023). SMS phishing dataset for machine learning and pattern recognition. In *Proceedings of the 14th International Conference on Soft Computing and Pattern Recognition (SoCPaR 2022)*. Springer. https://doi.org/10.1007/978-3-031-27524-1_57
@@ -278,6 +284,10 @@ Mishra, S., & Soni, D. (2023). SMS phishing dataset for machine learning and pat
 onzero0. (2025). *Tagalog-SMS* [Data set]. Kaggle. https://www.kaggle.com/datasets/onzero0/tagalog-sms
 
 Pustejovsky, J., & Stubbs, A. (2012). *Natural language annotation for machine learning*. O'Reilly Media.
+
+Republic Act No. 9995. (2010, February 15). *Anti-Photo and Video Voyeurism Act of 2009*. Congress of the Philippines. https://lawphil.net/statutes/repacts/ra2010/ra_9995_2010.html
+
+Republic Act No. 10175. (2012, September 12). *Cybercrime Prevention Act of 2012*. Congress of the Philippines. https://lawphil.net/statutes/repacts/ra2012/ra_10175_2012.html
 
 Republic Act No. 12010. (2024, July 20). *Anti-Financial Account Scamming Act (AFASA)*. Congress of the Philippines. https://lawphil.net/statutes/repacts/ra2024/ra_12010_2024.html
 
