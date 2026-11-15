@@ -12,6 +12,7 @@ class ModelInfo {
     required this.labelStatus,
     required this.testAccuracy,
     required this.termCount,
+    this.trainingMessages,
   });
 
   final DateTime? createdAt;
@@ -25,6 +26,9 @@ class ModelInfo {
   bool get isFinal => labelStatus == 'final';
   final double? testAccuracy;
   final int termCount;
+
+  /// Size of the training split the shipped model was fitted on.
+  final int? trainingMessages;
 }
 
 /// How much one word or word pair pushed the message towards its label.
@@ -119,6 +123,7 @@ class SmishieldModel {
         labelStatus: dataset['label_status'] as String? ?? 'final',
         testAccuracy: (evaluation['accuracy'] as num?)?.toDouble(),
         termCount: terms.length,
+        trainingMessages: dataset['train_size'] as int?,
       ),
       classes: [
         for (final name in json['classes'] as List)
