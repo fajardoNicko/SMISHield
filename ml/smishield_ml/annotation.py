@@ -99,7 +99,10 @@ def read_sheet(path):
     wb.close()
     if not rows:
         return pd.DataFrame()
-    header = list(rows[0])
+    header = [str(h).strip() if h is not None else None for h in rows[0]]
+    # The id column comes first; its heading is sometimes deleted by accident.
+    if "id" not in header and not header[0]:
+        header[0] = "id"
     # After Excel saves a file, rows whose last cells are empty come back
     # shorter than the header; pad them, and skip rows that are entirely empty.
     body = [list(r[:len(header)]) + [None] * (len(header) - len(r)) for r in rows[1:]]
@@ -107,5 +110,17 @@ def read_sheet(path):
     df = pd.DataFrame(body, columns=header)
     for col in ("label", "final_label"):
         if col in df.columns:
-            df[col] = df[col].map(lambda v: str(v).strip() if v is not None and str(v).strip() else None)
+            df[col] = df[col].map(_clean_label)
     return df
+
+
+_CANONICAL = {option.lower(): option for option in LABEL_OPTIONS}
+
+
+def _clean_label(value):
+    """'  safe ' -> 'Safe'; blank -> None; anything unknown is returned as typed."""
+    # pandas 3 stores empty text cells as NaN rather than None.
+    if pd.isna(value) or not str(value).strip():
+        return None
+    text = " ".join(str(value).split())
+    return _CANONICAL.get(text.lower(), text)

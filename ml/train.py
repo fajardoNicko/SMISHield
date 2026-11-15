@@ -60,10 +60,10 @@ STATUS_NOTES = {
                    "(ml/smishield_ml/prelabel.py), not the researchers' manual labels, so these "
                    "numbers only show how well the model reproduces those rules. Do not report "
                    "them; retrain on the output of ml/finalize_labels.py.",
-    "interim": "INTERIM LABELS. The researchers' manual labels, but only for the agreement "
-               "sample: just the messages both researchers labelled the same (the harder ones "
-               "they disagreed on are left out), and too few for a reliable test, especially "
-               "for High Risk. Use these numbers to check progress, not as study results.",
+    "interim": "INTERIM LABELS. The researchers' manual labels, but only the messages that are "
+               "settled so far (mostly those both annotators labelled the same); the harder ones "
+               "still waiting for adjudication are left out, which makes the test easier than the "
+               "real task. Use these numbers to check progress, not as study results.",
 }
 
 # Tricky inputs that must tokenise identically in Python and Dart.
